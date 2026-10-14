@@ -3,248 +3,547 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arvind Uplands — Arvind SmartSpaces</title>
-  <meta name="description" content="Arvind Uplands — bespoke luxury villas by Woods Bagot, set around an executive golf course at Shilaj–Rancharda Road, Nasmed, Ahmedabad." />
+  <title>Arvind Uplands, Nasmed (Shilaj–Rancharda Road) — Luxury Golf Villas</title>
+  <meta name="description" content="Arvind Uplands — luxurious villas designed by Woods Bagot, Hong Kong, around a 9-hole executive golf course at Shilaj–Rancharda Road, Nasmed. The Golf Square club, Zen Square, Fun Square and concierge services." />
+  <meta property="og:title" content="Arvind Uplands, Nasmed (Shilaj–Rancharda Road) — Luxury Golf Villas" />
+  <meta property="og:description" content="Arvind Uplands — luxurious villas designed by Woods Bagot, Hong Kong, around a 9-hole executive golf course at Shilaj–Rancharda Road, Nasmed. The Golf Square club, Zen Square, Fun Square and concierge services." />
+  <meta name="theme-color" content="#0B3D6B" />
+  <link rel="icon" href="../assets/favicon.png" />
+
+  <!-- Add .js early so animated elements start hidden (prevents flash). -->
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css" />
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
+  <!-- ============================ HEADER ============================ -->
   <header class="site-header">
-    <div class="container nav">
-      <a href="../index.html" class="brand"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="../projects.html" class="active">Projects</a>
-        <a href="../awards.html">Awards</a>
-        <a href="../contact.html">Contact</a>
+    <div class="container header-inner">
+      <a href="../index.html" class="logo" aria-label="Arvind SmartSpaces — home"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="logo-img" /></a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="../index.html" class="nav-link">Home</a>
+        <div class="nav-dd">
+          <a href="../projects.html" class="nav-link active">Projects <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></a>
+          <div class="nav-dd-menu">
+              <a href="../projects/arvind-aqua-city.html"><strong>Arvind Aqua City</strong><span>Lakeside villas &amp; plots · Kalyangadh</span></a>
+              <a href="../projects/arvind-everland.html"><strong>Arvind Everland</strong><span>Premium plots · Mankol, Sanand</span></a>
+              <a href="../projects/arvind-forreste.html"><strong>Arvind Forreste</strong><span>Premium weekend villas · Jethlaj, Rancharda</span></a>
+              <a href="../projects/arvind-uplands.html" class="active"><strong>Arvind Uplands</strong><span>Ultra-luxury golf villas · Nasmed, Rancharda</span></a>
+              <a href="../projects/arvind-highgrove.html"><strong>Arvind Highgrove</strong><span>Premium golf villas &amp; plots · Moti Devti</span></a>
+              <a href="../projects/arvind-alcove.html"><strong>Arvind Alcove</strong><span>Premium weekend villas · Shanawad</span></a>
+              <a href="../projects/arvind-smartpark.html"><strong>Arvind SmartPark</strong><span>Grade-A industrial park · Kalyangadh</span></a>
+              <a href="../projects.html" class="dd-all">View all projects &amp; compare →</a>
+          </div>
+        </div>
+        <a href="../awards.html" class="nav-link">Awards</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
+        <button type="button" class="btn btn-ghost nav-mobile-only" data-brochure><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Download Brochure</button>
+        <a href="../contact.html#enquire" class="btn btn-primary nav-mobile-only">Book Free Site Visit</a>
       </nav>
       <div class="nav-actions">
-        <a href="../contact.html" class="btn btn-primary">Enquire Now</a>
-        <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+        <button type="button" class="nav-brochure" data-brochure><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+        <a href="../contact.html#enquire" class="nav-cta">Book Free Site Visit</a>
+        <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="detail-hero">
-      <div class="hero-media"><img src="../assets/images/projects/uplands/banner.jpg" alt="Arvind Uplands" data-fallback /></div>
-      <div class="container hero-content">
-        <span class="eyebrow" data-hero-load data-order="1">Shilaj–Rancharda Road, Ahmedabad</span>
-        <h1 class="detail-title" data-hero-load data-order="2">Arvind Uplands</h1>
-        <div class="hero-meta" data-hero-load data-order="3"><span>◆ Nasmed, near Rancharda</span><span>Live the Uplands life</span></div>
-      </div>
-    </section>
-
-    <!-- KEY SPECS -->
-    <section class="specs">
-      <div class="container">
-        <div class="specs-grid" data-animate="stagger" data-stagger="0.07">
-          <div class="spec"><div class="val">5</div><div class="label">Villa Designs by Woods Bagot</div></div>
-          <div class="spec"><div class="val">Executive</div><div class="label">Golf Course</div></div>
-          <div class="spec"><div class="val">Golf Square</div><div class="label">Golf &amp; Lifestyle Club</div></div>
-          <div class="spec"><div class="val">LOHAS</div><div class="label">Green Living</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OVERVIEW -->
-    <section class="section">
-      <div class="container">
-        <div class="overview-grid">
-          <h2 class="ov-label" data-animate="fade-up">The weekend life, every day</h2>
-          <div class="ov-copy" data-animate="fade-up" data-delay="0.05">
-            <p>Today's lifestyle means cramped urban spaces five days a week, broken only by the occasional trip to a weekend home. Arvind Uplands turns that around — a little green oasis a short way from the city where you live the weekend life every day, amidst landscaped gardens, wildflowers and water bodies.</p>
-            <p>Luxurious villas set in clean, green, open spaces, with best-in-class amenities for fitness and recreation and even concierge services to make a comfortable lifestyle easier. For the first time in Gujarat, Uplands introduces <strong>LOHAS — Lifestyle of Health and Sustainable Development</strong> — giving back to nature what you take from it, to create a living habitat that thrives in positive spaces.</p>
+    <!-- ============================ HERO ============================ -->
+    <section class="hero hero--static" id="top">
+      <div class="hero-media"><img src="../assets/images/projects/uplands/golf-aerial.jpg" alt="Arvind Uplands" data-fallback /></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <span class="hero-badge" data-hero-load data-order="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Nasmed · Shilaj–Rancharda Road</span>
+            <h1 class="hero-headline" data-hero-load data-order="2">Live <em>the Uplands life</em></h1>
+            <p class="hero-sub" data-hero-load data-order="3">Luxurious villas set in clean, green, open spaces around a 9-hole executive golf course — designed by Woods Bagot, Hong Kong, and served by a premium golf &amp; lifestyle club.</p>
+            <div class="hero-actions" data-hero-load data-order="4">
+              <a href="#enquire" class="btn btn-primary">Book Free Site Visit</a>
+              <button type="button" class="btn btn-ghost" data-brochure data-project="uplands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Download Brochure</button>
+            </div>
+          </div>
+          <div class="hero-stats-card" data-hero-load data-order="5">
+            <div class="stat"><span class="stat-num">9-Hole</span><span class="stat-label">Executive golf course</span></div>
+            <div class="stat"><span class="stat-num">5</span><span class="stat-label">Villa designs by Woods Bagot</span></div>
+            <div class="stat"><span class="stat-num">13</span><span class="stat-label">Five-star suites at the club</span></div>
+            <div class="stat"><span class="stat-num">500</span><span class="stat-label">Guest banquet hall</span></div>
           </div>
         </div>
       </div>
+      <div class="hero-scroll"><span>Scroll to explore</span><i></i></div>
     </section>
 
-    <!-- FEATURES: text aligned to images -->
-    <section class="section" style="padding-top:0">
+    <!-- sticky section navigation -->
+    <nav class="subnav" aria-label="Arvind Uplands sections">
       <div class="container">
-        <div class="feature-rows">
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/uplands/gallery-5.jpg" alt="Arvind Uplands — bespoke villas by Woods Bagot" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">01</span>
-              <h3>Home is where the heart is</h3>
-              <p>A choice of five villa designs by the world-renowned architectural firm Woods Bagot, Hong Kong. Each villa is built around a water body, with the option to add a personal swimming pool — finished in imported marble and wood crafted with loving attention to detail.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/uplands/gallery-3.jpg" alt="Arvind Uplands — The Golf Square club" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">02</span>
-              <h3>The Golf Square, a club for everyone</h3>
-              <p>Overlooking the lush green of the course is a premium golf and lifestyle club. Table Tennis, Squash, Billiards, Badminton and Lawn Tennis for the sporty; Basketball and Volleyball for those who like to sweat it out; and a multimedia theatre seating up to 30 for special screenings.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/uplands/gallery-2.jpg" alt="Arvind Uplands — fitness and recreation" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">03</span>
-              <h3>Multiple ways to reinvigorate</h3>
-              <p>A fully equipped gymnasium, swimming pool and an international-class spa to wear off the stress. There are 13 five-star hotel suites, a banquet hall that hosts 500 guests with ease, an outdoor poolside party lawn for another 500, and an electrifying discotheque for your peppy parties.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/uplands/gallery-1.jpg" alt="Arvind Uplands — expansive library lounge" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">04</span>
-              <h3>Awaken your senses</h3>
-              <p>For the quieter kind, an expansive library to lose yourself in. The Zen Square is a secluded, elevated haven for meditation — open to nature, suffused with natural sights and sounds, surrounded by art installations that carry meaning and thought, and arrest all your senses.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/uplands/gallery-4.jpg" alt="Arvind Uplands — café and restaurant" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">05</span>
-              <h3>For the food lovers</h3>
-              <p>A cool café and a chic restaurant within the club, and — adjoining the Zen Square — the Zen Café, serving up a carefully crafted selection of Italian cuisine to please the gourmet in you.</p>
-            </div>
-          </article>
-        </div>
+        <span class="subnav-name">Arvind Uplands</span>
+        <div class="subnav-links"><a href="#overview">Overview</a><a href="#highlights">Highlights</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#location">Location</a><a href="#enquire">Enquire</a></div>
+        <a href="#enquire" class="btn btn-primary btn-sm">Enquire</a>
       </div>
-    </section>
+    </nav>
 
-    <!-- MORE TO EXPLORE -->
-    <section class="section" style="padding-top:0">
+    <!-- ============================ OVERVIEW ============================ -->
+    <section class="section" id="overview">
       <div class="container">
-        <div class="overview-grid">
-          <h2 class="ov-label" data-animate="fade-up">Your own Disneyland</h2>
-          <div class="ov-copy" data-animate="fade-up" data-delay="0.05">
-            <p>Fun Square at Uplands is a Disney-themed world spread over 54,000 sq.ft. — a playground and kids' club with Disney-inspired indoor and outdoor games and rides. An amphitheatre, a library, a souvenir shop and a café sit alongside slides, a tunnel, a fountain and a mascot park. The Disney vibe greets your children at the gate — the perfect place to allow them a memorable childhood.</p>
-            <p style="margin-top:18px"><strong>More to explore:</strong> Executive Golf Course · Zen Square &amp; Zen Café · Fun Square (Disney Kids Park) · Butterfly Garden · Landscaped Lakes &amp; Water Bodies · Walkways &amp; Promenades · Premium Concierge Services.</p>
+        <div class="ov-grid">
+          <div>
+            <span class="section-label" data-animate="fade-up">The Project</span>
+            <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Live the weekend life, <em>every day</em></h2>
+            <div class="prose" data-animate="fade-up" data-delay="0.1">
+            <p>Today's lifestyle involves living in cramped urban spaces five days of the week, broken only by occasional trips to weekend homes for some much-needed rest and recreation. Imagine if you could live the weekend life every day amidst green, natural surroundings — your children growing up playing outdoors while you reconnect with nature.</p>
+            <p>Uplands is an invitation to build a lifestyle that would be the envy of your peers: luxurious villas set in clean, green, open spaces; architecture that takes full advantage of the surroundings; best-in-class amenities for fitness and recreation; concierge services that make life easier — all close to the city's upcoming commercial hubs.</p>
+            </div>
           </div>
+          <aside class="facts-card" data-animate="fade-up" data-delay="0.15">
+            <h3>Key facts</h3>
+            <dl><dt>Project type</dt><dd>Luxury golf villas</dd><dt>Location</dt><dd>Shilaj–Rancharda Road, Nasmed, Ahmedabad</dd><dt>Villa architects</dt><dd>Woods Bagot, Hong Kong</dd><dt>Golf</dt><dd>9-hole executive golf course*</dd><dt>Concept</dt><dd>LOHAS — Lifestyle of Health &amp; Sustainability</dd><dt>Developer</dt><dd>Arvind SmartSpaces Ltd.</dd><dt>JD partners</dt><dd>Maruti &amp; Ornet</dd></dl>
+            
+          </aside>
         </div>
+        <div class="highlights" data-animate="stagger" data-stagger="0.06"><div class="highlight"><b>LOHAS</b><span>A first for Gujarat</span></div><div class="highlight"><b>9 Holes</b><span>Executive golf, 2 min from home</span></div><div class="highlight"><b>5 Designs</b><span>Villas by Woods Bagot</span></div><div class="highlight"><b>54,000 sq ft</b><span>Disney-themed Fun Square*</span></div><div class="highlight"><b>Concierge</b><span>Housekeeping, taxi &amp; laundry services</span></div></div>
       </div>
     </section>
 
-    <!-- AMENITIES -->
-    <section class="section" style="padding-top:0">
+    <!-- ============================ HIGHLIGHTS (image / text rows) ============================ -->
+    <section id="highlights" aria-label="Highlights">
+      <div class="features">
+        <article class="feature" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">Green Living</span>
+            <img class="fslide active" src="../assets/images/projects/uplands/golf-fountain.jpg" alt="Arvind Uplands — Green Living" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/butterfly.jpg" alt="Arvind Uplands — Green Living" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/nature-child.jpg" alt="Arvind Uplands — Green Living" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Lifestyle of Health &amp; Sustainability</span>
+            <h3 class="feature__title">A little green oasis <em>on the city's edge</em></h3>
+            <p class="feature__desc">Nestled a little away from the periphery of the city, Uplands has been designed as a little green oasis — expansive surroundings, landscaped gardens, wildflowers and water bodies all around, rich with local flora and fauna. For the first time in Gujarat, Uplands introduces LOHAS — a concept of giving back to nature what you take from it.</p>
+            <ul class="feature__list">
+              <li>Landscaped gardens &amp; wildflowers</li>
+              <li>Water bodies all around</li>
+              <li>Butterfly garden &amp; lush thicket</li>
+              <li>Walkways &amp; promenades</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature feature--reverse" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">Executive Golf</span>
+            <img class="fslide active" src="../assets/images/projects/uplands/golf-aerial.jpg" alt="Arvind Uplands — Executive Golf" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/golfer.jpg" alt="Arvind Uplands — Executive Golf" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/golf-greens.jpg" alt="Arvind Uplands — Executive Golf" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Live on the Links</span>
+            <h3 class="feature__title">Two minutes <em>from your first tee</em></h3>
+            <p class="feature__desc">The Executive Golf Course is designed to let you indulge in the greatest game whenever the fancy takes you. Nestled right in the centre of Uplands, it is just a two-minute walk from your bungalow — its elegant design will challenge your golfing skills again and again. Take it all in from one of the strategically placed benches and watch the world go by.</p>
+            <ul class="feature__list">
+              <li>9-hole executive golf course</li>
+              <li>A two-minute walk from your bungalow</li>
+              <li>Landscaped greens that attract birds &amp; bees</li>
+              <li>Benches to sit back &amp; watch the world go by</li>
+            </ul>
+            <p class="note">*The golf course and golf club are independent commercial entities and do not form part of the common areas or amenities of the project; membership and usage are subject to the operator's terms and charges.</p>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">The Golf Square</span>
+            <img class="fslide active" src="../assets/images/projects/uplands/club-building.jpg" alt="Arvind Uplands — The Golf Square" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/club-pool.jpg" alt="Arvind Uplands — The Golf Square" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/club-lounge.jpg" alt="Arvind Uplands — The Golf Square" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/club-view.jpg" alt="Arvind Uplands — The Golf Square" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Premium Golf &amp; Lifestyle Club</span>
+            <h3 class="feature__title">Something <em>for everyone</em></h3>
+            <p class="feature__desc">Overlooking the lush green of the golf course is a premium club. For the sporty there's table tennis, squash, billiards, badminton, lawn tennis, basketball and volleyball; for movie buffs, a multimedia theatre for up to 30 people; for the quieter kind, an expansive library and an international-class spa. There are 13 five-star hotel suites, a banquet hall for 500 guests, a poolside party lawn for another 500 — and an electrifying discotheque.</p>
+            <ul class="feature__list">
+              <li>13 five-star hotel suites</li>
+              <li>Banquet hall for 500 guests</li>
+              <li>Poolside party lawn for another 500</li>
+              <li>Multimedia theatre for 30</li>
+              <li>Discotheque, café &amp; chic restaurant</li>
+              <li>Library &amp; international-class spa</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature feature--reverse" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">Zen Square</span>
+            <img class="fslide active" src="../assets/images/projects/uplands/zen-square.jpg" alt="Arvind Uplands — Zen Square" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/zen-court.jpg" alt="Arvind Uplands — Zen Square" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/zen-cafe.jpg" alt="Arvind Uplands — Zen Square" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Find Your Centre</span>
+            <h3 class="feature__title">Secluded, elevated, <em>at peace</em></h3>
+            <p class="feature__desc">The Zen Square is a haven for meditating and finding your centre. The secluded, elevated area, suffused by natural sights and sounds, will melt away the stresses of everyday living. The art installations around it carry meaning and thought — and adjoining it is the Zen Café, serving a carefully crafted selection of Italian cuisine.</p>
+            <ul class="feature__list">
+              <li>Elevated, secluded meditation space</li>
+              <li>Meaningful art installations</li>
+              <li>Zen Café — Italian cuisine</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag feature__tag--gold">The Villas</span>
+            <img class="fslide active" src="../assets/images/projects/uplands/villa.jpg" alt="Arvind Uplands — The Villas" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/villa-interior.jpg" alt="Arvind Uplands — The Villas" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/banner.jpg" alt="Arvind Uplands — The Villas" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Designed by Woods Bagot</span>
+            <h3 class="feature__title">Five villa designs, <em>each around water</em></h3>
+            <p class="feature__desc">Uplands offers a choice of 5 different villas, designed by the world-renowned architectural firm Woods Bagot, Hong Kong. Each villa is built around a water body and offers different configurations to suit your requirements — you can even add a personal swimming pool. Expect imported marble and wood finishes, crafted with loving attention to detail.</p>
+            <ul class="feature__list">
+              <li>5 villa designs to choose from</li>
+              <li>Each villa built around a water body</li>
+              <li>Option of a personal swimming pool</li>
+              <li>Imported marble &amp; wood finishes</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature feature--reverse" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">Concierge</span>
+            <img class="fslide active" src="../assets/images/projects/uplands/concierge.jpg" alt="Arvind Uplands — Concierge" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/uplands/lakeside-tea.jpg" alt="Arvind Uplands — Concierge" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Luxury at Your Fingertips</span>
+            <h3 class="feature__title">A little more polish <em>to everyday life</em></h3>
+            <p class="feature__desc">Uplands adds a little more polish to its residents' lives by providing services at a minimal spend — so your weekends, and weekdays, are truly yours.</p>
+            <ul class="feature__list">
+              <li>Premium concierge services</li>
+              <li>Housekeeping of individual villas</li>
+              <li>On-call taxi &amp; travel bookings</li>
+              <li>Golf club pick-up &amp; drop in a club car</li>
+              <li>Laundry &amp; a host of other services</li>
+            </ul>
+            <p class="note">All upkeep and maintenance is a hired service and comes with applicable charges.</p>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" style="padding:clamp(40px,5vw,64px) 0">
+      <div class="container callouts">
+          <div class="callout" data-animate="fade-up"><span class="callout-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 10l.01 0"/><path d="M15 10l.01 0"/><path d="M9.5 15a3.5 3.5 0 0 0 5 0"/><path d="M12 3a2 2 0 0 0 0 4"/></svg></span><div><h3>Fun Square — a Disney-themed world for children*</h3><p>A Disney-themed playground and themed rooms spread over 54,000 sq ft, with an entertaining kids' club, slides, a tunnel, a fountain and a mascot park, plus an amphitheatre, a library, a souvenir shop and a café. *Fun Square is not part of the project offered for sale; the promoter proposes to develop it as an additional amenity within the township, subject to approvals and feasibility.</p></div></div>
+      </div>
+    </section>
+    <!-- ============================ AMENITIES ============================ -->
+    <section class="section section--alt" id="amenities">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-animate="fade-up">Amenities</span>
-          <h2 class="h-lg" data-animate="clip-reveal" data-split>Everything within reach</h2>
+          <span class="section-label" data-animate="fade-up">Amenities</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Multiple ways <em>to reinvigorate</em></h2>
+          <p class="section-desc" data-animate="fade-up" data-delay="0.1">The Golf Square, Zen Square and Fun Square — sport, wellness and play, all within the township.</p>
         </div>
-        <ul class="amenities-grid" data-animate="stagger" data-stagger="0.04">
-          <li>Executive Golf Course</li>
-          <li>The Golf Square Club</li>
-          <li>13 Five-Star Hotel Suites</li>
-          <li>Banquet Hall (500 Guests)</li>
-          <li>Poolside Party Lawn</li>
-          <li>Discotheque</li>
-          <li>Multimedia Theatre</li>
-          <li>International Spa</li>
-          <li>Expansive Library</li>
-          <li>Café &amp; Restaurant</li>
-          <li>Table Tennis</li>
-          <li>Squash</li>
-          <li>Billiards</li>
-          <li>Badminton Court</li>
-          <li>Lawn Tennis</li>
-          <li>Basketball</li>
-          <li>Volleyball</li>
-          <li>Swimming Pool</li>
-          <li>Gymnasium</li>
-          <li>Zen Square (Meditation)</li>
-          <li>Zen Café</li>
-          <li>Fun Square (Kids' Park)</li>
-          <li>Kids' Club</li>
-          <li>Amphitheatre</li>
-          <li>Butterfly Garden</li>
-          <li>Landscaped Lakes</li>
-          <li>Walkways &amp; Promenades</li>
-          <li>Concierge Services</li>
-          <li>Housekeeping</li>
-          <li>Personal Pool Villas</li>
+        <div class="am-filters" data-filter-group="#am-grid" data-animate="fade-up"><button type="button" class="filter-btn active" data-filter="all">All</button><button type="button" class="filter-btn" data-filter="golf">Golf &amp; Club</button><button type="button" class="filter-btn" data-filter="sports">Sports</button><button type="button" class="filter-btn" data-filter="wellness">Wellness</button><button type="button" class="filter-btn" data-filter="social">Social</button><button type="button" class="filter-btn" data-filter="nature">Nature &amp; Kids</button></div>
+        <ul class="amenity-grid" id="am-grid" data-animate="stagger" data-stagger="0.025">
+          <li data-cat="golf">9-hole executive golf course</li>
+          <li data-cat="golf social">The Golf Square club</li>
+          <li data-cat="golf social">13 five-star hotel suites</li>
+          <li data-cat="sports">Swimming pool</li>
+          <li data-cat="sports">Table tennis</li>
+          <li data-cat="sports">Squash</li>
+          <li data-cat="sports">Billiards</li>
+          <li data-cat="sports">Badminton court</li>
+          <li data-cat="sports">Lawn tennis</li>
+          <li data-cat="sports">Basketball</li>
+          <li data-cat="sports">Volleyball</li>
+          <li data-cat="wellness">International-class spa</li>
+          <li data-cat="wellness">Zen Square — meditation</li>
+          <li data-cat="wellness social">Zen Café</li>
+          <li data-cat="wellness social">Library</li>
+          <li data-cat="social">Multimedia theatre (30 seats)</li>
+          <li data-cat="social">Banquet hall (500 guests)</li>
+          <li data-cat="social">Poolside party lawn</li>
+          <li data-cat="social">Discotheque</li>
+          <li data-cat="social">Café</li>
+          <li data-cat="social">Restaurant</li>
+          <li data-cat="nature">Fun Square — themed kids' park*</li>
+          <li data-cat="nature">Butterfly garden</li>
+          <li data-cat="nature">Water bodies</li>
+          <li data-cat="nature">Walkways &amp; promenades</li>
+          <li data-cat="nature">Kids' parks</li>
+          <li data-cat="social">Concierge services</li>
+          <li data-cat="social">Housekeeping</li>
         </ul>
-        <p class="fineprint" style="margin-top:22px;opacity:.55;font-size:.82rem;line-height:1.6">The Golf Course and Golf Club are independent commercial entities and do not form part of the common areas, facilities or amenities of the project; access and usage are subject to terms, conditions and charges prescribed by the operator. Fun Square is proposed as an additional township amenity at the promoter's discretion, subject to approvals and feasibility.</p>
       </div>
     </section>
 
-    <!-- LOCATION -->
-    <section class="section" style="padding-top:0">
+    <!-- ============================ GALLERY ============================ -->
+    <section class="section" id="gallery">
       <div class="container">
-        <div class="overview-grid">
-          <h2 class="ov-label" data-animate="fade-up">Cradled in green, connected to the city</h2>
-          <div class="ov-copy" data-animate="fade-up" data-delay="0.05">
-            <p>Set at Shilaj–Rancharda Road, Nasmed near Rancharda — close to the Thol Bird Sanctuary and the upcoming commercial hubs of the city, so you are never far from work or play.</p>
-            <p>Sanand–Kadi Road — 10 mins · Delhi Public School — 20 mins · Shilaj Circle — 25 mins · Taj Skyline — 25 mins · Palladium Mall — 30 mins · Rajpath Club — 30 mins · Iscon Temple — 35 mins · Karnavati Club — 35 mins · SVPI International Airport — 50 mins.</p>
-            <p style="margin-top:18px;opacity:.7">A Lalbhai Group venture — a 128-year-old, USD 2 billion conglomerate behind iconic brands like Calvin Klein, Tommy Hilfiger and Arrow, now bringing its design sense to real estate.</p>
+        <div class="section-head">
+          <span class="section-label" data-animate="fade-up">Gallery</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">A closer <em>look</em></h2>
+          <div class="slider-nav" style="margin-top:18px"><button type="button" class="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6l6 6"/></svg></button><button type="button" class="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></button></div>
+        </div>
+        <div class="swiper gallery-swiper" data-lightbox>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/golf-aerial.jpg" alt="Arvind Uplands — gallery image 1" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/golf-fountain.jpg" alt="Arvind Uplands — gallery image 2" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/club-building.jpg" alt="Arvind Uplands — gallery image 3" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/club-pool.jpg" alt="Arvind Uplands — gallery image 4" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/club-lounge.jpg" alt="Arvind Uplands — gallery image 5" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/zen-square.jpg" alt="Arvind Uplands — gallery image 6" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/zen-cafe.jpg" alt="Arvind Uplands — gallery image 7" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/villa.jpg" alt="Arvind Uplands — gallery image 8" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/villa-interior.jpg" alt="Arvind Uplands — gallery image 9" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/lakeside-tea.jpg" alt="Arvind Uplands — gallery image 10" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/gallery-1.jpg" alt="Arvind Uplands — gallery image 11" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/gallery-2.jpg" alt="Arvind Uplands — gallery image 12" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/gallery-3.jpg" alt="Arvind Uplands — gallery image 13" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/gallery-4.jpg" alt="Arvind Uplands — gallery image 14" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/gallery-5.jpg" alt="Arvind Uplands — gallery image 15" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/uplands/gallery-6.jpg" alt="Arvind Uplands — gallery image 16" loading="lazy" data-fallback /></div>
+          </div>
+        </div>
+        <p class="note">Images are artist's impressions or representative images.</p>
+      </div>
+    </section>
+
+    <!-- ============================ LOCATION ============================ -->
+    <section class="section section--alt" id="location">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label" data-animate="fade-up">Location</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Away from the noise, <em>close to everything</em></h2>
+          <p class="section-desc" data-animate="fade-up" data-delay="0.1">On the Shilaj–Rancharda Road at Nasmed — a little away from the city's periphery, yet close to its upcoming commercial hubs, so you're never far from work or play.</p>
+        </div>
+        <div class="loc-wrap">
+          <div>
+            <div class="dist-list" data-animate="stagger" data-stagger="0.05">
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19l4 -14"/><path d="M16 5l4 14"/><path d="M12 8v-2"/><path d="M12 13v-2"/><path d="M12 18v-2"/></svg></span><div><strong>10 min</strong><span>Sanand–Kadi Road</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/></svg></span><div><strong>20 min</strong><span>Delhi Public School</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l6 -3l6 3l6 -3v13l-6 3l-6 -3l-6 3v-13"/><path d="M9 4v13"/><path d="M15 7v13"/></svg></span><div><strong>25 min</strong><span>Shilaj Circle</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l18 0"/><path d="M9 8l1 0"/><path d="M9 12l1 0"/><path d="M9 16l1 0"/><path d="M14 8l1 0"/><path d="M14 12l1 0"/><path d="M14 16l1 0"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"/></svg></span><div><strong>25 min</strong><span>Taj Skyline</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z"/><path d="M9 11v-5a3 3 0 0 1 6 0v5"/></svg></span><div><strong>30 min</strong><span>Palladium Mall</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg></span><div><strong>30 min</strong><span>Rajpath Club</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21v-7h14v7"/><path d="M10 21v-3a2 2 0 0 1 4 0v3"/><path d="M7 14c0 -3.5 2.2 -6.5 5 -8c2.8 1.5 5 4.5 5 8"/><path d="M12 6v-3l3 1l-3 1"/></svg></span><div><strong>35 min</strong><span>ISKCON Temple</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg></span><div><strong>35 min</strong><span>Karnavati Club</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7h-3l2 -7h-4l-2 2h-3l2 -4l-2 -4h3l2 2h4l-2 -7h3z"/></svg></span><div><strong>50 min</strong><span>International Airport</span></div></div>
+            </div>
+            <div class="loc-address"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg><span>Arvind Uplands, Shilaj – Rancharda Road, Nasmed near Rancharda, Ahmedabad<br /><a href="https://www.google.com/maps/dir/?api=1&destination=Arvind%20Uplands%2C%20Nasmed%2C%20Rancharda%2C%20Ahmedabad" target="_blank" rel="noopener">Get directions →</a></span></div>
+          </div>
+          <div class="loc-map" data-animate="fade-up"><iframe src="https://www.google.com/maps?q=Arvind%20Uplands%2C%20Nasmed%2C%20Rancharda%2C%20Ahmedabad&output=embed" title="Arvind Uplands location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+        </div>
+        <p class="note">Distances and travel times are approximate and indicative; map not to scale.</p>
+      </div>
+    </section>
+
+    <!-- ============================ BROCHURE CTA ============================ -->
+    <section class="section" style="padding-bottom:0">
+      <div class="container">
+        <div class="cta-band" data-animate="fade-up">
+          <div>
+            <h3>Get the complete <em>Arvind Uplands</em> brochure</h3>
+            <p>Master plan, specifications, amenities and more — download it instantly.</p>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn btn-primary" data-brochure data-project="uplands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Download Brochure</button>
+            <a href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20Uplands.%20Please%20share%20details." class="btn btn-ghost" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section class="section" style="padding-top:0">
+    <!-- ============================ ENQUIRE ============================ -->
+    <section class="section" id="enquire">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="contact-left" data-animate="fade-up">
+            <span class="section-label">Get in touch</span>
+            <h2 class="section-title">Visit <em>Arvind Uplands</em></h2>
+            <p class="lead">Book a free, no-obligation site visit. Our relationship team will call you back to fix a time, answer your questions and share the latest availability.</p>
+            <div class="contact-lines">
+            <a class="contact-line" href="tel:+919712131519"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg></span><span><small>Call us</small><b>+91 97121 31519</b></span></a>
+            <a class="contact-line" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20SmartSpaces%20projects." target="_blank" rel="noopener"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span><small>WhatsApp</small><b>Chat with our team</b></span></a>
+            <a class="contact-line" href="#" data-brochure><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg></span><span><small>Brochures</small><b>Download any project brochure</b></span></a>
+          </div>
+          </div>
+          <div data-animate="fade-up" data-delay="0.1">
+          <form class="form-card" data-enquiry data-project="uplands" novalidate>
+            <h3>Book a <em>free site visit</em></h3>
+            <p class="form-sub">Our team will call you back shortly. Free pick-up can be arranged from select Ahmedabad locations.</p>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-name">Full name *</label>
+                <input type="text" id="f-name" name="name" autocomplete="name" placeholder="Your name" required />
+                <span class="err">Please enter your name.</span>
+              </div>
+              <div class="field">
+                <label for="f-phone">Mobile number *</label>
+                <input type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="10-digit mobile" required />
+                <span class="err">Please enter a valid mobile number.</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@email.com" />
+                <span class="err">Please enter a valid email.</span>
+              </div>
+              <div class="field">
+                <label for="f-project">Interested in *</label>
+                <select id="f-project" name="project" required>
+                  <option value="">Select a project</option><option value="aqua-city">Arvind Aqua City</option><option value="everland">Arvind Everland</option><option value="forreste">Arvind Forreste</option><option value="uplands" selected>Arvind Uplands</option><option value="highgrove">Arvind Highgrove</option><option value="alcove">Arvind Alcove</option><option value="smartpark">Arvind SmartPark</option>
+                </select>
+                <span class="err">Please choose a project.</span>
+              </div>
+            </div>
+            <label class="toggle-row" for="f-schedule">Schedule a site visit
+              <span class="switch"><input type="checkbox" id="f-schedule" data-schedule-toggle /><i></i></span>
+            </label>
+            <div class="form-row schedule-fields">
+              <div class="field">
+                <label for="f-date">Preferred date</label>
+                <input type="date" id="f-date" name="visit_date" />
+              </div>
+              <div class="field">
+                <label for="f-time">Preferred time</label>
+                <input type="time" id="f-time" name="visit_time" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-message">Message (optional)</label>
+              <textarea id="f-message" name="message" rows="3" placeholder="Plot / villa size, budget or any questions…"></textarea>
+            </div>
+            <label class="consent">
+              <input type="checkbox" name="consent" required />
+              <span>I authorise Arvind SmartSpaces &amp; its authorised channel partner to contact me via call, SMS, email or WhatsApp.</span>
+              <span class="err">Please tick to continue.</span>
+            </label>
+            <button type="submit" class="btn btn-primary">Book Free Site Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ MORE PROJECTS ============================ -->
+    <section class="section section--alt">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-animate="fade-up">Gallery</span>
-          <h2 class="h-lg" data-animate="clip-reveal" data-split>A closer look</h2>
+          <span class="section-label" data-animate="fade-up">Explore more</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Other Arvind <em>projects</em></h2>
         </div>
-        <div class="gallery-grid cols-3" data-lightbox data-animate="stagger" data-stagger="0.06">
-          <figure><img src="../assets/images/projects/uplands/gallery-6.jpg" alt="Arvind Uplands — banquet hall" data-fallback /></figure>
-          <figure><img src="../assets/images/projects/uplands/gallery-5.jpg" alt="Arvind Uplands — five-star suite" data-fallback /></figure>
-          <figure><img src="../assets/images/projects/uplands/banner.jpg" alt="Arvind Uplands — luxury villa" data-fallback /></figure>
+        <div class="projects-grid" data-animate="stagger" data-stagger="0.08">
+          <article class="project-card">
+            <a class="pc-media" href="../projects/arvind-highgrove.html"><img src="../assets/images/projects/highgrove/club-sunset.jpg" alt="Arvind Highgrove" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Moti Devti, Ahmedabad</span>
+              <h3 class="pc-name"><a href="../projects/arvind-highgrove.html">Arvind Highgrove</a></h3>
+              <p class="pc-type">Weekend golf villas and plots around Ahmedabad's largest shallow water-lily pond.</p>
+              <ul class="pc-facts"><li>Studio–4 BHK</li><li>3-acre lily pond</li><li>40,000+ sq ft club</li></ul>
+              <div class="pc-actions">
+                <a href="../projects/arvind-highgrove.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <a class="pc-media" href="../projects/arvind-alcove.html"><span class="pc-tag pc-tag--blue">Sold Out</span><img src="../assets/images/projects/alcove/gallery-4.jpg" alt="Arvind Alcove" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Shanawad, Ahmedabad</span>
+              <h3 class="pc-name"><a href="../projects/arvind-alcove.html">Arvind Alcove</a></h3>
+              <p class="pc-type">A completed, sold-out weekend villa community across 24 acres.</p>
+              <ul class="pc-facts"><li>24 acres</li><li>12,000 sq ft club</li><li>Completed</li></ul>
+              <div class="pc-actions">
+                <a href="../projects/arvind-alcove.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="alcove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <a class="pc-media" href="../projects/arvind-smartpark.html"><span class="pc-tag">Industrial</span><img src="../assets/images/projects/smartpark/gallery-3.jpg" alt="Arvind SmartPark" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Kalyangadh, Ahmedabad</span>
+              <h3 class="pc-name"><a href="../projects/arvind-smartpark.html">Arvind SmartPark</a></h3>
+              <p class="pc-type">A 440-acre Grade-A industrial park with direct NH-47 frontage and a ZLD CETP.</p>
+              <ul class="pc-facts"><li>440 acres</li><li>NH-47 frontage</li><li>ZLD CETP</li></ul>
+              <div class="pc-actions">
+                <a href="../projects/arvind-smartpark.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="smartpark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </article>
         </div>
+        <nav class="pn-nav mt-l" aria-label="Previous and next project">
+          <a href="arvind-forreste.html" class="prev"><small>← Previous project</small><b>Arvind Forreste</b></a>
+          <a href="arvind-highgrove.html" class="next"><small>Next project →</small><b>Arvind Highgrove</b></a>
+        </nav>
       </div>
     </section>
-
-    <!-- ENQUIRE CTA -->
-    <section class="cta-band section">
-      <div class="container">
-        <span class="eyebrow" data-animate="fade-up">Register your interest</span>
-        <h2 class="h-xl" data-animate="fade-up" data-delay="0.05" style="margin-top:16px">Schedule a private visit to Arvind Uplands</h2>
-        <div style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap" data-animate="fade-up" data-delay="0.1">
-          <a href="../contact.html?project=uplands" class="btn btn-primary">Enquire Now <span class="arrow">→</span></a>
-          <a href="../assets/brochures/arvind-uplands.pdf" class="btn btn-ghost" download data-brochure>Download Brochure <span class="arrow">↓</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PREV / NEXT -->
-    <div class="container">
-      <nav class="pn-nav">
-        <a href="arvind-forreste.html" class="prev"><span class="label">Previous</span><span class="name">← Arvind Forreste</span></a>
-        <a href="arvind-highgrove.html" class="next"><span class="label">Next</span><span class="name">Arvind Highgrove →</span></a>
-      </nav>
-    </div>
   </main>
 
+  <!-- ============================ FOOTER ============================ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-col footer-brand">
-          <a href="../index.html" class="brand"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
-          <p>Crafting premium residential, plotted and industrial spaces across India.</p>
-          <div class="socials"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="LinkedIn">IN</a><a href="#" aria-label="Facebook">FB</a></div>
-        </div>
-        <div class="footer-col">
-          <h5>Explore</h5>
-          <a href="../index.html">Home</a><a href="../projects.html">Projects</a><a href="../awards.html">Awards</a><a href="../contact.html">Contact</a>
+        <div class="footer-brand">
+          <a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="logo-img" /></a>
+          <p>Every Arvind SmartSpaces address in Ahmedabad — lakeside, forest, golf and industrial — presented by an authorised channel partner, from first site visit to final registration.</p>
+          <a class="footer-cp" href="https://www.dakshrealtors.com/" target="_blank" rel="noopener">
+            <img src="../assets/channel-partner-logo.jpg" alt="Daksh Realtors" />
+            <span><small>Authorised Channel Partner</small><b>Daksh Realtors</b></span>
+          </a>
         </div>
         <div class="footer-col">
           <h5>Projects</h5>
-          <a href="arvind-aqua-city.html">Aqua City</a><a href="arvind-everland.html">Everland</a><a href="arvind-forreste.html">Forreste</a><a href="arvind-uplands.html">Uplands</a><a href="arvind-highgrove.html">Highgrove</a><a href="arvind-alcove.html">Alcove</a><a href="arvind-smartpark.html">SmartPark</a>
+          <a href="../projects/arvind-aqua-city.html">Arvind Aqua City</a><a href="../projects/arvind-everland.html">Arvind Everland</a><a href="../projects/arvind-forreste.html">Arvind Forreste</a><a href="../projects/arvind-uplands.html">Arvind Uplands</a><a href="../projects/arvind-highgrove.html">Arvind Highgrove</a><a href="../projects/arvind-alcove.html">Arvind Alcove</a><a href="../projects/arvind-smartpark.html">Arvind SmartPark</a>
+        </div>
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <a href="../index.html">Home</a><a href="../projects.html">All Projects</a><a href="../awards.html">Awards</a><a href="../index.html#about">About Us</a><a href="../contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h5>Get in touch</h5>
-          <a href="tel:+917971367022">+91 7971 367 022</a><a href="mailto:sales@arvindsmartspaces.com">sales@arvindsmartspaces.com</a><a href="../contact.html">Head Office, C.G. Road, Ahmedabad</a>
+          <a href="tel:+919712131519">+91 97121 31519</a>
+          <a href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20SmartSpaces%20projects." target="_blank" rel="noopener">WhatsApp us</a>
+          <a href="../contact.html#enquire">Book a free site visit</a>
+          <a href="#" data-brochure>Download a brochure</a>
         </div>
       </div>
-      <div class="footer-bottom"><span>© <span data-year>2026</span> Arvind SmartSpaces. All rights reserved.</span><span>Designed with <span aria-label="love" style="color:#e0556a">♥</span> by <a href="https://ampli5.digital/" target="_blank" rel="noopener" style="color:var(--accent)">Ampli5 Digital</a></span></div>
+      <p class="footer-disclaimer">Disclaimer: This website is maintained by Daksh Realtors, an authorised channel partner of Arvind SmartSpaces Ltd., for information purposes only. It is not an offer, invitation or contract. All images are artist's impressions or representative images; layouts, areas, amenities, specifications and connectivity details are indicative and subject to change, approvals and the terms of the agreement for sale. Travel times are approximate. Please refer to the official project documents and RERA registrations before making any decision.</p>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Arvind SmartSpaces Ltd. All rights reserved.</span>
+        <span>Designed with <span aria-label="love" style="color:#e0556a">♥</span> by <a href="https://ampli5.digital/" target="_blank" rel="noopener">Ampli5 Digital</a></span>
+      </div>
     </div>
   </footer>
 
+  <!-- Floating actions -->
+  <a class="wa-float" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20Uplands.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <button type="button" class="brochure-float" data-brochure data-project="uplands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+  <nav class="sticky-bar" aria-label="Quick actions">
+    <a href="tel:+919712131519"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg> Call</a>
+    <a class="sb-wa" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20Uplands.%20Please%20share%20details." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+    <button type="button" data-brochure data-project="uplands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+    <a class="sb-visit" href="#enquire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M11 15h1"/><path d="M12 15v3"/></svg> Site Visit</a>
+  </nav>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="../js/animations.js"></script>
   <script src="../js/main.js"></script>

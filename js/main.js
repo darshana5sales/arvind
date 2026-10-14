@@ -1,202 +1,259 @@
 /* ==========================================================================
-   main.js  —  Site behaviour: smooth scroll, sliders, nav, lightbox,
-               image fallbacks, contact form.
-   (Animation reveals live in animations.js — keep them separate.)
+   main.js  —  Site behaviour: smooth scroll, header, sliders, tabs, filters,
+               lightbox, amenity icons, brochure lead popup, enquiry forms.
+   (Scroll reveal animations live in animations.js — keep them separate.)
    ========================================================================== */
 
 (function () {
   "use strict";
+
+  /* ---- 0. SITE SETTINGS — edit these ------------------------------------- */
+  const SITE = {
+    // Shown in WhatsApp messages. Phone / WhatsApp numbers in the HTML are
+    // plain links (search the HTML for "919712131519" to change them).
+    whatsapp: "919712131519",
+    // LEAD ENDPOINT -------------------------------------------------------------
+    // Leave "" and no lead is stored anywhere: the brochure still downloads,
+    // and site-visit forms open WhatsApp with the visitor's details pre-filled.
+    // To COLLECT every lead, paste a Formspree / Google Apps Script / CRM URL here.
+    // Both forms are POSTed there as JSON:
+    //   { form, name, email, phone, project, message, visit_date, visit_time, consent, page }
+    leadEndpoint: "",
+  };
+
+  // All projects (slug → name). Brochures live at assets/brochures/arvind-<slug>.pdf
+  const PROJECTS = {
+    "aqua-city": "Arvind Aqua City",
+    "everland": "Arvind Everland",
+    "forreste": "Arvind Forreste",
+    "uplands": "Arvind Uplands",
+    "highgrove": "Arvind Highgrove",
+    "alcove": "Arvind Alcove",
+    "smartpark": "Arvind SmartPark",
+  };
+
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Root of the site, worked out from this script's own URL ("…/js/main.js").
+  const ROOT = (document.currentScript && document.currentScript.src || "").replace(/js\/main\.js(\?.*)?$/, "");
+  const isHttp = /^https?:$/.test(location.protocol);
+  const ICON = {
+    left: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6l6 6"/></svg>',
+    right: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6l-6 6"/></svg>',
+  };
+
+  function sendLead(data) {
+    if (!SITE.leadEndpoint) return Promise.resolve(false);
+    return fetch(SITE.leadEndpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(data),
+      keepalive: true,
+    }).then(() => true).catch(() => false);
+  }
+
+  function validate(form) {
+    let ok = true;
+    form.querySelectorAll("[required]").forEach((input) => {
+      const field = input.closest(".field, .consent");
+      if (!field || field.offsetParent === null && input.type !== "checkbox") return;
+      let valid = input.value.trim() !== "";
+      if (input.type === "email") valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+      if (input.type === "tel") valid = input.value.replace(/\D/g, "").length >= 10;
+      if (input.type === "checkbox") valid = input.checked;
+      field.classList.toggle("invalid", !valid);
+      if (!valid) ok = false;
+    });
+    return ok;
+  }
+  function clearErrorsOnInput(form) {
+    form.addEventListener("input", (e) => {
+      const f = e.target.closest(".field, .consent");
+      if (f) f.classList.remove("invalid");
+    });
+    form.addEventListener("change", (e) => {
+      const f = e.target.closest(".field, .consent");
+      if (f) f.classList.remove("invalid");
+    });
+  }
 
   /* ---- 1. Branded fallback for any image that hasn't been added yet ------ */
-  // Lets the dev reference final filenames now; a nice placeholder shows until
-  // the real file is dropped into /assets. No HTML editing needed later.
   function attachImageFallbacks() {
     document.querySelectorAll("img[data-fallback]").forEach((img) => {
       const swap = () => {
         if (img.dataset.failed) return;
         img.dataset.failed = "1";
-        const label = img.getAttribute("alt") || "Arvind SmartSpaces";
         const ph = document.createElement("div");
         ph.className = "img-placeholder";
-        ph.innerHTML = `<span>${label}</span>`;
+        ph.innerHTML = `<span>${img.getAttribute("alt") || "Arvind SmartSpaces"}</span>`;
         img.replaceWith(ph);
       };
       img.addEventListener("error", swap);
-      // Already errored before JS ran (cached broken)?
       if (img.complete && img.naturalWidth === 0) swap();
     });
   }
 
   /* ---- 2. Lenis smooth scroll ------------------------------------------- */
+  let lenis = null;
   function initSmoothScroll() {
     if (prefersReduced || typeof window.Lenis === "undefined") return;
-    const lenis = new window.Lenis({
-      duration: 1.15,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    lenis = new window.Lenis({ duration: 1.1, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
-
-    // Keep ScrollTrigger in sync with Lenis.
-    if (window.ScrollTrigger) {
-      lenis.on("scroll", window.ScrollTrigger.update);
-    }
-    // In-page anchor links use Lenis too.
-    document.querySelectorAll('a[href^="#"]').forEach((a) => {
-      a.addEventListener("click", (e) => {
-        const target = document.querySelector(a.getAttribute("href"));
-        if (target) {
-          e.preventDefault();
-          lenis.scrollTo(target, { offset: -80 });
-        }
-      });
+    if (window.ScrollTrigger) lenis.on("scroll", window.ScrollTrigger.update);
+  }
+  function scrollToEl(el) {
+    const offset = -((document.querySelector(".subnav") ? 130 : 80));
+    if (lenis) lenis.scrollTo(el, { offset });
+    else window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY + offset, behavior: prefersReduced ? "auto" : "smooth" });
+  }
+  function initAnchors() {
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a || a.getAttribute("href").length < 2) return;
+      const target = document.querySelector(a.getAttribute("href"));
+      if (!target) return;
+      e.preventDefault();
+      document.body.classList.remove("nav-open");
+      scrollToEl(target);
     });
   }
 
-  /* ---- 3. Header: solidify on scroll + mobile menu ---------------------- */
+  /* ---- 3. Header: solid on scroll + mobile menu --------------------------- */
   function initHeader() {
     const header = document.querySelector(".site-header");
-    const toggle = document.querySelector(".nav-toggle");
-    // Transparent over a full-bleed hero (home + project pages) until you
-    // scroll; every other page keeps the solid header at all times.
-    const hasHero = document.querySelector(".hero, .detail-hero");
-    if (header && hasHero) {
-      const onScroll = () =>
-        header.classList.toggle("scrolled", window.scrollY > 40);
+    if (header) {
+      const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 40);
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
-    } else if (header) {
-      header.classList.add("scrolled");
     }
+    const toggle = document.querySelector(".hamburger");
     if (toggle) {
-      toggle.addEventListener("click", () =>
-        document.body.classList.toggle("nav-open")
-      );
-      document
-        .querySelectorAll(".nav-links a")
-        .forEach((a) =>
-          a.addEventListener("click", () =>
-            document.body.classList.remove("nav-open")
-          )
-        );
+      toggle.addEventListener("click", () => {
+        const open = document.body.classList.toggle("nav-open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      document.querySelectorAll(".main-nav a").forEach((a) =>
+        a.addEventListener("click", () => document.body.classList.remove("nav-open")));
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") document.body.classList.remove("nav-open"); });
+      document.addEventListener("click", (e) => {
+        if (document.body.classList.contains("nav-open") && !e.target.closest(".main-nav, .hamburger")) document.body.classList.remove("nav-open");
+      });
     }
   }
 
-  /* ---- 4. Hero slider (Swiper) ------------------------------------------ */
+  /* ---- 4. Home hero slider (Swiper) --------------------------------------- */
   function initHeroSlider() {
     const el = document.querySelector(".hero .swiper");
     if (!el || typeof window.Swiper === "undefined") return;
-    const bar = document.querySelector(".hero-progress .bar");
-    const count = document.querySelector(".hero-count");
-
+    const pager = document.querySelector(".hero-pager");
+    const slides = el.querySelectorAll(".swiper-slide");
+    if (pager) {
+      pager.innerHTML = Array.from(slides, (_, i) => `<button type="button" aria-label="Slide ${i + 1}"></button>`).join("");
+    }
     const swiper = new window.Swiper(el, {
-      loop: true,
-      speed: 1100,
-      effect: "fade",
-      fadeEffect: { crossFade: true },
-      autoplay: { delay: 5500, disableOnInteraction: false },
+      loop: true, speed: 1100, effect: "fade", fadeEffect: { crossFade: true },
+      autoplay: prefersReduced ? false : { delay: 6000, disableOnInteraction: false },
       on: {
         slideChange() {
-          if (count) {
-            const n = (this.realIndex + 1).toString().padStart(2, "0");
-            const total = this.slides.length - 2; // minus loop clones
-            count.textContent = `${n} — ${total.toString().padStart(2, "0")}`;
-          }
-          // Re-run the per-slide caption reveal.
+          if (pager) pager.querySelectorAll("button").forEach((b, i) => b.classList.toggle("active", i === this.realIndex));
           const active = this.slides[this.activeIndex];
-          if (active) {
-            const cap = active.querySelectorAll("[data-slide-anim]");
-            if (window.gsap && !prefersReduced) {
-              window.gsap.fromTo(
-                cap,
-                { opacity: 0, y: 30 },
-                { opacity: 1, y: 0, duration: 1, ease: "power3.out", stagger: 0.1 }
-              );
-            }
+          if (active && window.gsap && !prefersReduced) {
+            window.gsap.fromTo(active.querySelectorAll("[data-slide-anim]"), { opacity: 0, y: 30 },
+              { opacity: 1, y: 0, duration: 1, ease: "power3.out", stagger: 0.1 });
           }
-        },
-        autoplayTimeLeft(s, time, progress) {
-          if (bar) bar.style.setProperty("--p", 1 - progress);
         },
       },
     });
-    // Fire first caption reveal.
+    if (pager) pager.querySelectorAll("button").forEach((b, i) => b.addEventListener("click", () => swiper.slideToLoop(i)));
+    const prev = document.querySelector(".hero-arrows .prev"), next = document.querySelector(".hero-arrows .next");
+    if (prev) prev.addEventListener("click", () => swiper.slidePrev());
+    if (next) next.addEventListener("click", () => swiper.slideNext());
     swiper.emit("slideChange");
   }
 
-  /* ---- 5. Generic gallery slider (project detail pages) ----------------- */
+  /* ---- 5. Feature image sliders (any .feature__media with 2+ images) ------ */
+  function initFeatureSliders() {
+    document.querySelectorAll(".feature__media").forEach((media) => {
+      const imgs = Array.from(media.querySelectorAll("img.fslide"));
+      if (imgs.length < 2) { if (imgs[0]) imgs[0].classList.add("active"); return; }
+      let i = 0, timer = null;
+      const dots = document.createElement("div");
+      dots.className = "f-dots";
+      dots.innerHTML = imgs.map((_, n) => `<button type="button" aria-label="Image ${n + 1}"></button>`).join("");
+      media.insertAdjacentHTML("beforeend",
+        `<button type="button" class="f-arrow f-prev" aria-label="Previous image">${ICON.left}</button>` +
+        `<button type="button" class="f-arrow f-next" aria-label="Next image">${ICON.right}</button>`);
+      media.appendChild(dots);
+      const show = (n) => {
+        i = (n + imgs.length) % imgs.length;
+        imgs.forEach((im, k) => im.classList.toggle("active", k === i));
+        dots.querySelectorAll("button").forEach((d, k) => d.classList.toggle("active", k === i));
+      };
+      const play = () => { if (!prefersReduced) { clearInterval(timer); timer = setInterval(() => show(i + 1), 5000); } };
+      media.querySelector(".f-prev").addEventListener("click", () => { show(i - 1); play(); });
+      media.querySelector(".f-next").addEventListener("click", () => { show(i + 1); play(); });
+      dots.querySelectorAll("button").forEach((d, k) => d.addEventListener("click", () => { show(k); play(); }));
+      show(0); play();
+    });
+  }
+
+  /* ---- 6. Gallery sliders ------------------------------------------------- */
   function initGallerySliders() {
     if (typeof window.Swiper === "undefined") return;
     document.querySelectorAll(".gallery-swiper").forEach((el) => {
+      const scope = el.closest("section") || document;
       new window.Swiper(el, {
-        slidesPerView: 1.15,
-        spaceBetween: 16,
-        speed: 700,
-        grabCursor: true,
-        breakpoints: {
-          640: { slidesPerView: 1.8, spaceBetween: 22 },
-          1024: { slidesPerView: 2.4, spaceBetween: 26 },
-        },
-        navigation: {
-          nextEl: el.querySelector(".gs-next"),
-          prevEl: el.querySelector(".gs-prev"),
-        },
+        slidesPerView: 1.12, spaceBetween: 14, speed: 700, grabCursor: true,
+        breakpoints: { 640: { slidesPerView: 1.8, spaceBetween: 18 }, 1024: { slidesPerView: 2.5, spaceBetween: 22 } },
+        navigation: { prevEl: scope.querySelector(".slider-nav .prev"), nextEl: scope.querySelector(".slider-nav .next") },
       });
     });
   }
 
-  /* ---- 6. Lightbox (awards + project galleries) ------------------------- */
+  /* ---- 7. Lightbox — each [data-lightbox] element is its own group -------- */
   function initLightbox() {
-    const triggers = Array.from(
-      document.querySelectorAll("[data-lightbox] img")
-    ).filter((img) => img.tagName === "IMG");
-    if (!triggers.length) return;
-
+    const groups = Array.from(document.querySelectorAll("[data-lightbox]"));
+    if (!groups.length) return;
     const box = document.createElement("div");
     box.className = "lightbox";
-    box.innerHTML = `
-      <button class="lb-close" aria-label="Close">&times;</button>
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.innerHTML = `<button class="lb-close" aria-label="Close">&times;</button>
       <button class="lb-prev" aria-label="Previous">&#8249;</button>
-      <button class="lb-next" aria-label="Next">&#8250;</button>
-      <img alt="">`;
+      <button class="lb-next" aria-label="Next">&#8250;</button><img alt=""><span class="lb-count"></span>`;
     document.body.appendChild(box);
-    const imgEl = box.querySelector("img");
-    let index = 0;
-
+    const imgEl = box.querySelector("img"), count = box.querySelector(".lb-count");
+    let list = [], index = 0;
     const srcOf = (t) => t.dataset.full || t.currentSrc || t.src;
     function show(i) {
-      index = (i + triggers.length) % triggers.length;
-      imgEl.src = srcOf(triggers[index]);
-      imgEl.alt = triggers[index].alt || "";
+      index = (i + list.length) % list.length;
+      imgEl.src = srcOf(list[index]);
+      imgEl.alt = list[index].alt || "";
+      count.textContent = list.length > 1 ? `${index + 1} / ${list.length}` : "";
+      box.querySelector(".lb-prev").style.display = box.querySelector(".lb-next").style.display = list.length > 1 ? "" : "none";
     }
-    function open(i) {
-      show(i);
+    function open(group, i) {
+      list = Array.from(group.querySelectorAll("img")).filter((im) => !im.dataset.failed);
+      show(Math.max(0, list.indexOf(i)));
       box.classList.add("open");
       requestAnimationFrame(() => box.classList.add("visible"));
       document.body.style.overflow = "hidden";
+      if (lenis) lenis.stop();
     }
     function close() {
       box.classList.remove("visible");
       document.body.style.overflow = "";
-      setTimeout(() => box.classList.remove("open"), 400);
+      if (lenis) lenis.start();
+      setTimeout(() => box.classList.remove("open"), 350);
     }
-
-    triggers.forEach((img, i) => {
-      // skip placeholders that already failed
-      img.style.cursor = "zoom-in";
-      img.addEventListener("click", () => open(i));
-    });
+    groups.forEach((g) => g.addEventListener("click", (e) => {
+      const img = e.target.closest("img");
+      if (img && g.contains(img)) open(g, img);
+    }));
     box.querySelector(".lb-close").addEventListener("click", close);
     box.querySelector(".lb-next").addEventListener("click", () => show(index + 1));
     box.querySelector(".lb-prev").addEventListener("click", () => show(index - 1));
-    box.addEventListener("click", (e) => {
-      if (e.target === box) close();
-    });
+    box.addEventListener("click", (e) => { if (e.target === box) close(); });
     document.addEventListener("keydown", (e) => {
       if (!box.classList.contains("open")) return;
       if (e.key === "Escape") close();
@@ -205,262 +262,61 @@
     });
   }
 
-  /* ---- 7. Listing filter chips (visual filter by city) ------------------ */
+  /* ---- 8. Tabs (configurations / floor plans) ----------------------------- */
+  function initTabs() {
+    document.querySelectorAll("[data-tabs]").forEach((wrap) => {
+      const btns = wrap.querySelectorAll(".tab-btn"), panels = wrap.querySelectorAll(".tab-panel");
+      btns.forEach((b) => b.addEventListener("click", () => {
+        btns.forEach((x) => { x.classList.toggle("active", x === b); x.setAttribute("aria-selected", x === b ? "true" : "false"); });
+        panels.forEach((p) => p.classList.toggle("active", p.dataset.panel === b.dataset.tab));
+      }));
+    });
+  }
+
+  /* ---- 9. Filters: buttons [data-filter] inside [data-filter-group] show
+          items whose data-cat (space-separated) contains that value -------- */
   function initFilters() {
-    const chips = document.querySelectorAll(".filter-chip");
-    if (!chips.length) return;
-    chips.forEach((chip) => {
-      chip.addEventListener("click", () => {
-        chips.forEach((c) => c.classList.remove("active"));
-        chip.classList.add("active");
-        const f = chip.dataset.filter;
-        document.querySelectorAll("[data-category]").forEach((card) => {
-          const show = f === "all" || card.dataset.category === f;
-          card.style.display = show ? "" : "none";
+    document.querySelectorAll("[data-filter-group]").forEach((group) => {
+      const target = document.querySelector(group.dataset.filterGroup);
+      if (!target) return;
+      const btns = group.querySelectorAll(".filter-btn");
+      btns.forEach((b) => b.addEventListener("click", () => {
+        btns.forEach((x) => x.classList.toggle("active", x === b));
+        const f = b.dataset.filter;
+        target.querySelectorAll("[data-cat]").forEach((item) => {
+          const show = f === "all" || item.dataset.cat.split(" ").includes(f);
+          item.classList.toggle("is-hidden", !show);
+          if (show) { item.style.opacity = ""; item.style.transform = ""; }
         });
         if (window.__refreshScroll) window.__refreshScroll();
-      });
+      }));
     });
   }
 
-  /* ---- 8. Pre-select project on contact form via ?project= -------------- */
-  function initContactPrefill() {
-    const select = document.querySelector("#project");
-    if (!select) return;
-    const param = new URLSearchParams(location.search).get("project");
-    if (param) {
-      const match = Array.from(select.options).find(
-        (o) => o.value.toLowerCase() === param.toLowerCase()
-      );
-      if (match) select.value = match.value;
-    }
+  /* ---- 10. Sticky project sub-nav: highlight the section in view ---------- */
+  function initSubnav() {
+    const links = Array.from(document.querySelectorAll(".subnav-links a[href^='#']"));
+    if (!links.length || !("IntersectionObserver" in window)) return;
+    const map = new Map();
+    links.forEach((a) => { const s = document.querySelector(a.getAttribute("href")); if (s) map.set(s, a); });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        links.forEach((l) => l.classList.remove("active"));
+        const a = map.get(en.target);
+        if (a) { a.classList.add("active"); a.scrollIntoView({ block: "nearest", inline: "center" }); }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    map.forEach((_, s) => io.observe(s));
   }
 
-  /* ---- 9. Contact form: validation + safe mailto submit ----------------- */
-  function initContactForm() {
-    const form = document.querySelector("#enquiry-form");
-    if (!form) return;
-    const success = form.querySelector(".form-success");
-
-    function setError(field, on) {
-      field.classList.toggle("invalid", on);
-    }
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      let ok = true;
-      form.querySelectorAll("[required]").forEach((input) => {
-        const field = input.closest(".field, .consent");
-        let valid = input.value.trim() !== "";
-        if (input.type === "email")
-          valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
-        if (input.type === "checkbox") valid = input.checked;
-        setError(field, !valid);
-        if (!valid) ok = false;
-      });
-      if (!ok) return;
-
-      // FORM ENDPOINT --------------------------------------------------------
-      // Default: opens the visitor's email client (no backend needed).
-      // To collect submissions, set form action to a Formspree URL and
-      // remove this mailto block. See assets/README.md.
-      if (!form.getAttribute("action")) {
-        const get = (n) => encodeURIComponent((form.querySelector(`[name="${n}"]`) || {}).value || "");
-        const body = `Name: ${get("name")}%0D%0APhone: ${get("phone")}%0D%0AEmail: ${get("email")}%0D%0AProject: ${get("project")}%0D%0A%0D%0A${get("message")}`;
-        window.location.href = `mailto:sales@arvindsmartspaces.com?subject=Enquiry%20-%20Arvind%20SmartSpaces&body=${body}`;
-      } else {
-        form.submit();
-        return;
-      }
-      if (success) success.style.display = "block";
-      form.reset();
-    });
-
-    // Clear error state as the user fixes a field.
-    form.addEventListener("input", (e) => {
-      const field = e.target.closest(".field, .consent");
-      if (field) field.classList.remove("invalid");
-    });
-  }
-
-  /* ---- 9b. Brochure download — lead-capture gate ------------------------- */
-  // Every "Download Brochure" button (a[data-brochure]) opens a popup that
-  // collects the visitor's name / email / phone + a consent tick BEFORE the
-  // download. On submit we: (1) optionally send the lead to your endpoint,
-  // (2) force-download THAT project's own PDF, (3) redirect to thank-you.html.
-  // The popup markup is injected here so no per-page HTML editing is needed.
-  //
-  // LEAD ENDPOINT --------------------------------------------------------------
-  // Leave "" to skip sending (the download + thank-you still work). To actually
-  // COLLECT the leads, paste your Formspree (or own API) URL below — the form
-  // is POSTed there as { name, email, phone, consent, project, page }.
-  const BROCHURE_LEAD_ENDPOINT = "";
-
-  function initBrochures() {
-    const buttons = Array.from(document.querySelectorAll("a[data-brochure]"));
-    if (!buttons.length) return;
-
-    // Over http(s), hide the button for any project whose PDF isn't uploaded
-    // yet (no broken buttons). Over file:// browsers can't check, so it shows.
-    if (/^https?:$/.test(location.protocol)) {
-      buttons.forEach((a) => {
-        fetch(a.getAttribute("href"), { method: "HEAD" })
-          .then((r) => { if (!r.ok) a.style.display = "none"; })
-          .catch(() => {});
-      });
-    }
-
-    // --- build the popup once ---
-    const modal = document.createElement("div");
-    modal.className = "lead-modal";
-    modal.setAttribute("aria-hidden", "true");
-    modal.innerHTML = `
-      <div class="lead-backdrop" data-lead-close></div>
-      <div class="lead-dialog" role="dialog" aria-modal="true" aria-labelledby="lead-title">
-        <button class="lead-x" type="button" aria-label="Close" data-lead-close>&times;</button>
-        <span class="lead-eyebrow">Download Brochure</span>
-        <h3 class="lead-title" id="lead-title" data-lead-project>Brochure</h3>
-        <p class="lead-sub">Share your details and your brochure will download right away.</p>
-        <form class="lead-form" novalidate>
-          <div class="field">
-            <label for="lead-name">Full name</label>
-            <input id="lead-name" name="name" type="text" autocomplete="name" required />
-            <span class="err">Please enter your name.</span>
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="lead-email">Email</label>
-              <input id="lead-email" name="email" type="email" autocomplete="email" required />
-              <span class="err">Enter a valid email.</span>
-            </div>
-            <div class="field">
-              <label for="lead-phone">Phone</label>
-              <input id="lead-phone" name="phone" type="tel" autocomplete="tel" required />
-              <span class="err">Enter a valid phone number.</span>
-            </div>
-          </div>
-          <label class="consent">
-            <input type="checkbox" name="consent" required />
-            <span>I authorise Arvind SmartSpaces &amp; its representatives to contact me about this enquiry via call, SMS, email or WhatsApp.</span>
-          </label>
-          <button type="submit" class="btn btn-primary lead-submit">Download Brochure <span class="arrow">↓</span></button>
-          <p class="lead-fineprint">Your details are used only to share this brochure and follow up on your enquiry.</p>
-        </form>
-      </div>`;
-    document.body.appendChild(modal);
-
-    const form = modal.querySelector(".lead-form");
-    const titleEl = modal.querySelector("[data-lead-project]");
-    const submitBtn = modal.querySelector(".lead-submit");
-    let current = null; // { url, file, slug, thankYou }
-
-    function open() {
-      modal.classList.add("open");
-      requestAnimationFrame(() => modal.classList.add("visible"));
-      modal.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-      const first = form.querySelector('input[name="name"]');
-      if (first) setTimeout(() => first.focus(), 80);
-    }
-    function close() {
-      modal.classList.remove("visible");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-      setTimeout(() => modal.classList.remove("open"), 400);
-    }
-
-    // Wire each button to open the popup (instead of downloading directly).
-    buttons.forEach((a) => {
-      a.addEventListener("click", (e) => {
-        e.preventDefault();
-        const url = a.getAttribute("href");
-        const file = url.split("/").pop();                       // arvind-uplands.pdf
-        const slug = file.replace(/^arvind-/, "").replace(/\.pdf$/i, "");
-        const base = url.slice(0, url.indexOf("assets/"));        // ../  (we're in /projects/)
-        const name = (document.querySelector(".detail-title") || {}).textContent || "this project";
-        current = { url, file, slug, thankYou: base + "thank-you.html?project=" + encodeURIComponent(slug) };
-        titleEl.textContent = name.trim();
-        open();
-      });
-    });
-
-    // Close interactions.
-    modal.querySelectorAll("[data-lead-close]").forEach((el) =>
-      el.addEventListener("click", close)
-    );
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("open")) close();
-    });
-    form.addEventListener("input", (e) => {
-      const field = e.target.closest(".field, .consent");
-      if (field) field.classList.remove("invalid");
-    });
-
-    // Start the download straight away (same-origin `download` attribute), so
-    // large PDFs don't have to load into memory before the redirect. Over
-    // file:// the attribute is ignored, so open the PDF in a new tab instead.
-    function startDownload(url, filename) {
-      const a = document.createElement("a");
-      a.href = url; a.download = filename;
-      if (location.protocol === "file:") { a.target = "_blank"; a.rel = "noopener"; }
-      document.body.appendChild(a); a.click(); a.remove();
-    }
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      if (!current) return;
-
-      // validate
-      let ok = true;
-      form.querySelectorAll("[required]").forEach((input) => {
-        const field = input.closest(".field, .consent");
-        let valid = input.value.trim() !== "";
-        if (input.type === "email") valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
-        if (input.type === "tel") valid = (input.value.replace(/\D/g, "").length >= 7);
-        if (input.type === "checkbox") valid = input.checked;
-        field.classList.toggle("invalid", !valid);
-        if (!valid) ok = false;
-      });
-      if (!ok) return;
-
-      const lead = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        phone: form.phone.value.trim(),
-        consent: form.consent.checked,
-        project: titleEl.textContent,
-        page: location.href,
-      };
-
-      // (1) send the lead if an endpoint is configured (fire-and-forget).
-      if (BROCHURE_LEAD_ENDPOINT) {
-        try {
-          fetch(BROCHURE_LEAD_ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify(lead),
-          }).catch(() => {});
-        } catch (_) { /* never block the download */ }
-      }
-
-      // (2) start the brochure download, then (3) go to the thank-you page.
-      submitBtn.setAttribute("disabled", "");
-      submitBtn.textContent = "Starting your download…";
-      const thankYou = current.thankYou;
-      startDownload(current.url, current.file);
-      setTimeout(() => { window.location.href = thankYou; }, 1200);
-    });
-  }
-
-  /* ---- 9c. Amenity icons (auto-matched from the text) -------------------- */
-  // Gives every <li> in an .amenities-grid a relevant line icon, picked by
-  // keyword from its text. The developer keeps writing plain <li>Text</li> —
-  // a matching icon is assigned automatically (falls back to sparkles).
+  /* ---- 11. Icons for amenities + feature bullet lists (matched by keyword) */
+  // The developer keeps writing plain <li>Text</li> — a matching line icon is
+  // added automatically (falls back to sparkles).
   // Icons: Tabler Icons (MIT, tabler.io/icons) + a few custom ones in the same style.
-  function initAmenityIcons() {
-    const lists = document.querySelectorAll(".amenities-grid");
-    if (!lists.length) return;
-
+  function initIcons() {
+    const targets = document.querySelectorAll(".amenity-grid li, .feature__list li");
+    if (!targets.length) return;
     const svg = (inner) =>
       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
 
@@ -529,6 +385,7 @@
       "device-cctv": '<path d="M3 3m0 1a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z"/><path d="M12 14m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M19 7v7a7 7 0 0 1 -14 0v-7"/><path d="M12 14l.01 0"/>',
       "ambulance": '<path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"/><path d="M6 10h4m-2 -2v4"/>',
       "fire-extinguisher": '<path d="M12 7a4 4 0 0 1 4 4v9a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1v-9a4 4 0 0 1 4 -4z"/><path d="M9 16h6"/><path d="M12 7v-3"/><path d="M16 5l-4 -1l4 -1"/><path d="M12 4h-3a3 3 0 0 0 -3 3"/>',
+      "car": '<path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5"/>',
       "sparkles": '<path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/>',
       "temple": '<path d="M3 21h18"/><path d="M5 21v-7h14v7"/><path d="M10 21v-3a2 2 0 0 1 4 0v3"/><path d="M7 14c0 -3.5 2.2 -6.5 5 -8c2.8 1.5 5 4.5 5 8"/><path d="M12 6v-3l3 1l-3 1"/>',
       "billiards": '<circle cx="15" cy="15" r="6"/><circle cx="15" cy="15" r="2"/><path d="M3 3l6.5 6.5"/>',
@@ -539,7 +396,14 @@
     // Ordered keyword → icon (first match wins; specific terms come first,
     // e.g. "Pool-side Café" is a café and "Amphitheatre" isn't a cinema).
     const MAP = [
-      [["kashi ghat", "temple"], "temple"],
+      [["kashi ghat", "temple", "derasar"], "temple"],
+      [["multi purpose hall", "multipurpose hall", "multi-purpose hall", "multiactivity", "multi-activity"], "building-community"],
+      [["card room"], "dice-5"],
+      [["reception", "concierge"], "bell-ringing"],
+      [["laundry"], "spray"],
+      [["taxi", "club car", "travel booking", "parking"], "car"],
+      [["gazebo"], "armchair-2"],
+      [["wi-fi", "wifi"], "plug-connected"],
       [["golf"], "golf"],
       [["conference", "meeting", "presentation", "seminar"], "presentation"],
       [["library"], "books"],
@@ -558,7 +422,7 @@
       [["gazing", "stargaz", "observ"], "telescope"],
       [["bird"], "binoculars"],
       [["butterfly"], "butterfly"],
-      [["campfire", "bonfire"], "campfire"],
+      [["campfire", "bonfire", "adventure camp"], "campfire"],
       [["tree house"], "tree"],
       [["trail", "jungle", "forest"], "trees"],
       [["kids' pool", "kids pool", "splash"], "swimming"],
@@ -618,45 +482,213 @@
       return I.sparkles;
     };
 
-    lists.forEach((ul) => {
-      ul.classList.add("with-icons");
-      ul.querySelectorAll("li").forEach((li) => {
-        if (li.querySelector(".am-ic")) return;
-        const span = document.createElement("span");
-        span.className = "am-ic";
-        // pick() returns bare <path>s — they must sit inside an <svg> to render
-        span.innerHTML = svg(pick(li.textContent || ""));
-        li.insertBefore(span, li.firstChild);
+    targets.forEach((li) => {
+      if (li.querySelector(".am-ic, .ic")) return;
+      const inList = li.closest(".feature__list");
+      const span = document.createElement("span");
+      span.className = inList ? "ic" : "am-ic";
+      span.innerHTML = svg(pick(li.dataset.icon || li.textContent || ""));
+      li.insertBefore(span, li.firstChild);
+    });
+  }
+
+  /* ---- 12. Brochure download — lead-capture popup ------------------------- */
+  // Every [data-brochure] button opens a popup asking for name / phone / email
+  // + consent. On submit: (1) the lead goes to SITE.leadEndpoint (if set),
+  // (2) THAT project's PDF downloads, (3) the visitor lands on thank-you.html.
+  // A button with data-project="<slug>" is tied to that project; one without
+  // (header / floating button) lets the visitor pick the project in the popup.
+  function initBrochures() {
+    const triggers = Array.from(document.querySelectorAll("[data-brochure]"));
+    if (!triggers.length) return;
+    const pdf = (slug) => ROOT + "assets/brochures/arvind-" + slug + ".pdf";
+
+    const modal = document.createElement("div");
+    modal.className = "lead-modal";
+    modal.setAttribute("aria-hidden", "true");
+    const options = Object.entries(PROJECTS).map(([s, n]) => `<option value="${s}">${n}</option>`).join("");
+    modal.innerHTML = `
+      <div class="lead-backdrop" data-lead-close></div>
+      <div class="lead-dialog" role="dialog" aria-modal="true" aria-labelledby="lead-title">
+        <button class="lead-x" type="button" aria-label="Close" data-lead-close>&times;</button>
+        <div class="lead-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M12 11v6"/><path d="M9.5 14.5l2.5 2.5l2.5 -2.5"/></svg></div>
+        <span class="lead-eyebrow">Download Brochure</span>
+        <h3 class="lead-title" id="lead-title">Brochure</h3>
+        <p class="lead-sub">Share your details and the brochure will download instantly.</p>
+        <form class="lead-form" novalidate>
+          <div class="field lead-pick">
+            <label for="lead-project">Project *</label>
+            <select id="lead-project" name="project" required><option value="">Select a project</option>${options}</select>
+            <span class="err">Please choose a project.</span>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="lead-name">Full name *</label>
+              <input id="lead-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+              <span class="err">Please enter your name.</span>
+            </div>
+            <div class="field">
+              <label for="lead-phone">Mobile number *</label>
+              <input id="lead-phone" name="phone" type="tel" autocomplete="tel" placeholder="10-digit mobile" required />
+              <span class="err">Enter a valid mobile number.</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="lead-email">Email *</label>
+            <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+            <span class="err">Enter a valid email.</span>
+          </div>
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            <span>I authorise Arvind SmartSpaces &amp; its authorised channel partner to contact me via call, SMS, email or WhatsApp.</span>
+            <span class="err">Please tick to continue.</span>
+          </label>
+          <button type="submit" class="btn btn-primary lead-submit">Download Brochure</button>
+          <p class="lead-fineprint">Your details are used only to share this brochure and follow up on your enquiry.</p>
+        </form>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const form = modal.querySelector(".lead-form");
+    const title = modal.querySelector(".lead-title");
+    const select = modal.querySelector("#lead-project");
+    const submit = modal.querySelector(".lead-submit");
+    let slug = "";
+
+    // Over http(s): drop projects whose PDF isn't uploaded yet (no broken
+    // buttons). Over file:// browsers can't check, so everything shows.
+    if (isHttp) {
+      Object.keys(PROJECTS).forEach((s) => {
+        fetch(pdf(s), { method: "HEAD" }).then((r) => {
+          if (r.ok) return;
+          const opt = select.querySelector(`option[value="${s}"]`);
+          if (opt) opt.remove();
+          triggers.filter((t) => t.dataset.project === s).forEach((t) => (t.style.display = "none"));
+        }).catch(() => {});
+      });
+    }
+
+    function open(project) {
+      slug = project || "";
+      const pick = !slug;
+      modal.classList.toggle("pick", pick);
+      select.required = pick;
+      select.value = "";
+      title.textContent = pick ? "Project Brochures" : PROJECTS[slug] || "Brochure";
+      modal.classList.add("open");
+      requestAnimationFrame(() => modal.classList.add("visible"));
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      if (lenis) lenis.stop();
+      setTimeout(() => (pick ? select : form.querySelector("#lead-name")).focus(), 80);
+    }
+    function close() {
+      modal.classList.remove("visible");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (lenis) lenis.start();
+      setTimeout(() => modal.classList.remove("open"), 400);
+    }
+    triggers.forEach((t) => t.addEventListener("click", (e) => { e.preventDefault(); open(t.dataset.project); }));
+    modal.querySelectorAll("[data-lead-close]").forEach((el) => el.addEventListener("click", close));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("open")) close(); });
+    clearErrorsOnInput(form);
+
+    // Start the download straight away (same-origin `download` attribute) so
+    // big PDFs don't load into memory first. Over file:// the attribute is
+    // ignored, so the PDF opens in a new tab instead.
+    function startDownload(url, filename) {
+      const a = document.createElement("a");
+      a.href = url; a.download = filename;
+      if (!isHttp) { a.target = "_blank"; a.rel = "noopener"; }
+      document.body.appendChild(a); a.click(); a.remove();
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!validate(form)) return;
+      const s = slug || select.value;
+      if (!s) return;
+      sendLead({
+        form: "brochure", name: form.name.value.trim(), email: form.email.value.trim(),
+        phone: form.phone.value.trim(), project: PROJECTS[s], consent: form.consent.checked, page: location.href,
+      });
+      submit.setAttribute("disabled", "");
+      submit.textContent = "Starting your download…";
+      startDownload(pdf(s), "arvind-" + s + ".pdf");
+      setTimeout(() => { window.location.href = ROOT + "thank-you.html?project=" + encodeURIComponent(s); }, 1200);
+    });
+  }
+
+  /* ---- 13. Enquiry / site-visit forms (form[data-enquiry]) ---------------- */
+  function initEnquiryForms() {
+    const param = new URLSearchParams(location.search).get("project");
+    document.querySelectorAll("form[data-enquiry]").forEach((form) => {
+      const select = form.querySelector('select[name="project"]');
+      if (select && param && select.querySelector(`option[value="${param}"]`)) select.value = param;
+      const toggle = form.querySelector("[data-schedule-toggle]");
+      const sched = form.querySelector(".schedule-fields");
+      if (toggle && sched) toggle.addEventListener("change", () => sched.classList.toggle("open", toggle.checked));
+      const date = form.querySelector('input[name="visit_date"]');
+      if (date) date.min = new Date().toISOString().slice(0, 10);
+      clearErrorsOnInput(form);
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!validate(form)) return;
+        const v = (n) => ((form.querySelector(`[name="${n}"]`) || {}).value || "").trim();
+        const slug = v("project") || form.dataset.project || "";
+        const projectName = PROJECTS[slug] || slug || "Arvind SmartSpaces projects";
+        const visit = toggle && toggle.checked;
+        const lead = {
+          form: "enquiry", name: v("name"), email: v("email"), phone: v("phone"), project: projectName,
+          message: v("message"), visit_date: visit ? v("visit_date") : "", visit_time: visit ? v("visit_time") : "",
+          consent: true, page: location.href,
+        };
+        const thanks = ROOT + "thank-you.html?type=visit" + (slug ? "&project=" + encodeURIComponent(slug) : "");
+        const btn = form.querySelector('button[type="submit"]');
+        if (btn) { btn.setAttribute("disabled", ""); btn.textContent = "Sending…"; }
+
+        if (SITE.leadEndpoint) {
+          sendLead(lead).finally(() => { window.location.href = thanks; });
+        } else {
+          // No endpoint yet → hand the enquiry over on WhatsApp, pre-filled.
+          const lines = [
+            `Hi, I'm interested in ${projectName}.`, `Name: ${lead.name}`, `Phone: ${lead.phone}`,
+            lead.email && `Email: ${lead.email}`,
+            visit && lead.visit_date && `Preferred site visit: ${lead.visit_date}${lead.visit_time ? " " + lead.visit_time : ""}`,
+            lead.message && `Message: ${lead.message}`,
+          ].filter(Boolean);
+          window.open(`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener");
+          window.location.href = thanks;
+        }
       });
     });
   }
 
-  /* ---- 10. Current year in footer --------------------------------------- */
+  /* ---- 14. Current year in footer ----------------------------------------- */
   function initYear() {
-    document.querySelectorAll("[data-year]").forEach((el) => {
-      el.textContent = new Date().getFullYear();
-    });
+    document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
   }
 
-  /* ---- boot ------------------------------------------------------------- */
+  /* ---- boot --------------------------------------------------------------- */
   function boot() {
     attachImageFallbacks();
     initSmoothScroll();
+    initAnchors();
     initHeader();
     initHeroSlider();
+    initFeatureSliders();
     initGallerySliders();
     initLightbox();
+    initTabs();
     initFilters();
-    initContactPrefill();
-    initContactForm();
+    initSubnav();
+    initIcons();
     initBrochures();
-    initAmenityIcons();
+    initEnquiryForms();
     initYear();
   }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot);
-  } else {
-    boot();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
 })();

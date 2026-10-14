@@ -3,250 +3,607 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arvind Highgrove — Arvind SmartSpaces</title>
-  <meta name="description" content="Arvind Highgrove — premium golf villas and plots wrapped around an executive golf course and Ahmedabad's largest shallow water-lily pond. Moti Devti, Ahmedabad." />
+  <title>Arvind Highgrove, Moti Devti (Moraiya Road) — Premium Golf Villas &amp; Plots</title>
+  <meta name="description" content="Arvind Highgrove — premium weekend golf villas (Studio to 4 BHK) and plots at Moti Devti–Moraiya Road, Ahmedabad: a 3-acre water-lily pond, executive golf and a 40,000+ sq ft clubhouse. Villas designed by Woods Bagot." />
+  <meta property="og:title" content="Arvind Highgrove, Moti Devti (Moraiya Road) — Premium Golf Villas &amp; Plots" />
+  <meta property="og:description" content="Arvind Highgrove — premium weekend golf villas (Studio to 4 BHK) and plots at Moti Devti–Moraiya Road, Ahmedabad: a 3-acre water-lily pond, executive golf and a 40,000+ sq ft clubhouse. Villas designed by Woods Bagot." />
+  <meta name="theme-color" content="#0B3D6B" />
+  <link rel="icon" href="../assets/favicon.png" />
+
+  <!-- Add .js early so animated elements start hidden (prevents flash). -->
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css" />
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
+  <!-- ============================ HEADER ============================ -->
   <header class="site-header">
-    <div class="container nav">
-      <a href="../index.html" class="brand"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="../projects.html" class="active">Projects</a>
-        <a href="../awards.html">Awards</a>
-        <a href="../contact.html">Contact</a>
+    <div class="container header-inner">
+      <a href="../index.html" class="logo" aria-label="Arvind SmartSpaces — home"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="logo-img" /></a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="../index.html" class="nav-link">Home</a>
+        <div class="nav-dd">
+          <a href="../projects.html" class="nav-link active">Projects <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></a>
+          <div class="nav-dd-menu">
+              <a href="../projects/arvind-aqua-city.html"><strong>Arvind Aqua City</strong><span>Lakeside villas &amp; plots · Kalyangadh</span></a>
+              <a href="../projects/arvind-everland.html"><strong>Arvind Everland</strong><span>Premium plots · Mankol, Sanand</span></a>
+              <a href="../projects/arvind-forreste.html"><strong>Arvind Forreste</strong><span>Premium weekend villas · Jethlaj, Rancharda</span></a>
+              <a href="../projects/arvind-uplands.html"><strong>Arvind Uplands</strong><span>Ultra-luxury golf villas · Nasmed, Rancharda</span></a>
+              <a href="../projects/arvind-highgrove.html" class="active"><strong>Arvind Highgrove</strong><span>Premium golf villas &amp; plots · Moti Devti</span></a>
+              <a href="../projects/arvind-alcove.html"><strong>Arvind Alcove</strong><span>Premium weekend villas · Shanawad</span></a>
+              <a href="../projects/arvind-smartpark.html"><strong>Arvind SmartPark</strong><span>Grade-A industrial park · Kalyangadh</span></a>
+              <a href="../projects.html" class="dd-all">View all projects &amp; compare →</a>
+          </div>
+        </div>
+        <a href="../awards.html" class="nav-link">Awards</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
+        <button type="button" class="btn btn-ghost nav-mobile-only" data-brochure><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Download Brochure</button>
+        <a href="../contact.html#enquire" class="btn btn-primary nav-mobile-only">Book Free Site Visit</a>
       </nav>
       <div class="nav-actions">
-        <a href="../contact.html" class="btn btn-primary">Enquire Now</a>
-        <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+        <button type="button" class="nav-brochure" data-brochure><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+        <a href="../contact.html#enquire" class="nav-cta">Book Free Site Visit</a>
+        <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="detail-hero">
-      <div class="hero-media"><img src="../assets/images/projects/highgrove/banner.jpg" alt="Arvind Highgrove" data-fallback /></div>
-      <div class="container hero-content">
-        <span class="eyebrow" data-hero-load data-order="1">Moti Devti, Ahmedabad</span>
-        <h1 class="detail-title" data-hero-load data-order="2">Arvind Highgrove</h1>
-        <div class="hero-meta" data-hero-load data-order="3"><span>◆ Premium golf villas & plots</span><span>Live the high life</span></div>
-      </div>
-    </section>
-
-    <!-- KEY SPECS -->
-    <section class="specs">
-      <div class="container">
-        <div class="specs-grid" data-animate="stagger" data-stagger="0.07">
-          <div class="spec"><div class="val">Studio–4 BHK</div><div class="label">Villas & Plots</div></div>
-          <div class="spec"><div class="val">40,000+</div><div class="label">Sq Ft Clubhouse</div></div>
-          <div class="spec"><div class="val">3 Acre</div><div class="label">Water-Lily Pond</div></div>
-          <div class="spec"><div class="val">Woods Bagot</div><div class="label">Villa Architects</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OVERVIEW -->
-    <section class="section">
-      <div class="container">
-        <div class="overview-grid">
-          <h2 class="ov-label" data-animate="fade-up">Live the high life</h2>
-          <div class="ov-copy" data-animate="fade-up" data-delay="0.05">
-            <p>Highgrove by Arvind — premium weekend homes nestled amidst sylvan green surroundings, close enough to make travelling a breeze and far enough to get away from it all.</p>
-            <p>Highgrove has everything it takes to make weekends truly exciting and memorable for the whole family. Clean, green, open surroundings, an executive golf course, a lavish clubhouse and a host of indoor and outdoor games — everything at hand so you can focus on recharging your batteries.</p>
-            <p>A weekend home here doesn't just give you a great escape, but also great appreciation of property over time. Say hello to great weekends filled with happiness — enhancing your lifestyle while also enhancing your networth.</p>
+    <!-- ============================ HERO ============================ -->
+    <section class="hero hero--static" id="top">
+      <div class="hero-media"><img src="../assets/images/projects/highgrove/golf-club.jpg" alt="Arvind Highgrove" data-fallback /></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <span class="hero-badge" data-hero-load data-order="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Moti Devti · Moraiya Road, Ahmedabad</span>
+            <h1 class="hero-headline" data-hero-load data-order="2">Live <em>the high life</em></h1>
+            <p class="hero-sub" data-hero-load data-order="3">Premium weekend golf villas and plots — close enough to make travelling a breeze, far enough to get away from it all. Executive golf, a lavish clubhouse and Ahmedabad's largest shallow water-lily pond.</p>
+            <div class="hero-actions" data-hero-load data-order="4">
+              <a href="#enquire" class="btn btn-primary">Book Free Site Visit</a>
+              <button type="button" class="btn btn-ghost" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Download Brochure</button>
+            </div>
+          </div>
+          <div class="hero-stats-card" data-hero-load data-order="5">
+            <div class="stat"><span class="stat-num">3 Acre</span><span class="stat-label">Water-lily pond, 50+ lily varieties</span></div>
+            <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Species of migratory birds</span></div>
+            <div class="stat"><span class="stat-num">40,000+</span><span class="stat-label">Sq ft clubhouse</span></div>
+            <div class="stat"><span class="stat-num">Studio–4BHK</span><span class="stat-label">Villa configurations</span></div>
           </div>
         </div>
       </div>
+      <div class="hero-scroll"><span>Scroll to explore</span><i></i></div>
     </section>
 
-    <!-- FEATURES: text aligned to images -->
-    <section class="section" style="padding-top:0">
+    <!-- sticky section navigation -->
+    <nav class="subnav" aria-label="Arvind Highgrove sections">
       <div class="container">
-        <div class="feature-rows">
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/highgrove/gallery-1.jpg" alt="Arvind Highgrove — executive golf" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">01</span>
-              <h3>Exit blues. Enter greens.</h3>
-              <p>Leave behind the stress of the weekdays. Come Saturday, reward yourself with a scintillating game of golf — Highgrove's executive golf will inspire and challenge the golfer in you, while your family cheers you on.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/highgrove/gallery-3.jpg" alt="Arvind Highgrove — the 40,000+ sq ft clubhouse" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">02</span>
-              <h3>Indulge to the point of feeling guilty</h3>
-              <p>A sprawling clubhouse with a built-up area of more than 40,000 sq ft has everything to keep you busy for the weekend — indoor &amp; outdoor games like net cricket, squash and gymnasium, a large swimming pool, restaurants and many more.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/highgrove/gallery-2.jpg" alt="Arvind Highgrove — migratory birds & the water-lily pond" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">03</span>
-              <h3>A feast for the eyes</h3>
-              <p>The piece-de-resistance — Ahmedabad's biggest shallow water-lily pond, spread over 3 acres with more than 50 varieties of lilies. Each season it welcomes more than 200 species of migratory birds from far-off lands.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/highgrove/gallery-5.jpg" alt="Arvind Highgrove — sports & games" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">04</span>
-              <h3>Performing under pressure is passé</h3>
-              <p>Never let anything come between you and your game. Net cricket to polish your swings, lawn tennis to wield the racquet like a warrior's sword, and squash to upskill your craziest shots — get your kick within at the gymnasium too.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/highgrove/gallery-6.jpg" alt="Arvind Highgrove — villas designed by Woods Bagot" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">05</span>
-              <h3>Weekends will never be the same again</h3>
-              <p>Think beyond luxury, beyond the tangible. A spectacular sprawl of villas — designed by global architects Woods Bagot — give generous views of the project's focal point: the shallow water-lily pond, clubhouse and executive golf.</p>
-            </div>
-          </article>
-        </div>
+        <span class="subnav-name">Arvind Highgrove</span>
+        <div class="subnav-links"><a href="#overview">Overview</a><a href="#highlights">Highlights</a><a href="#configurations">Floor Plans</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#location">Location</a><a href="#enquire">Enquire</a></div>
+        <a href="#enquire" class="btn btn-primary btn-sm">Enquire</a>
       </div>
-    </section>
+    </nav>
 
-    <!-- CONFIGURATIONS -->
-    <section class="section" style="padding-top:0">
+    <!-- ============================ OVERVIEW ============================ -->
+    <section class="section" id="overview">
       <div class="container">
-        <div class="overview-grid">
-          <h2 class="ov-label" data-animate="fade-up">Studio to 4 BHK villas</h2>
-          <div class="ov-copy" data-animate="fade-up" data-delay="0.05">
-            <p>A range of weekend homes to suit every family — from a compact Studio to a sprawling 4 BHK, each set in green, landscaped surroundings.</p>
-            <p>Studio — 62.46 sq.yd · 1 BHK — 100.51 sq.yd · 2 BHK — 166.66 sq.yd · 3 BHK — 205.39 sq.yd · 4 BHK — 256.98 sq.yd. <span style="opacity:.7">(Total carpet area, inclusive of additional area.)</span></p>
+        <div class="ov-grid">
+          <div>
+            <span class="section-label" data-animate="fade-up">Introducing Highgrove</span>
+            <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Close enough for a breeze, <em>far enough to get away</em></h2>
+            <div class="prose" data-animate="fade-up" data-delay="0.1">
+            <p>Highgrove by Arvind — premium weekend homes where you can live the high life. Nestled amidst sylvan green surroundings, Highgrove has everything it takes to make weekends truly exciting and memorable for the whole family. Clean, green, open surroundings will take your breath away; feast your eyes on migratory birds during the season.</p>
+            <p>There is a lavish clubhouse with all facilities for rest and recreation — a large swimming pool, indoor and outdoor games and restaurants serving sumptuous cuisine. Developed with foresight and great attention to detail, Highgrove offers a weekend home that gives you a great escape today, and the promise of appreciation tomorrow thanks to its strategic location.</p>
+            </div>
           </div>
+          <aside class="facts-card" data-animate="fade-up" data-delay="0.15">
+            <h3>Key facts</h3>
+            <dl><dt>Project type</dt><dd>Premium golf villas &amp; plots</dd><dt>Location</dt><dd>Moti Devti – Moraiya Road, Moti Devti Village, Ahmedabad</dd><dt>Villas</dt><dd>Studio, 1, 2, 3 &amp; 4 BHK</dd><dt>Designers</dt><dd>Woods Bagot</dd><dt>Clubhouse</dt><dd>40,000+ sq ft built-up*</dd><dt>Developer</dt><dd>Arvind SmartSpaces Ltd.</dd><dt>JD partner</dt><dd>Sun Buildcon · Royale Touche</dd></dl>
+            
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- DESIGNERS: WOODS BAGOT -->
-    <section class="section" style="padding-top:0">
-      <div class="container">
-        <div class="overview-grid">
-          <h2 class="ov-label" data-animate="fade-up">Designed by Woods Bagot</h2>
-          <div class="ov-copy" data-animate="fade-up" data-delay="0.05">
-            <p>The villas are designed by Woods Bagot — a leading global architecture and consulting firm with a team of over 700 people working across Australia, Asia, the Middle East, Europe and North America.</p>
-            <p>The firm's unique 'One Global Studio' philosophy drives unprecedented knowledge sharing and true collaboration across time zones, producing innovative, inspired and functional design solutions.</p>
+    <!-- ============================ HIGHLIGHTS (image / text rows) ============================ -->
+    <section id="highlights" aria-label="Highlights">
+      <div class="features">
+        <article class="feature" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">The Lily Pond</span>
+            <img class="fslide active" src="../assets/images/projects/highgrove/lily-pond.jpg" alt="Arvind Highgrove — The Lily Pond" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/highgrove/flamingos.jpg" alt="Arvind Highgrove — The Lily Pond" loading="lazy" data-fallback />
           </div>
-        </div>
+          <div class="feature__body">
+            <span class="section-label">Nature's Centrepiece</span>
+            <h3 class="feature__title">Ahmedabad's biggest <em>water-lily pond</em></h3>
+            <p class="feature__desc">Spread over 3 acres, Highgrove's pièce de résistance is Ahmedabad's largest shallow water-lily pond, with more than 50 varieties of lilies — truly a feast for the eyes. Highgrove also attracts migratory birds during the season: welcome more than 200 species of winged visitors from far-off lands.</p>
+            <ul class="feature__list">
+              <li>Spread over 3 acres</li>
+              <li>50+ varieties of lilies</li>
+              <li>200+ species of migratory birds</li>
+              <li>Clean, green, open surroundings</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature feature--reverse" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">Executive Golf</span>
+            <img class="fslide active" src="../assets/images/projects/highgrove/golf-club.jpg" alt="Arvind Highgrove — Executive Golf" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/highgrove/golfer.jpg" alt="Arvind Highgrove — Executive Golf" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Exit Blues. Enter Greens.</span>
+            <h3 class="feature__title">Come Saturday, <em>reward yourself</em></h3>
+            <p class="feature__desc">Leave behind the stressful week. Come Saturday, it's time to reward yourself with a scintillating game of golf. Highgrove's executive golf will inspire and challenge the golfer in you — and while you're swinging the club like a pro, your family can cheer for you.</p>
+            <ul class="feature__list">
+              <li>Executive golf course*</li>
+              <li>Golf carts &amp; clubhouse greens</li>
+              <li>Villas with views of the golf &amp; lily pond</li>
+            </ul>
+            <p class="note">*The golf course and club ("Highgrove Club") is / will be a private club owned by an independent entity and is not a part of the project.</p>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">Club @ Highgrove</span>
+            <img class="fslide active" src="../assets/images/projects/highgrove/club-sunset.jpg" alt="Arvind Highgrove — Club @ Highgrove" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/highgrove/club-pool.jpg" alt="Arvind Highgrove — Club @ Highgrove" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/highgrove/club-dusk.jpg" alt="Arvind Highgrove — Club @ Highgrove" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Indulge Yourself</span>
+            <h3 class="feature__title">40,000+ sq ft of <em>weekend indulgence</em></h3>
+            <p class="feature__desc">After a hectic week at work and home, it's time to take your senses on an indulgence trip. A sprawling clubhouse with a built-up area of more than 40,000 sq ft has everything to keep you busy for the weekend — indoor and outdoor games like net cricket and squash, a gymnasium and much more.</p>
+            <ul class="feature__list">
+              <li>Large swimming pool</li>
+              <li>Net cricket &amp; squash</li>
+              <li>Tennis &amp; gymnasium</li>
+              <li>Spa, steam &amp; sauna</li>
+              <li>Restaurant with international cuisines</li>
+              <li>A special Kids Zone</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature feature--reverse" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">Sport</span>
+            <img class="fslide active" src="../assets/images/projects/highgrove/net-cricket.jpg" alt="Arvind Highgrove — Sport" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/highgrove/tennis.jpg" alt="Arvind Highgrove — Sport" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/highgrove/gym.jpg" alt="Arvind Highgrove — Sport" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/highgrove/pool.jpg" alt="Arvind Highgrove — Sport" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Play All Weekend</span>
+            <h3 class="feature__title">Performing under pressure <em>is passé</em></h3>
+            <p class="feature__desc">Never let anything come between you and your passion. Be your own team at the net cricket, polish your swings, take on the court with the might of a Wimbledon champ, burn up to 1,000 calories in an hour of squash — or simply dive into the cool waters of the pool.</p>
+            <ul class="feature__list">
+              <li>Indoor net cricket</li>
+              <li>Tennis court</li>
+              <li>Squash court</li>
+              <li>Gymnasium</li>
+              <li>Swimming pool</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">Wellness &amp; Dining</span>
+            <img class="fslide active" src="../assets/images/projects/highgrove/spa.jpg" alt="Arvind Highgrove — Wellness &amp; Dining" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/highgrove/restaurant.jpg" alt="Arvind Highgrove — Wellness &amp; Dining" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/highgrove/kids.jpg" alt="Arvind Highgrove — Wellness &amp; Dining" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">A Peaceful Mind, a Relaxed Body</span>
+            <h3 class="feature__title">Spa days and <em>family dinners</em></h3>
+            <p class="feature__desc">Walk into the steam &amp; sauna for the perfect balance of active fitness and soothing therapies. Then enjoy intimate social sessions with your loved ones, catered well by international cuisines at the restaurant — while the kids make the most of a Kids Zone packed with fun activities.</p>
+            <ul class="feature__list">
+              <li>Steam &amp; sauna</li>
+              <li>Spa therapies</li>
+              <li>Restaurant with international cuisines</li>
+              <li>Kids Zone with fun activities</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- AMENITIES -->
-    <section class="section" style="padding-top:0">
+    <section class="section section--alt" id="configurations">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-animate="fade-up">Amenities</span>
-          <h2 class="h-lg" data-animate="clip-reveal" data-split>Everything within reach</h2>
+          <span class="section-label" data-animate="fade-up">Configurations &amp; Floor Plans</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Villa <em>configurations</em></h2>
+          <p class="section-desc" data-animate="fade-up" data-delay="0.1">Five villa types by Woods Bagot — from a compact studio to a two-storey 4 BHK. Areas are in square yards as per the brochure.</p>
         </div>
-        <ul class="amenities-grid" data-animate="stagger" data-stagger="0.04">
-          <li>Executive Golf Course</li>
-          <li>40,000+ sq ft Clubhouse</li>
-          <li>3-Acre Water-Lily Pond</li>
-          <li>50+ Varieties of Lilies</li>
-          <li>Migratory Bird Watching</li>
-          <li>Large Swimming Pool</li>
-          <li>Net Cricket</li>
-          <li>Lawn Tennis</li>
-          <li>Squash Court</li>
-          <li>Gymnasium</li>
-          <li>Spa — Steam &amp; Sauna</li>
-          <li>Kids Zone</li>
-          <li>Restaurant — International Cuisines</li>
-          <li>Indoor Games</li>
-          <li>Outdoor Games</li>
-          <li>Landscaped Greens</li>
-          <li>Clubhouse Lounge</li>
-          <li>Weekend Surprises</li>
+        <div data-tabs>
+          <div class="tabs" role="tablist" data-animate="fade-up"><button type="button" class="tab-btn active" data-tab="studio" role="tab" aria-selected="true">Studio</button><button type="button" class="tab-btn" data-tab="1bhk" role="tab" aria-selected="false">1 BHK</button><button type="button" class="tab-btn" data-tab="2bhk" role="tab" aria-selected="false">2 BHK</button><button type="button" class="tab-btn" data-tab="3bhk" role="tab" aria-selected="false">3 BHK</button><button type="button" class="tab-btn" data-tab="4bhk" role="tab" aria-selected="false">4 BHK</button></div>
+          <div class="tab-panel active" data-panel="studio" role="tabpanel">
+            <div class="tp-media" data-lightbox><img src="../assets/images/projects/highgrove/villa-studio.jpg" alt="Arvind Highgrove — Studio villa elevation" loading="lazy" data-fallback /></div>
+            <div class="tp-info">
+              <h3>Studio Villa</h3>
+              <p class="tp-sub">Single-storey · ground floor</p>
+              <p>A compact, single-storey weekend villa with a drawing room, dining, kitchen, bed space and a generous front verandah.</p>
+              <table class="area-table">
+                <tr><th>RERA carpet area</th><td>49.56 Sq.Yd</td></tr>
+                <tr><th>Additional area (balcony / verandah)</th><td>12.90 Sq.Yd</td></tr>
+                <tr class="total"><th>Total carpet area</th><td>62.46 Sq.Yd</td></tr>
+              </table>
+              <div class="plan-thumb" data-lightbox><img src="../assets/images/projects/highgrove/plan-studio-1-2bhk.jpg" alt="Arvind Highgrove — Studio floor plan" loading="lazy" data-fallback /><span><strong>View floor plan</strong>Click to enlarge the Studio plan</span></div>
+              <div class="hero-actions">
+                <a href="#enquire" class="btn btn-primary">Get price &amp; availability</a>
+                <button type="button" class="btn btn-outline" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </div>
+          <div class="tab-panel" data-panel="1bhk" role="tabpanel">
+            <div class="tp-media" data-lightbox><img src="../assets/images/projects/highgrove/villa-studio.jpg" alt="Arvind Highgrove — 1 BHK villa elevation" loading="lazy" data-fallback /></div>
+            <div class="tp-info">
+              <h3>1 BHK Villa</h3>
+              <p class="tp-sub">Single-storey · ground floor</p>
+              <p>A single-storey 1 BHK with a large drawing room, dining, kitchen, bedroom with toilet and a full-width verandah.</p>
+              <table class="area-table">
+                <tr><th>RERA carpet area</th><td>86.51 Sq.Yd</td></tr>
+                <tr><th>Additional area (balcony / verandah)</th><td>14.00 Sq.Yd</td></tr>
+                <tr class="total"><th>Total carpet area</th><td>100.51 Sq.Yd</td></tr>
+              </table>
+              <div class="plan-thumb" data-lightbox><img src="../assets/images/projects/highgrove/plan-studio-1-2bhk.jpg" alt="Arvind Highgrove — 1 BHK floor plan" loading="lazy" data-fallback /><span><strong>View floor plan</strong>Click to enlarge the 1 BHK plan</span></div>
+              <div class="hero-actions">
+                <a href="#enquire" class="btn btn-primary">Get price &amp; availability</a>
+                <button type="button" class="btn btn-outline" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </div>
+          <div class="tab-panel" data-panel="2bhk" role="tabpanel">
+            <div class="tp-media" data-lightbox><img src="../assets/images/projects/highgrove/villa-2bhk.jpg" alt="Arvind Highgrove — 2 BHK villa elevation" loading="lazy" data-fallback /></div>
+            <div class="tp-info">
+              <h3>2 BHK Villa</h3>
+              <p class="tp-sub">Single-storey · ground floor</p>
+              <p>A spacious single-storey 2 BHK — living and dining, kitchen, master bedroom, second bedroom and verandahs on two sides.</p>
+              <table class="area-table">
+                <tr><th>RERA carpet area</th><td>136.21 Sq.Yd</td></tr>
+                <tr><th>Additional area (balcony / verandah)</th><td>30.45 Sq.Yd</td></tr>
+                <tr class="total"><th>Total carpet area</th><td>166.66 Sq.Yd</td></tr>
+              </table>
+              <div class="plan-thumb" data-lightbox><img src="../assets/images/projects/highgrove/plan-studio-1-2bhk.jpg" alt="Arvind Highgrove — 2 BHK floor plan" loading="lazy" data-fallback /><span><strong>View floor plan</strong>Click to enlarge the 2 BHK plan</span></div>
+              <div class="hero-actions">
+                <a href="#enquire" class="btn btn-primary">Get price &amp; availability</a>
+                <button type="button" class="btn btn-outline" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </div>
+          <div class="tab-panel" data-panel="3bhk" role="tabpanel">
+            <div class="tp-media" data-lightbox><img src="../assets/images/projects/highgrove/villa-3bhk.jpg" alt="Arvind Highgrove — 3 BHK villa elevation" loading="lazy" data-fallback /></div>
+            <div class="tp-info">
+              <h3>3 BHK Villa</h3>
+              <p class="tp-sub">Ground + first floor + terrace</p>
+              <p>A two-storey 3 BHK with living, dining and a bedroom on the ground floor, two bedrooms with a dress area upstairs, and an open terrace.</p>
+              <table class="area-table">
+                <tr><th>RERA carpet area</th><td>181.28 Sq.Yd</td></tr>
+                <tr><th>Additional area (balcony / verandah)</th><td>24.11 Sq.Yd</td></tr>
+                <tr class="total"><th>Total carpet area</th><td>205.39 Sq.Yd</td></tr>
+              </table>
+              <div class="plan-thumb" data-lightbox><img src="../assets/images/projects/highgrove/plan-3bhk.jpg" alt="Arvind Highgrove — 3 BHK floor plan" loading="lazy" data-fallback /><span><strong>View floor plan</strong>Click to enlarge the 3 BHK plan</span></div>
+              <div class="hero-actions">
+                <a href="#enquire" class="btn btn-primary">Get price &amp; availability</a>
+                <button type="button" class="btn btn-outline" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </div>
+          <div class="tab-panel" data-panel="4bhk" role="tabpanel">
+            <div class="tp-media" data-lightbox><img src="../assets/images/projects/highgrove/villa-4bhk.jpg" alt="Arvind Highgrove — 4 BHK villa elevation" loading="lazy" data-fallback /></div>
+            <div class="tp-info">
+              <h3>4 BHK Villa</h3>
+              <p class="tp-sub">Ground + first floor</p>
+              <p>The largest two-storey villa — living, dining, kitchen and two bedrooms below; two more bedrooms, a balcony and an open terrace above.</p>
+              <table class="area-table">
+                <tr><th>RERA carpet area</th><td>218.64 Sq.Yd</td></tr>
+                <tr><th>Additional area (balcony / verandah)</th><td>38.33 Sq.Yd</td></tr>
+                <tr class="total"><th>Total carpet area</th><td>256.98 Sq.Yd</td></tr>
+              </table>
+              <div class="plan-thumb" data-lightbox><img src="../assets/images/projects/highgrove/plan-4bhk.jpg" alt="Arvind Highgrove — 4 BHK floor plan" loading="lazy" data-fallback /><span><strong>View floor plan</strong>Click to enlarge the 4 BHK plan</span></div>
+              <div class="hero-actions">
+                <a href="#enquire" class="btn btn-primary">Get price &amp; availability</a>
+                <button type="button" class="btn btn-outline" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="note">Room dimensions exclude plaster, tile cladding and skirting. Balcony &amp; verandah areas are not part of the RERA carpet area and are shown as additional area. Interiors and fit-outs are not part of the standard offering.</p>
+      </div>
+    </section>
+    <!-- ============================ AMENITIES ============================ -->
+    <section class="section" id="amenities">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label" data-animate="fade-up">Amenities</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Weekends will <em>never be the same</em></h2>
+          <p class="section-desc" data-animate="fade-up" data-delay="0.1">Sport, wellness, dining and nature — everything for a worry-free weekend.</p>
+        </div>
+        <div class="am-filters" data-filter-group="#am-grid" data-animate="fade-up"><button type="button" class="filter-btn active" data-filter="all">All</button><button type="button" class="filter-btn" data-filter="sports">Sports</button><button type="button" class="filter-btn" data-filter="wellness">Wellness</button><button type="button" class="filter-btn" data-filter="leisure">Leisure</button><button type="button" class="filter-btn" data-filter="nature">Nature</button></div>
+        <ul class="amenity-grid" id="am-grid" data-animate="stagger" data-stagger="0.025">
+          <li data-cat="sports">Executive golf*</li>
+          <li data-cat="sports leisure">Swimming pool</li>
+          <li data-cat="sports">Net cricket</li>
+          <li data-cat="sports">Tennis court</li>
+          <li data-cat="sports">Squash court</li>
+          <li data-cat="sports wellness">Gymnasium</li>
+          <li data-cat="wellness">Spa</li>
+          <li data-cat="wellness">Steam &amp; sauna</li>
+          <li data-cat="leisure">40,000+ sq ft clubhouse*</li>
+          <li data-cat="leisure">Restaurant</li>
+          <li data-cat="leisure">Kids zone</li>
+          <li data-cat="leisure">Indoor games</li>
+          <li data-cat="sports">Outdoor games</li>
+          <li data-cat="nature">3-acre water-lily pond</li>
+          <li data-cat="nature">Migratory bird watching</li>
+          <li data-cat="nature">Landscaped greens</li>
         </ul>
-        <p class="fineprint" style="margin-top:22px;font-size:.82rem;opacity:.55;line-height:1.6">The Golf Course and Club (“Highgrove Club”) is / will be a private club owned by an independent entity and is not a part of the Project. Images produced here are indicative and subject to variation.</p>
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section class="section" style="padding-top:0">
+    <!-- ============================ GALLERY ============================ -->
+    <section class="section section--alt" id="gallery">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-animate="fade-up">Gallery</span>
-          <h2 class="h-lg" data-animate="clip-reveal" data-split>A closer look</h2>
+          <span class="section-label" data-animate="fade-up">Gallery</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">A closer <em>look</em></h2>
+          <div class="slider-nav" style="margin-top:18px"><button type="button" class="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6l6 6"/></svg></button><button type="button" class="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></button></div>
         </div>
-        <div class="gallery-grid cols-3" data-lightbox data-animate="stagger" data-stagger="0.06">
-          <figure><img src="../assets/images/projects/highgrove/gallery-4.jpg" alt="Arvind Highgrove — swimming pool" data-fallback /></figure>
-          <figure><img src="../assets/images/projects/highgrove/banner.jpg" alt="Arvind Highgrove — clubhouse & pool" data-fallback /></figure>
-          <figure><img src="../assets/images/projects/highgrove/gallery-3.jpg" alt="Arvind Highgrove — clubhouse at dusk" data-fallback /></figure>
+        <div class="swiper gallery-swiper" data-lightbox>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../assets/images/projects/highgrove/golf-club.jpg" alt="Arvind Highgrove — gallery image 1" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/highgrove/club-sunset.jpg" alt="Arvind Highgrove — gallery image 2" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/highgrove/club-pool.jpg" alt="Arvind Highgrove — gallery image 3" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/highgrove/club-dusk.jpg" alt="Arvind Highgrove — gallery image 4" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/highgrove/lily-pond.jpg" alt="Arvind Highgrove — gallery image 5" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/highgrove/villa-studio.jpg" alt="Arvind Highgrove — gallery image 6" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/highgrove/villa-2bhk.jpg" alt="Arvind Highgrove — gallery image 7" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/highgrove/villa-3bhk.jpg" alt="Arvind Highgrove — gallery image 8" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/highgrove/villa-4bhk.jpg" alt="Arvind Highgrove — gallery image 9" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/highgrove/gallery-6.jpg" alt="Arvind Highgrove — gallery image 10" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/highgrove/flamingos.jpg" alt="Arvind Highgrove — gallery image 11" loading="lazy" data-fallback /></div>
+          </div>
         </div>
+        <p class="note">Images are artist's impressions or representative images.</p>
       </div>
     </section>
 
-    <!-- LOCATION -->
-    <section class="section" style="padding-top:0">
+    <!-- ============================ LOCATION ============================ -->
+    <section class="section" id="location">
       <div class="container">
-        <div class="overview-grid">
-          <h2 class="ov-label" data-animate="fade-up">Cradled in green, connected to the city</h2>
-          <div class="ov-copy" data-animate="fade-up" data-delay="0.05">
-            <p>Arvind Highgrove sits at Moti Devti – Moraiya Road, Moti Devti Village, off Kolat Road from Sanand Bypass Road — close to Sanand and the growing commercial hubs along the Ahmedabad–Sanand corridor, yet far enough to feel a world away.</p>
-            <p>Sanand — 5 km · Gulmohar Greens — 5.5 km · Changodar Industrial Estate — 7 km · Shantipura Circle — 14 km · Decathlon — 15 km · YMCA Club — 17 km · Iskcon Circle, SG Highway — 19 km · Karnavati Club — 19 km · Shalby Multispeciality Hospital — 19 km · Zydus Hospital — 22 km · Thaltej Chowk — 24 km · Nalsarovar Bird Sanctuary — 40 km.</p>
-            <p style="margin-top:18px;opacity:.7">A venture by Arvind SmartSpaces — part of the USD 2 billion Lalbhai Group — developed with foresight and great attention to detail.</p>
+        <div class="section-head">
+          <span class="section-label" data-animate="fade-up">Location</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Close to the city, <em>closer to nature</em></h2>
+          <p class="section-desc" data-animate="fade-up" data-delay="0.1">On the Moti Devti – Moraiya Road, near Sanand and the Changodar industrial belt, with easy access to SG Highway and the city's west.</p>
+        </div>
+        <div class="loc-wrap">
+          <div>
+            <div class="dist-list" data-animate="stagger" data-stagger="0.05">
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l6 -3l6 3l6 -3v13l-6 3l-6 -3l-6 3v-13"/><path d="M9 4v13"/><path d="M15 7v13"/></svg></span><div><strong>5 km</strong><span>Sanand</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 18v-15l7 4l-7 4"/><path d="M9 17.67c-.62 .36 -1 .82 -1 1.33c0 1.1 1.8 2 4 2s4 -.9 4 -2c0 -.5 -.38 -.97 -1 -1.33"/></svg></span><div><strong>5.5 km</strong><span>Gulmohar Greens</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21c1.147 -4.02 1.983 -8.027 2 -12h6c.017 3.973 .853 7.98 2 12"/><path d="M12.5 13h4.5c.025 2.612 .894 5.296 2 8"/><path d="M9 5a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1"/><path d="M3 21l19 0"/></svg></span><div><strong>7 km</strong><span>Changodar Industrial Estate</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19l4 -14"/><path d="M16 5l4 14"/><path d="M12 8v-2"/><path d="M12 13v-2"/><path d="M12 18v-2"/></svg></span><div><strong>14 km</strong><span>Shantipura Circle</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z"/><path d="M9 11v-5a3 3 0 0 1 6 0v5"/></svg></span><div><strong>15 km</strong><span>Decathlon</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/></svg></span><div><strong>17 km</strong><span>YMCA Club</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21v-7h14v7"/><path d="M10 21v-3a2 2 0 0 1 4 0v3"/><path d="M7 14c0 -3.5 2.2 -6.5 5 -8c2.8 1.5 5 4.5 5 8"/><path d="M12 6v-3l3 1l-3 1"/></svg></span><div><strong>19 km</strong><span>ISKCON Circle, SG Highway</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l18 0"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"/><path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/><path d="M10 9l4 0"/><path d="M12 7l0 4"/></svg></span><div><strong>19 km</strong><span>Shalby Multispeciality Hospital</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l18 0"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"/><path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/><path d="M10 9l4 0"/><path d="M12 7l0 4"/></svg></span><div><strong>22 km</strong><span>Zydus Hospital</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19l4 -14"/><path d="M16 5l4 14"/><path d="M12 8v-2"/><path d="M12 13v-2"/><path d="M12 18v-2"/></svg></span><div><strong>24 km</strong><span>Thaltej Chowk</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h.01"/><path d="M3.4 18h7.6a7 7 0 0 0 7 -7v-4a3 3 0 0 0 -5.8 -1.1l-7.8 12.1"/><path d="M18 7l3 .5l-3 .5"/><path d="M10 18v3"/><path d="M14 17.75v3.25"/><path d="M7 18a6 6 0 0 0 3.84 -10.61"/></svg></span><div><strong>40 km</strong><span>Nalsarovar Bird Sanctuary</span></div></div>
+            </div>
+            <div class="loc-address"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg><span>Arvind Highgrove, Moti Devti – Moraiya Road, Moti Devti Village, Ahmedabad<br /><a href="https://www.google.com/maps/dir/?api=1&destination=Arvind%20Highgrove%2C%20Moti%20Devti%2C%20Ahmedabad" target="_blank" rel="noopener">Get directions →</a></span></div>
+          </div>
+          <div class="loc-map" data-animate="fade-up"><iframe src="https://www.google.com/maps?q=Arvind%20Highgrove%2C%20Moti%20Devti%2C%20Ahmedabad&output=embed" title="Arvind Highgrove location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+        </div>
+        <p class="note">Distances and travel times are approximate and indicative; map not to scale.</p>
+      </div>
+    </section>
+
+    <!-- ============================ BROCHURE CTA ============================ -->
+    <section class="section" style="padding-bottom:0">
+      <div class="container">
+        <div class="cta-band" data-animate="fade-up">
+          <div>
+            <h3>Get the complete <em>Arvind Highgrove</em> brochure</h3>
+            <p>Master plan, specifications, amenities and more — download it instantly.</p>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn btn-primary" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Download Brochure</button>
+            <a href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20Highgrove.%20Please%20share%20details." class="btn btn-ghost" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ENQUIRE CTA -->
-    <section class="cta-band section">
+    <!-- ============================ ENQUIRE ============================ -->
+    <section class="section" id="enquire">
       <div class="container">
-        <span class="eyebrow" data-animate="fade-up">Register your interest</span>
-        <h2 class="h-xl" data-animate="fade-up" data-delay="0.05" style="margin-top:16px">Schedule a private visit to Arvind Highgrove</h2>
-        <div style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap" data-animate="fade-up" data-delay="0.1">
-          <a href="../contact.html?project=highgrove" class="btn btn-primary">Enquire Now <span class="arrow">→</span></a>
-          <a href="../assets/brochures/arvind-highgrove.pdf" class="btn btn-ghost" download data-brochure>Download Brochure <span class="arrow">↓</span></a>
+        <div class="contact-wrap">
+          <div class="contact-left" data-animate="fade-up">
+            <span class="section-label">Get in touch</span>
+            <h2 class="section-title">Visit <em>Arvind Highgrove</em></h2>
+            <p class="lead">Book a free, no-obligation site visit. Our relationship team will call you back to fix a time, answer your questions and share the latest availability.</p>
+            <div class="contact-lines">
+            <a class="contact-line" href="tel:+919712131519"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg></span><span><small>Call us</small><b>+91 97121 31519</b></span></a>
+            <a class="contact-line" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20SmartSpaces%20projects." target="_blank" rel="noopener"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span><small>WhatsApp</small><b>Chat with our team</b></span></a>
+            <a class="contact-line" href="#" data-brochure><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg></span><span><small>Brochures</small><b>Download any project brochure</b></span></a>
+          </div>
+          </div>
+          <div data-animate="fade-up" data-delay="0.1">
+          <form class="form-card" data-enquiry data-project="highgrove" novalidate>
+            <h3>Book a <em>free site visit</em></h3>
+            <p class="form-sub">Our team will call you back shortly. Free pick-up can be arranged from select Ahmedabad locations.</p>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-name">Full name *</label>
+                <input type="text" id="f-name" name="name" autocomplete="name" placeholder="Your name" required />
+                <span class="err">Please enter your name.</span>
+              </div>
+              <div class="field">
+                <label for="f-phone">Mobile number *</label>
+                <input type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="10-digit mobile" required />
+                <span class="err">Please enter a valid mobile number.</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@email.com" />
+                <span class="err">Please enter a valid email.</span>
+              </div>
+              <div class="field">
+                <label for="f-project">Interested in *</label>
+                <select id="f-project" name="project" required>
+                  <option value="">Select a project</option><option value="aqua-city">Arvind Aqua City</option><option value="everland">Arvind Everland</option><option value="forreste">Arvind Forreste</option><option value="uplands">Arvind Uplands</option><option value="highgrove" selected>Arvind Highgrove</option><option value="alcove">Arvind Alcove</option><option value="smartpark">Arvind SmartPark</option>
+                </select>
+                <span class="err">Please choose a project.</span>
+              </div>
+            </div>
+            <label class="toggle-row" for="f-schedule">Schedule a site visit
+              <span class="switch"><input type="checkbox" id="f-schedule" data-schedule-toggle /><i></i></span>
+            </label>
+            <div class="form-row schedule-fields">
+              <div class="field">
+                <label for="f-date">Preferred date</label>
+                <input type="date" id="f-date" name="visit_date" />
+              </div>
+              <div class="field">
+                <label for="f-time">Preferred time</label>
+                <input type="time" id="f-time" name="visit_time" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-message">Message (optional)</label>
+              <textarea id="f-message" name="message" rows="3" placeholder="Plot / villa size, budget or any questions…"></textarea>
+            </div>
+            <label class="consent">
+              <input type="checkbox" name="consent" required />
+              <span>I authorise Arvind SmartSpaces &amp; its authorised channel partner to contact me via call, SMS, email or WhatsApp.</span>
+              <span class="err">Please tick to continue.</span>
+            </label>
+            <button type="submit" class="btn btn-primary">Book Free Site Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></button>
+          </form>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PREV / NEXT -->
-    <div class="container">
-      <nav class="pn-nav">
-        <a href="arvind-uplands.html" class="prev"><span class="label">Previous</span><span class="name">← Arvind Uplands</span></a>
-        <a href="arvind-alcove.html" class="next"><span class="label">Next</span><span class="name">Arvind Alcove →</span></a>
-      </nav>
-    </div>
+    <!-- ============================ MORE PROJECTS ============================ -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label" data-animate="fade-up">Explore more</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Other Arvind <em>projects</em></h2>
+        </div>
+        <div class="projects-grid" data-animate="stagger" data-stagger="0.08">
+          <article class="project-card">
+            <a class="pc-media" href="../projects/arvind-alcove.html"><span class="pc-tag pc-tag--blue">Sold Out</span><img src="../assets/images/projects/alcove/gallery-4.jpg" alt="Arvind Alcove" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Shanawad, Ahmedabad</span>
+              <h3 class="pc-name"><a href="../projects/arvind-alcove.html">Arvind Alcove</a></h3>
+              <p class="pc-type">A completed, sold-out weekend villa community across 24 acres.</p>
+              <ul class="pc-facts"><li>24 acres</li><li>12,000 sq ft club</li><li>Completed</li></ul>
+              <div class="pc-actions">
+                <a href="../projects/arvind-alcove.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="alcove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <a class="pc-media" href="../projects/arvind-smartpark.html"><span class="pc-tag">Industrial</span><img src="../assets/images/projects/smartpark/gallery-3.jpg" alt="Arvind SmartPark" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Kalyangadh, Ahmedabad</span>
+              <h3 class="pc-name"><a href="../projects/arvind-smartpark.html">Arvind SmartPark</a></h3>
+              <p class="pc-type">A 440-acre Grade-A industrial park with direct NH-47 frontage and a ZLD CETP.</p>
+              <ul class="pc-facts"><li>440 acres</li><li>NH-47 frontage</li><li>ZLD CETP</li></ul>
+              <div class="pc-actions">
+                <a href="../projects/arvind-smartpark.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="smartpark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <a class="pc-media" href="../projects/arvind-aqua-city.html"><span class="pc-tag">New Launch</span><img src="../assets/images/projects/aqua-city/lake.jpg" alt="Arvind Aqua City" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Kalyangadh, Ahmedabad</span>
+              <h3 class="pc-name"><a href="../projects/arvind-aqua-city.html">Arvind Aqua City</a></h3>
+              <p class="pc-type">A 500+ acre lakeside township — water villas, plots and an 18-hole golf course.</p>
+              <ul class="pc-facts"><li>500+ acres</li><li>3 islands</li><li>18-hole golf</li></ul>
+              <div class="pc-actions">
+                <a href="../projects/arvind-aqua-city.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="aqua-city"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <nav class="pn-nav mt-l" aria-label="Previous and next project">
+          <a href="arvind-uplands.html" class="prev"><small>← Previous project</small><b>Arvind Uplands</b></a>
+          <a href="arvind-alcove.html" class="next"><small>Next project →</small><b>Arvind Alcove</b></a>
+        </nav>
+      </div>
+    </section>
   </main>
 
+  <!-- ============================ FOOTER ============================ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-col footer-brand">
-          <a href="../index.html" class="brand"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
-          <p>Crafting premium residential, plotted and industrial spaces across India.</p>
-          <div class="socials"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="LinkedIn">IN</a><a href="#" aria-label="Facebook">FB</a></div>
-        </div>
-        <div class="footer-col">
-          <h5>Explore</h5>
-          <a href="../index.html">Home</a><a href="../projects.html">Projects</a><a href="../awards.html">Awards</a><a href="../contact.html">Contact</a>
+        <div class="footer-brand">
+          <a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="logo-img" /></a>
+          <p>Every Arvind SmartSpaces address in Ahmedabad — lakeside, forest, golf and industrial — presented by an authorised channel partner, from first site visit to final registration.</p>
+          <a class="footer-cp" href="https://www.dakshrealtors.com/" target="_blank" rel="noopener">
+            <img src="../assets/channel-partner-logo.jpg" alt="Daksh Realtors" />
+            <span><small>Authorised Channel Partner</small><b>Daksh Realtors</b></span>
+          </a>
         </div>
         <div class="footer-col">
           <h5>Projects</h5>
-          <a href="arvind-aqua-city.html">Aqua City</a><a href="arvind-everland.html">Everland</a><a href="arvind-forreste.html">Forreste</a><a href="arvind-uplands.html">Uplands</a><a href="arvind-highgrove.html">Highgrove</a><a href="arvind-alcove.html">Alcove</a><a href="arvind-smartpark.html">SmartPark</a>
+          <a href="../projects/arvind-aqua-city.html">Arvind Aqua City</a><a href="../projects/arvind-everland.html">Arvind Everland</a><a href="../projects/arvind-forreste.html">Arvind Forreste</a><a href="../projects/arvind-uplands.html">Arvind Uplands</a><a href="../projects/arvind-highgrove.html">Arvind Highgrove</a><a href="../projects/arvind-alcove.html">Arvind Alcove</a><a href="../projects/arvind-smartpark.html">Arvind SmartPark</a>
+        </div>
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <a href="../index.html">Home</a><a href="../projects.html">All Projects</a><a href="../awards.html">Awards</a><a href="../index.html#about">About Us</a><a href="../contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h5>Get in touch</h5>
-          <a href="tel:+917971367022">+91 7971 367 022</a><a href="mailto:sales@arvindsmartspaces.com">sales@arvindsmartspaces.com</a><a href="../contact.html">Head Office, C.G. Road, Ahmedabad</a>
+          <a href="tel:+919712131519">+91 97121 31519</a>
+          <a href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20SmartSpaces%20projects." target="_blank" rel="noopener">WhatsApp us</a>
+          <a href="../contact.html#enquire">Book a free site visit</a>
+          <a href="#" data-brochure>Download a brochure</a>
         </div>
       </div>
-      <div class="footer-bottom"><span>© <span data-year>2026</span> Arvind SmartSpaces. All rights reserved.</span><span>Designed with <span aria-label="love" style="color:#e0556a">♥</span> by <a href="https://ampli5.digital/" target="_blank" rel="noopener" style="color:var(--accent)">Ampli5 Digital</a></span></div>
+      <p class="footer-disclaimer">Disclaimer: This website is maintained by Daksh Realtors, an authorised channel partner of Arvind SmartSpaces Ltd., for information purposes only. It is not an offer, invitation or contract. All images are artist's impressions or representative images; layouts, areas, amenities, specifications and connectivity details are indicative and subject to change, approvals and the terms of the agreement for sale. Travel times are approximate. Please refer to the official project documents and RERA registrations before making any decision.</p>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Arvind SmartSpaces Ltd. All rights reserved.</span>
+        <span>Designed with <span aria-label="love" style="color:#e0556a">♥</span> by <a href="https://ampli5.digital/" target="_blank" rel="noopener">Ampli5 Digital</a></span>
+      </div>
     </div>
   </footer>
 
+  <!-- Floating actions -->
+  <a class="wa-float" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20Highgrove.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <button type="button" class="brochure-float" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+  <nav class="sticky-bar" aria-label="Quick actions">
+    <a href="tel:+919712131519"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg> Call</a>
+    <a class="sb-wa" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20Highgrove.%20Please%20share%20details." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+    <button type="button" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+    <a class="sb-visit" href="#enquire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M11 15h1"/><path d="M12 15v3"/></svg> Site Visit</a>
+  </nav>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="../js/animations.js"></script>
   <script src="../js/main.js"></script>

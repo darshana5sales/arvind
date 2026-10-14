@@ -3,244 +3,485 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arvind SmartSpaces — Crafting Premium Living</title>
-  <meta name="description" content="Arvind SmartSpaces — a curated portfolio of premium residential and plotted developments." />
+  <title>Arvind SmartSpaces Projects in Ahmedabad — Villas, Plots &amp; Industrial Parks | Daksh Realtors</title>
+  <meta name="description" content="Explore every Arvind SmartSpaces project in Ahmedabad — Aqua City, Everland, Forreste, Uplands, Highgrove, Alcove and SmartPark — with brochures, floor plans, amenities, locations and free site visits from authorised channel partner Daksh Realtors." />
+  <meta property="og:title" content="Arvind SmartSpaces Projects in Ahmedabad — Villas, Plots &amp; Industrial Parks | Daksh Realtors" />
+  <meta property="og:description" content="Explore every Arvind SmartSpaces project in Ahmedabad — Aqua City, Everland, Forreste, Uplands, Highgrove, Alcove and SmartPark — with brochures, floor plans, amenities, locations and free site visits from authorised channel partner Daksh Realtors." />
+  <meta name="theme-color" content="#0B3D6B" />
+  <link rel="icon" href="assets/favicon.png" />
 
   <!-- Add .js early so animated elements start hidden (prevents flash). -->
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- Libraries (CDN) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- ============================ HEADER ============================ -->
   <header class="site-header">
-    <div class="container nav">
-      <a href="index.html" class="brand"><img src="assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="index.html" class="active">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="awards.html">Awards</a>
-        <a href="contact.html">Contact</a>
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Arvind SmartSpaces — home"><img src="assets/logo.png" alt="Arvind SmartSpaces" class="logo-img" /></a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html" class="nav-link active">Home</a>
+        <div class="nav-dd">
+          <a href="projects.html" class="nav-link">Projects <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></a>
+          <div class="nav-dd-menu">
+              <a href="projects/arvind-aqua-city.html"><strong>Arvind Aqua City</strong><span>Lakeside villas &amp; plots · Kalyangadh</span></a>
+              <a href="projects/arvind-everland.html"><strong>Arvind Everland</strong><span>Premium plots · Mankol, Sanand</span></a>
+              <a href="projects/arvind-forreste.html"><strong>Arvind Forreste</strong><span>Premium weekend villas · Jethlaj, Rancharda</span></a>
+              <a href="projects/arvind-uplands.html"><strong>Arvind Uplands</strong><span>Ultra-luxury golf villas · Nasmed, Rancharda</span></a>
+              <a href="projects/arvind-highgrove.html"><strong>Arvind Highgrove</strong><span>Premium golf villas &amp; plots · Moti Devti</span></a>
+              <a href="projects/arvind-alcove.html"><strong>Arvind Alcove</strong><span>Premium weekend villas · Shanawad</span></a>
+              <a href="projects/arvind-smartpark.html"><strong>Arvind SmartPark</strong><span>Grade-A industrial park · Kalyangadh</span></a>
+              <a href="projects.html" class="dd-all">View all projects &amp; compare →</a>
+          </div>
+        </div>
+        <a href="awards.html" class="nav-link">Awards</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <button type="button" class="btn btn-ghost nav-mobile-only" data-brochure><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Download Brochure</button>
+        <a href="contact.html#enquire" class="btn btn-primary nav-mobile-only">Book Free Site Visit</a>
       </nav>
       <div class="nav-actions">
-        <a href="contact.html" class="btn btn-primary">Enquire Now</a>
-        <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+        <button type="button" class="nav-brochure" data-brochure><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+        <a href="contact.html#enquire" class="nav-cta">Book Free Site Visit</a>
+        <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <main>
     <!-- ============================ HERO SLIDER ============================ -->
-    <section class="hero">
+    <section class="hero" aria-label="Featured projects">
+      <h1 class="sr-only">Arvind SmartSpaces projects in Ahmedabad</h1>
       <div class="swiper">
         <div class="swiper-wrapper">
-
-          <div class="swiper-slide hero-slide">
-            <div class="hero-media"><img src="assets/images/projects/aqua-city/banner.jpg" alt="Arvind Aqua City" data-fallback /></div>
-            <div class="container hero-content">
-              <span class="eyebrow" data-slide-anim>New Launch · Ahmedabad</span>
-              <h1 class="display hero-title" data-slide-anim>Arvind Aqua City</h1>
-              <div class="hero-meta" data-slide-anim><span>Waterfront Living</span><span>Plotted Development</span></div>
-              <div class="hero-cta" data-slide-anim><a href="projects/arvind-aqua-city.html" class="btn btn-primary">View Project <span class="arrow">→</span></a></div>
+          <div class="swiper-slide">
+            <div class="hero-media"><img src="assets/images/projects/aqua-city/lake.jpg" alt="Arvind Aqua City" data-fallback /></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <div class="container hero-inner">
+                <div class="hero-text">
+                  <span class="hero-badge" data-slide-anim><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Arvind Aqua City · Kalyangadh</span>
+                  <h2 class="hero-headline" data-slide-anim>Three islands. <em>One city.</em></h2>
+                  <p class="hero-sub" data-slide-anim>A 500+ acre integrated township inspired by water — a grand central lake, three enchanting islands, exquisite water villas and a world-class golf course. Resort living, but everyday.</p>
+                  <div class="hero-actions" data-slide-anim>
+                    <a href="projects/arvind-aqua-city.html" class="btn btn-primary">Explore Aqua City <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+                    <button type="button" class="btn btn-ghost" data-brochure data-project="aqua-city"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+                  </div>
+                </div>
+                <div class="hero-stats-card" data-slide-anim>
+            <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Acre integrated township</span></div>
+            <div class="stat"><span class="stat-num">3</span><span class="stat-label">Islands — Leisure, Holistay &amp; Nirvana</span></div>
+            <div class="stat"><span class="stat-num">18-Hole</span><span class="stat-label">Golf course across 38 acres</span></div>
+            <div class="stat"><span class="stat-num">11</span><span class="stat-label">Temples at Kashi Ghat</span></div>
+          </div>
+              </div>
             </div>
           </div>
-
-          <div class="swiper-slide hero-slide">
-            <div class="hero-media"><img src="assets/images/projects/forreste/banner.jpg" alt="Arvind Forreste" data-fallback /></div>
-            <div class="container hero-content">
-              <span class="eyebrow" data-slide-anim>Ahmedabad</span>
-              <h1 class="display hero-title" data-slide-anim>Arvind Forreste</h1>
-              <div class="hero-meta" data-slide-anim><span>Forest-Edge Villas</span><span>Limited Residences</span></div>
-              <div class="hero-cta" data-slide-anim><a href="projects/arvind-forreste.html" class="btn btn-primary">View Project <span class="arrow">→</span></a></div>
+          <div class="swiper-slide">
+            <div class="hero-media"><img src="assets/images/projects/forreste/gallery-2.jpg" alt="Arvind Forreste" data-fallback /></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <div class="container hero-inner">
+                <div class="hero-text">
+                  <span class="hero-badge" data-slide-anim><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Arvind Forreste · Jethlaj, Rancharda</span>
+                  <h2 class="hero-headline" data-slide-anim>The forest living, <em>by Arvind</em></h2>
+                  <p class="hero-sub" data-slide-anim>An exclusive premium villa scheme that endeavours to be a tropical forest — the perfect weekend nature retreat, close to the Thol Bird Sanctuary.</p>
+                  <div class="hero-actions" data-slide-anim>
+                    <a href="projects/arvind-forreste.html" class="btn btn-primary">Explore Forreste <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+                    <button type="button" class="btn btn-ghost" data-brochure data-project="forreste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+                  </div>
+                </div>
+                <div class="hero-stats-card" data-slide-anim>
+            <div class="stat"><span class="stat-num">Forest</span><span class="stat-label">Themed premium villa scheme</span></div>
+            <div class="stat"><span class="stat-num">25+</span><span class="stat-label">Indoor &amp; outdoor club amenities</span></div>
+            <div class="stat"><span class="stat-num">11 min</span><span class="stat-label">to Thol Lake (5.5 km)</span></div>
+            <div class="stat"><span class="stat-num">20 min</span><span class="stat-label">to SP Ring Road (14 km)</span></div>
+          </div>
+              </div>
             </div>
           </div>
-
-          <div class="swiper-slide hero-slide">
-            <div class="hero-media"><img src="assets/images/projects/uplands/banner.jpg" alt="Arvind Uplands" data-fallback /></div>
-            <div class="container hero-content">
-              <span class="eyebrow" data-slide-anim>Ahmedabad</span>
-              <h1 class="display hero-title" data-slide-anim>Arvind Uplands</h1>
-              <div class="hero-meta" data-slide-anim><span>Luxury Villas</span><span>9-Hole Golf Course</span></div>
-              <div class="hero-cta" data-slide-anim><a href="projects/arvind-uplands.html" class="btn btn-primary">View Project <span class="arrow">→</span></a></div>
+          <div class="swiper-slide">
+            <div class="hero-media"><img src="assets/images/projects/uplands/golf-aerial.jpg" alt="Arvind Uplands" data-fallback /></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <div class="container hero-inner">
+                <div class="hero-text">
+                  <span class="hero-badge" data-slide-anim><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Arvind Uplands · Nasmed, Rancharda</span>
+                  <h2 class="hero-headline" data-slide-anim>Live <em>the Uplands life</em></h2>
+                  <p class="hero-sub" data-slide-anim>Luxurious villas set in clean, green, open spaces around a 9-hole executive golf course — designed by Woods Bagot, Hong Kong, and served by a premium golf &amp; lifestyle club.</p>
+                  <div class="hero-actions" data-slide-anim>
+                    <a href="projects/arvind-uplands.html" class="btn btn-primary">Explore Uplands <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+                    <button type="button" class="btn btn-ghost" data-brochure data-project="uplands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+                  </div>
+                </div>
+                <div class="hero-stats-card" data-slide-anim>
+            <div class="stat"><span class="stat-num">9-Hole</span><span class="stat-label">Executive golf course</span></div>
+            <div class="stat"><span class="stat-num">5</span><span class="stat-label">Villa designs by Woods Bagot</span></div>
+            <div class="stat"><span class="stat-num">13</span><span class="stat-label">Five-star suites at the club</span></div>
+            <div class="stat"><span class="stat-num">500</span><span class="stat-label">Guest banquet hall</span></div>
+          </div>
+              </div>
             </div>
           </div>
-
-          <div class="swiper-slide hero-slide">
-            <div class="hero-media"><img src="assets/images/projects/smartpark/banner.jpg" alt="Arvind SmartPark" data-fallback /></div>
-            <div class="container hero-content">
-              <span class="eyebrow" data-slide-anim>Ahmedabad</span>
-              <h1 class="display hero-title" data-slide-anim>Arvind SmartPark</h1>
-              <div class="hero-meta" data-slide-anim><span>Industrial & Logistics</span><span>Smart Infrastructure</span></div>
-              <div class="hero-cta" data-slide-anim><a href="projects/arvind-smartpark.html" class="btn btn-primary">View Project <span class="arrow">→</span></a></div>
+          <div class="swiper-slide">
+            <div class="hero-media"><img src="assets/images/projects/highgrove/golf-club.jpg" alt="Arvind Highgrove" data-fallback /></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <div class="container hero-inner">
+                <div class="hero-text">
+                  <span class="hero-badge" data-slide-anim><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Arvind Highgrove · Moti Devti</span>
+                  <h2 class="hero-headline" data-slide-anim>Live <em>the high life</em></h2>
+                  <p class="hero-sub" data-slide-anim>Premium weekend golf villas and plots — close enough to make travelling a breeze, far enough to get away from it all. Executive golf, a lavish clubhouse and Ahmedabad's largest shallow water-lily pond.</p>
+                  <div class="hero-actions" data-slide-anim>
+                    <a href="projects/arvind-highgrove.html" class="btn btn-primary">Explore Highgrove <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+                    <button type="button" class="btn btn-ghost" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+                  </div>
+                </div>
+                <div class="hero-stats-card" data-slide-anim>
+            <div class="stat"><span class="stat-num">3 Acre</span><span class="stat-label">Water-lily pond, 50+ lily varieties</span></div>
+            <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Species of migratory birds</span></div>
+            <div class="stat"><span class="stat-num">40,000+</span><span class="stat-label">Sq ft clubhouse</span></div>
+            <div class="stat"><span class="stat-num">Studio–4BHK</span><span class="stat-label">Villa configurations</span></div>
+          </div>
+              </div>
             </div>
           </div>
-
+          <div class="swiper-slide">
+            <div class="hero-media"><img src="assets/images/projects/everland/clubhouse.jpg" alt="Arvind Everland" data-fallback /></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <div class="container hero-inner">
+                <div class="hero-text">
+                  <span class="hero-badge" data-slide-anim><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Arvind Everland · Mankol, Sanand</span>
+                  <h2 class="hero-headline" data-slide-anim>An address of legacy, <em>yours forever</em></h2>
+                  <p class="hero-sub" data-slide-anim>A thoughtfully planned 151-acre lush green estate, moments from the Nalsarovar Bird Sanctuary — premium plots to craft a weekend home, a forever family nest or a peaceful retreat.</p>
+                  <div class="hero-actions" data-slide-anim>
+                    <a href="projects/arvind-everland.html" class="btn btn-primary">Explore Everland <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+                    <button type="button" class="btn btn-ghost" data-brochure data-project="everland"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+                  </div>
+                </div>
+                <div class="hero-stats-card" data-slide-anim>
+            <div class="stat"><span class="stat-num">151</span><span class="stat-label">Acre lush green estate</span></div>
+            <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Bird species around Nalsarovar</span></div>
+            <div class="stat"><span class="stat-num">Grand</span><span class="stat-label">Clubhouse with resort-style rooms</span></div>
+            <div class="stat"><span class="stat-num">~1 hr</span><span class="stat-label">Drive from Ahmedabad</span></div>
+          </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="hero-media"><img src="assets/images/projects/smartpark/aerial-park.jpg" alt="Arvind SmartPark" data-fallback /></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <div class="container hero-inner">
+                <div class="hero-text">
+                  <span class="hero-badge" data-slide-anim><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Arvind SmartPark · Kalyangadh</span>
+                  <h2 class="hero-headline" data-slide-anim>A 440-acre <em>Grade-A industrial landmark</em></h2>
+                  <p class="hero-sub" data-slide-anim>Plug-and-play industrial plots with direct NH-47 frontage, multimodal connectivity and a Zero Liquid Discharge CETP — positioned for scale, speed and serious success.</p>
+                  <div class="hero-actions" data-slide-anim>
+                    <a href="projects/arvind-smartpark.html" class="btn btn-primary">Explore SmartPark <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+                    <button type="button" class="btn btn-ghost" data-brochure data-project="smartpark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+                  </div>
+                </div>
+                <div class="hero-stats-card" data-slide-anim>
+            <div class="stat"><span class="stat-num">440</span><span class="stat-label">Acre Grade-A industrial park</span></div>
+            <div class="stat"><span class="stat-num">~207</span><span class="stat-label">Acres in Phase 1</span></div>
+            <div class="stat"><span class="stat-num">NH-47</span><span class="stat-label">Direct highway frontage</span></div>
+            <div class="stat"><span class="stat-num">1.5→6 MLD</span><span class="stat-label">CETP with Zero Liquid Discharge</span></div>
+          </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="hero-progress"><span class="hero-count">01 — 04</span><span class="bar"></span></div>
-      <div class="scroll-cue">Scroll</div>
+      <div class="hero-arrows"><button type="button" class="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6l6 6"/></svg></button><button type="button" class="next" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></button></div>
+      <div class="hero-pager" aria-label="Choose slide"></div>
     </section>
 
-    <!-- ============================ INTRO / VALUES ============================ -->
-    <section class="intro section">
+    <!-- ============================ INTRO / WHY US ============================ -->
+    <section class="section" id="intro">
       <div class="container">
-        <p class="eyebrow" data-animate="fade-up">The Arvind Promise</p>
-        <h2 class="intro-statement" data-animate="fade-up" data-delay="0.05">
-          We craft addresses that <em>appreciate</em> in value and in the way they make you feel.
-        </h2>
-
-        <div class="values-grid" data-animate="stagger" data-stagger="0.08">
-          <article class="value" data-n="01">
-            <span class="num">01</span>
-            <div class="value-text">
-              <h4>Excellence in everything, always</h4>
-              <p>Uncompromising craft, from the first sketch to the final handover.</p>
-            </div>
-            <span class="value-line" aria-hidden="true"></span>
-          </article>
-          <article class="value" data-n="02">
-            <span class="num">02</span>
-            <div class="value-text">
-              <h4>New benchmarks in design</h4>
-              <p>Architecture and amenities that raise the standard for the city.</p>
-            </div>
-            <span class="value-line" aria-hidden="true"></span>
-          </article>
-          <article class="value" data-n="03">
-            <span class="num">03</span>
-            <div class="value-text">
-              <h4>Honest, transparent dealings</h4>
-              <p>Clear commitments and fair, straightforward relationships throughout.</p>
-            </div>
-            <span class="value-line" aria-hidden="true"></span>
-          </article>
-          <article class="value" data-n="04">
-            <span class="num">04</span>
-            <div class="value-text">
-              <h4>Delight at every touchpoint</h4>
-              <p>A premium experience that continues long after you move in.</p>
-            </div>
-            <span class="value-line" aria-hidden="true"></span>
-          </article>
+        <div class="section-head center">
+          <span class="section-label" data-animate="fade-up">Arvind SmartSpaces × Daksh Realtors</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Every Arvind address. <em>One trusted partner.</em></h2>
+          <p class="section-desc" data-animate="fade-up" data-delay="0.1">From a 500-acre lakeside township to forest villas, golf homes and a Grade-A industrial park — explore every Arvind SmartSpaces project in Ahmedabad, download brochures and book free site visits with an authorised channel partner.</p>
+        </div>
+        <div class="values" data-animate="stagger" data-stagger="0.08">
+          <div class="info-card"><span class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l6 -3l6 3l6 -3v13l-6 3l-6 -3l-6 3v-13"/><path d="M9 4v13"/><path d="M15 7v13"/></svg></span><h4>Every Arvind project, one place</h4><p>Lakeside, forest, golf and industrial — compare every Arvind SmartSpaces address in Ahmedabad side by side.</p></div>
+          <div class="info-card"><span class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M11 15h1"/><path d="M12 15v3"/></svg></span><h4>Free site visits</h4><p>Visit one project or several in a day. We plan the route, and free pick-up can be arranged from select Ahmedabad locations.</p></div>
+          <div class="info-card"><span class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><path d="M12 11v6"/><path d="M9.5 14.5l2.5 2.5l2.5 -2.5"/></svg></span><h4>Brochures &amp; floor plans, instantly</h4><p>Download any project brochure in seconds, with master plans, specifications and configurations.</p></div>
+          <div class="info-card"><span class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06"/><path d="M15 19l2 2l4 -4"/></svg></span><h4>From visit to registration</h4><p>Transparent guidance at every step — shortlisting, pricing, paperwork and final registration.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ============================ PROJECTS GRID ============================ -->
-    <section class="section" id="projects">
+    <!-- ============================ PROJECTS ============================ -->
+    <section class="section section--alt" id="projects">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-animate="fade-up">Portfolio</span>
-          <h2 class="h-xl" data-animate="clip-reveal" data-split>Signature developments</h2>
+          <span class="section-label" data-animate="fade-up">Our Projects</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Signature <em>developments</em></h2>
+          <p class="section-desc" data-animate="fade-up" data-delay="0.1">Filter by what you're looking for — or open any project for the full details from its brochure.</p>
         </div>
-
-        <!-- Alternating editorial rows: big image one side, name/location the other.
-             To add a project, copy one <article class="project-row"> block. -->
-        <div class="project-rows">
-
-          <article class="project-row">
-            <a class="pr-media" href="projects/arvind-aqua-city.html" data-animate="clip-reveal">
-              <span class="project-tag">New Launch</span>
-              <img src="assets/images/projects/aqua-city/banner.jpg" alt="Arvind Aqua City" data-animate="parallax" data-speed="0.12" data-fallback />
-            </a>
-            <div class="pr-text" data-animate="stagger" data-stagger="0.08">
-              <span class="pr-index">01 — Ahmedabad</span>
-              <h3 class="pr-name">Arvind Aqua City</h3>
-              <a href="projects/arvind-aqua-city.html" class="pr-link link-underline">View Project <span class="arrow">→</span></a>
+        <div class="am-filters" data-filter-group="#home-projects" data-animate="fade-up"><button type="button" class="filter-btn active" data-filter="all">All</button><button type="button" class="filter-btn" data-filter="villas">Villas</button><button type="button" class="filter-btn" data-filter="plots">Plots</button><button type="button" class="filter-btn" data-filter="golf">Golf Living</button><button type="button" class="filter-btn" data-filter="weekend">Weekend Homes</button><button type="button" class="filter-btn" data-filter="industrial">Industrial</button></div>
+        <div class="projects-grid" id="home-projects" data-animate="stagger" data-stagger="0.07">
+          <article class="project-card" data-cat="villas plots golf weekend">
+            <a class="pc-media" href="projects/arvind-aqua-city.html"><span class="pc-tag">New Launch</span><img src="assets/images/projects/aqua-city/lake.jpg" alt="Arvind Aqua City" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Kalyangadh, Ahmedabad</span>
+              <h3 class="pc-name"><a href="projects/arvind-aqua-city.html">Arvind Aqua City</a></h3>
+              <p class="pc-type">A 500+ acre lakeside township — water villas, plots and an 18-hole golf course.</p>
+              <ul class="pc-facts"><li>500+ acres</li><li>3 islands</li><li>18-hole golf</li></ul>
+              <div class="pc-actions">
+                <a href="projects/arvind-aqua-city.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="aqua-city"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
             </div>
           </article>
-
-          <article class="project-row">
-            <a class="pr-media" href="projects/arvind-everland.html" data-animate="clip-reveal">
-              <img src="assets/images/projects/everland/banner.jpg" alt="Arvind Everland" data-animate="parallax" data-speed="0.12" data-fallback />
-            </a>
-            <div class="pr-text" data-animate="stagger" data-stagger="0.08">
-              <span class="pr-index">02 — Ahmedabad</span>
-              <h3 class="pr-name">Arvind Everland</h3>
-              <a href="projects/arvind-everland.html" class="pr-link link-underline">View Project <span class="arrow">→</span></a>
+          <article class="project-card" data-cat="plots weekend">
+            <a class="pc-media" href="projects/arvind-everland.html"><img src="assets/images/projects/everland/clubhouse.jpg" alt="Arvind Everland" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Mankol, Sanand, Ahmedabad</span>
+              <h3 class="pc-name"><a href="projects/arvind-everland.html">Arvind Everland</a></h3>
+              <p class="pc-type">A 151-acre nature-centric plotted estate near the Nalsarovar Bird Sanctuary.</p>
+              <ul class="pc-facts"><li>151 acres</li><li>Premium plots</li><li>Grand clubhouse</li></ul>
+              <div class="pc-actions">
+                <a href="projects/arvind-everland.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="everland"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
             </div>
           </article>
-
-          <article class="project-row">
-            <a class="pr-media" href="projects/arvind-forreste.html" data-animate="clip-reveal">
-              <img src="assets/images/projects/forreste/banner.jpg" alt="Arvind Forreste" data-animate="parallax" data-speed="0.12" data-fallback />
-            </a>
-            <div class="pr-text" data-animate="stagger" data-stagger="0.08">
-              <span class="pr-index">03 — Ahmedabad</span>
-              <h3 class="pr-name">Arvind Forreste</h3>
-              <a href="projects/arvind-forreste.html" class="pr-link link-underline">View Project <span class="arrow">→</span></a>
+          <article class="project-card" data-cat="villas weekend">
+            <a class="pc-media" href="projects/arvind-forreste.html"><img src="assets/images/projects/forreste/gallery-1.jpg" alt="Arvind Forreste" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Jethlaj, Rancharda, Ahmedabad</span>
+              <h3 class="pc-name"><a href="projects/arvind-forreste.html">Arvind Forreste</a></h3>
+              <p class="pc-type">An exclusive premium villa scheme that endeavours to be a tropical forest.</p>
+              <ul class="pc-facts"><li>Forest living</li><li>Club Forreste</li><li>Near Thol Lake</li></ul>
+              <div class="pc-actions">
+                <a href="projects/arvind-forreste.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="forreste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
             </div>
           </article>
-
-          <article class="project-row">
-            <a class="pr-media" href="projects/arvind-uplands.html" data-animate="clip-reveal">
-              <img src="assets/images/projects/uplands/banner.jpg" alt="Arvind Uplands" data-animate="parallax" data-speed="0.12" data-fallback />
-            </a>
-            <div class="pr-text" data-animate="stagger" data-stagger="0.08">
-              <span class="pr-index">04 — Ahmedabad</span>
-              <h3 class="pr-name">Arvind Uplands</h3>
-              <a href="projects/arvind-uplands.html" class="pr-link link-underline">View Project <span class="arrow">→</span></a>
+          <article class="project-card" data-cat="villas golf">
+            <a class="pc-media" href="projects/arvind-uplands.html"><img src="assets/images/projects/uplands/golf-fountain.jpg" alt="Arvind Uplands" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Nasmed, Rancharda, Ahmedabad</span>
+              <h3 class="pc-name"><a href="projects/arvind-uplands.html">Arvind Uplands</a></h3>
+              <p class="pc-type">Woods Bagot-designed villas around a 9-hole executive golf course.</p>
+              <ul class="pc-facts"><li>9-hole golf</li><li>5 villa designs</li><li>Golf Square club</li></ul>
+              <div class="pc-actions">
+                <a href="projects/arvind-uplands.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="uplands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
             </div>
           </article>
-
-          <article class="project-row">
-            <a class="pr-media" href="projects/arvind-highgrove.html" data-animate="clip-reveal">
-              <img src="assets/images/projects/highgrove/banner.jpg" alt="Arvind Highgrove" data-animate="parallax" data-speed="0.12" data-fallback />
-            </a>
-            <div class="pr-text" data-animate="stagger" data-stagger="0.08">
-              <span class="pr-index">05 — Ahmedabad</span>
-              <h3 class="pr-name">Arvind Highgrove</h3>
-              <a href="projects/arvind-highgrove.html" class="pr-link link-underline">View Project <span class="arrow">→</span></a>
+          <article class="project-card" data-cat="villas plots golf weekend">
+            <a class="pc-media" href="projects/arvind-highgrove.html"><img src="assets/images/projects/highgrove/club-sunset.jpg" alt="Arvind Highgrove" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Moti Devti, Ahmedabad</span>
+              <h3 class="pc-name"><a href="projects/arvind-highgrove.html">Arvind Highgrove</a></h3>
+              <p class="pc-type">Weekend golf villas and plots around Ahmedabad's largest shallow water-lily pond.</p>
+              <ul class="pc-facts"><li>Studio–4 BHK</li><li>3-acre lily pond</li><li>40,000+ sq ft club</li></ul>
+              <div class="pc-actions">
+                <a href="projects/arvind-highgrove.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
             </div>
           </article>
-
-          <article class="project-row">
-            <a class="pr-media" href="projects/arvind-alcove.html" data-animate="clip-reveal">
-              <img src="assets/images/projects/alcove/banner.jpg" alt="Arvind Alcove" data-animate="parallax" data-speed="0.12" data-fallback />
-            </a>
-            <div class="pr-text" data-animate="stagger" data-stagger="0.08">
-              <span class="pr-index">06 — Ahmedabad</span>
-              <h3 class="pr-name">Arvind Alcove</h3>
-              <a href="projects/arvind-alcove.html" class="pr-link link-underline">View Project <span class="arrow">→</span></a>
+          <article class="project-card" data-cat="villas weekend completed">
+            <a class="pc-media" href="projects/arvind-alcove.html"><span class="pc-tag pc-tag--blue">Sold Out</span><img src="assets/images/projects/alcove/gallery-4.jpg" alt="Arvind Alcove" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Shanawad, Ahmedabad</span>
+              <h3 class="pc-name"><a href="projects/arvind-alcove.html">Arvind Alcove</a></h3>
+              <p class="pc-type">A completed, sold-out weekend villa community across 24 acres.</p>
+              <ul class="pc-facts"><li>24 acres</li><li>12,000 sq ft club</li><li>Completed</li></ul>
+              <div class="pc-actions">
+                <a href="projects/arvind-alcove.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="alcove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
             </div>
           </article>
-
-          <article class="project-row">
-            <a class="pr-media" href="projects/arvind-smartpark.html" data-animate="clip-reveal">
-              <span class="project-tag">Industrial</span>
-              <img src="assets/images/projects/smartpark/banner.jpg" alt="Arvind SmartPark" data-animate="parallax" data-speed="0.12" data-fallback />
-            </a>
-            <div class="pr-text" data-animate="stagger" data-stagger="0.08">
-              <span class="pr-index">07 — Ahmedabad</span>
-              <h3 class="pr-name">Arvind SmartPark</h3>
-              <a href="projects/arvind-smartpark.html" class="pr-link link-underline">View Project <span class="arrow">→</span></a>
+          <article class="project-card" data-cat="industrial">
+            <a class="pc-media" href="projects/arvind-smartpark.html"><span class="pc-tag">Industrial</span><img src="assets/images/projects/smartpark/gallery-3.jpg" alt="Arvind SmartPark" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Kalyangadh, Ahmedabad</span>
+              <h3 class="pc-name"><a href="projects/arvind-smartpark.html">Arvind SmartPark</a></h3>
+              <p class="pc-type">A 440-acre Grade-A industrial park with direct NH-47 frontage and a ZLD CETP.</p>
+              <ul class="pc-facts"><li>440 acres</li><li>NH-47 frontage</li><li>ZLD CETP</li></ul>
+              <div class="pc-actions">
+                <a href="projects/arvind-smartpark.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="smartpark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
             </div>
           </article>
-
         </div>
+        <div class="text-center mt-l"><a href="projects.html" class="btn btn-outline">Compare all projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a></div>
+      </div>
+    </section>
 
-        <div class="text-center" style="margin-top:clamp(60px,9vw,120px)" data-animate="fade-up">
-          <a href="projects.html" class="btn btn-ghost">View all projects <span class="arrow">→</span></a>
+    <!-- ============================ SPOTLIGHT: AQUA CITY ============================ -->
+    <section aria-label="New launch spotlight">
+      <div class="features">
+        <article class="feature" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag feature__tag--gold">New Launch</span>
+            <img class="fslide active" src="assets/images/projects/aqua-city/water-villas.jpg" alt="Arvind Aqua City — water villas" loading="lazy" data-fallback />
+            <img class="fslide" src="assets/images/projects/aqua-city/isle-leisure.jpg" alt="Arvind Aqua City — Isle of Leisure" loading="lazy" data-fallback />
+            <img class="fslide" src="assets/images/projects/aqua-city/kashi-ghat.jpg" alt="Arvind Aqua City — Kashi Ghat" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Spotlight · Arvind Aqua City</span>
+            <h3 class="feature__title">Wake up to a lake, <em>every morning</em></h3>
+            <p class="feature__desc">A 500+ acre integrated township at Kalyangadh with a grand central lake, three islands — Leisure, Holistay and Nirvana — water villas, a 38-acre 18-hole golf course and 11 temples at Kashi Ghat.</p>
+            <ul class="feature__list">
+              <li>Isle of Leisure — grand clubhouse</li>
+              <li>Isle of Holistay — lakeside resort rooms</li>
+              <li>Isle of Nirvana — meditation centre</li>
+              <li>Water villas on the lake</li>
+            </ul>
+            <div class="hero-actions">
+              <a href="projects/arvind-aqua-city.html" class="btn btn-blue">Explore Aqua City <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+              <button type="button" class="btn btn-outline" data-brochure data-project="aqua-city"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================ AWARDS ============================ -->
+    <section class="section section--blue" id="awards">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label" data-animate="fade-up">Recognition</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Award-winning design, <em>year after year</em></h2>
+          <p class="section-desc" data-animate="fade-up" data-delay="0.1">A few of the honours Arvind SmartSpaces and its projects received in 2024–25.</p>
+          <a href="awards.html" class="btn btn-ghost" style="margin-top:22px">View all awards <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></a>
+        </div>
+        <div class="award-badges" data-animate="stagger" data-stagger="0.05">
+          <div class="badge-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"/><path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"/></svg><div><span>2025</span><b>Developer of the Year — Residential</b><span>Arvind SmartSpaces · Realty+ Excellence Awards</span></div></div>
+          <div class="badge-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"/><path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"/></svg><div><span>2025</span><b>Iconic Project of the Year</b><span>Arvind Aqua City · Realty+ Excellence Awards</span></div></div>
+          <div class="badge-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"/><path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"/></svg><div><span>2025</span><b>Integrated Township of the Year</b><span>Arvind Aqua City · Real Estate &amp; Business Excellence Awards</span></div></div>
+          <div class="badge-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"/><path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"/></svg><div><span>2025</span><b>Township of the Year</b><span>Arvind Aqua City · Times Now Awards</span></div></div>
+          <div class="badge-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"/><path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"/></svg><div><span>2025</span><b>Villa Project of the Year</b><span>Arvind Forreste · Realty+ Excellence Awards</span></div></div>
+          <div class="badge-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"/><path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"/></svg><div><span>2025</span><b>Developer of the Year</b><span>Arvind SmartSpaces · Real Estate &amp; Business Excellence Awards</span></div></div>
+          <div class="badge-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"/><path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"/></svg><div><span>2025</span><b>Trustworthy Brand in Real Estate</b><span>Arvind SmartSpaces · Times Now Awards</span></div></div>
+          <div class="badge-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"/><path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"/></svg><div><span>2025</span><b>Luxury Villa Project of the Year</b><span>Arvind Forest Trails · Real Estate &amp; Business Excellence Awards</span></div></div>
         </div>
       </div>
     </section>
 
-    <!-- ============================ AWARDS TEASER ============================ -->
-    <section class="section" style="padding-bottom:0">
-      <div class="container section-head" style="margin-bottom:36px">
-        <span class="eyebrow" data-animate="fade-up">Recognition</span>
-        <h2 class="h-xl" data-animate="clip-reveal" data-split>Awarded for the difference we make</h2>
-        <a href="awards.html" class="link-underline" data-animate="fade-up" style="margin-top:18px">Explore our awards →</a>
+    <section class="section section--alt" id="about">
+      <div class="container">
+        <div class="section-head center">
+          <span class="section-label" data-animate="fade-up">About Us</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">The developer and <em>your partner</em></h2>
+          <p class="section-desc" data-animate="fade-up" data-delay="0.1">Arvind SmartSpaces builds the homes; Daksh Realtors, its authorised channel partner, helps you choose, visit and buy the right one.</p>
+        </div>
+        <div class="about-grid" data-animate="stagger" data-stagger="0.1">
+          <article class="about-card">
+            <div class="about-card__logo about-card__logo--dark"><img src="assets/logo.png" alt="Arvind SmartSpaces" /></div>
+            <h3 class="about-card__name">Arvind SmartSpaces Ltd.</h3>
+            <span class="about-tag">Developer</span>
+            <p>Part of the Lalbhai Group — founded in 1897 as a textile mill and today a USD 2 billion conglomerate behind brands like Arrow, U.S. Polo Assn., Tommy Hilfiger, Calvin Klein and Flying Machine. Since entering real estate in 2009, Arvind SmartSpaces has combined an innate design sense with the credibility of an industrial house to deliver high design standards consistently, at scale and on schedule. #DesignedToInspire</p>
+            <div class="about-stats">
+              <div><b>1897</b>Lalbhai Group founded</div>
+              <div><b>2009</b>Entered real estate</div>
+              <div><b>$2 Bn</b>Group conglomerate</div>
+              <div><b>4</b>Cities: Ahmedabad, Bengaluru, Pune, Vadodara</div>
+            </div>
+          </article>
+          <article class="about-card">
+            <div class="about-card__logo"><img src="assets/channel-partner-logo.jpg" alt="Daksh Realtors" /></div>
+            <h3 class="about-card__name">Daksh Realtors</h3>
+            <span class="about-tag about-tag--gold">Authorised Channel Partner</span>
+            <p>Founded in 2007 by Astik Agrawal, Daksh Realtors is one of Ahmedabad's trusted real estate investment firms, with offices in Ambli, Gota and Adalaj and deep roots in the city's property market. We help home buyers, HNI and NRI investors identify, evaluate and invest in the right property with complete transparency — from the first site visit to final registration.</p>
+            <div class="about-stats">
+              <div><b>3000+</b>Properties sold</div>
+              <div><b>700+</b>Clients served</div>
+              <div><b>25+</b>Expert staff</div>
+              <div><b>17+</b>Years of trust</div>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="marquee">
-        <div class="marquee-track">
-          <span>Developer of the Year</span><span>Best Plotted Development</span>
-          <span>Real Estate Brand of the Year</span><span>Design Excellence</span>
-          <span>Developer of the Year</span><span>Best Plotted Development</span>
-          <span>Real Estate Brand of the Year</span><span>Design Excellence</span>
+    </section>
+
+    <section class="section" id="enquire">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="contact-left" data-animate="fade-up">
+            <span class="section-label">Get in touch</span>
+            <h2 class="section-title">Book your <em>free site visit</em></h2>
+            <p class="lead">Tell us which project interests you. Our relationship team will call you back, plan your visit across one or more projects, and share brochures, floor plans and current availability.</p>
+            <div class="contact-lines">
+            <a class="contact-line" href="tel:+919712131519"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg></span><span><small>Call us</small><b>+91 97121 31519</b></span></a>
+            <a class="contact-line" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20SmartSpaces%20projects." target="_blank" rel="noopener"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span><small>WhatsApp</small><b>Chat with our team</b></span></a>
+            <a class="contact-line" href="#" data-brochure><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg></span><span><small>Brochures</small><b>Download any project brochure</b></span></a>
+          </div>
+          </div>
+          <div data-animate="fade-up" data-delay="0.1">
+          <form class="form-card" data-enquiry novalidate>
+            <h3>Book a <em>free site visit</em></h3>
+            <p class="form-sub">Our team will call you back shortly. Free pick-up can be arranged from select Ahmedabad locations.</p>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-name">Full name *</label>
+                <input type="text" id="f-name" name="name" autocomplete="name" placeholder="Your name" required />
+                <span class="err">Please enter your name.</span>
+              </div>
+              <div class="field">
+                <label for="f-phone">Mobile number *</label>
+                <input type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="10-digit mobile" required />
+                <span class="err">Please enter a valid mobile number.</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@email.com" />
+                <span class="err">Please enter a valid email.</span>
+              </div>
+              <div class="field">
+                <label for="f-project">Interested in *</label>
+                <select id="f-project" name="project" required>
+                  <option value="">Select a project</option><option value="aqua-city">Arvind Aqua City</option><option value="everland">Arvind Everland</option><option value="forreste">Arvind Forreste</option><option value="uplands">Arvind Uplands</option><option value="highgrove">Arvind Highgrove</option><option value="alcove">Arvind Alcove</option><option value="smartpark">Arvind SmartPark</option>
+                </select>
+                <span class="err">Please choose a project.</span>
+              </div>
+            </div>
+            <label class="toggle-row" for="f-schedule">Schedule a site visit
+              <span class="switch"><input type="checkbox" id="f-schedule" data-schedule-toggle /><i></i></span>
+            </label>
+            <div class="form-row schedule-fields">
+              <div class="field">
+                <label for="f-date">Preferred date</label>
+                <input type="date" id="f-date" name="visit_date" />
+              </div>
+              <div class="field">
+                <label for="f-time">Preferred time</label>
+                <input type="time" id="f-time" name="visit_time" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-message">Message (optional)</label>
+              <textarea id="f-message" name="message" rows="3" placeholder="Plot / villa size, budget or any questions…"></textarea>
+            </div>
+            <label class="consent">
+              <input type="checkbox" name="consent" required />
+              <span>I authorise Arvind SmartSpaces &amp; its authorised channel partner to contact me via call, SMS, email or WhatsApp.</span>
+              <span class="err">Please tick to continue.</span>
+            </label>
+            <button type="submit" class="btn btn-primary">Book Free Site Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></button>
+          </form>
+          </div>
         </div>
       </div>
     </section>
@@ -250,50 +491,51 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-col footer-brand">
-          <a href="index.html" class="brand"><img src="assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
-          <p>Crafting premium residential, plotted and industrial spaces across India.</p>
-          <div class="socials">
-            <a href="#" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="LinkedIn">IN</a>
-            <a href="#" aria-label="Facebook">FB</a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h5>Explore</h5>
-          <a href="index.html">Home</a>
-          <a href="projects.html">Projects</a>
-          <a href="awards.html">Awards</a>
-          <a href="contact.html">Contact</a>
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><img src="assets/logo.png" alt="Arvind SmartSpaces" class="logo-img" /></a>
+          <p>Every Arvind SmartSpaces address in Ahmedabad — lakeside, forest, golf and industrial — presented by an authorised channel partner, from first site visit to final registration.</p>
+          <a class="footer-cp" href="https://www.dakshrealtors.com/" target="_blank" rel="noopener">
+            <img src="assets/channel-partner-logo.jpg" alt="Daksh Realtors" />
+            <span><small>Authorised Channel Partner</small><b>Daksh Realtors</b></span>
+          </a>
         </div>
         <div class="footer-col">
           <h5>Projects</h5>
-          <a href="projects/arvind-aqua-city.html">Aqua City</a>
-          <a href="projects/arvind-everland.html">Everland</a>
-          <a href="projects/arvind-forreste.html">Forreste</a>
-          <a href="projects/arvind-uplands.html">Uplands</a>
-          <a href="projects/arvind-highgrove.html">Highgrove</a>
-          <a href="projects/arvind-alcove.html">Alcove</a>
-          <a href="projects/arvind-smartpark.html">SmartPark</a>
+          <a href="projects/arvind-aqua-city.html">Arvind Aqua City</a><a href="projects/arvind-everland.html">Arvind Everland</a><a href="projects/arvind-forreste.html">Arvind Forreste</a><a href="projects/arvind-uplands.html">Arvind Uplands</a><a href="projects/arvind-highgrove.html">Arvind Highgrove</a><a href="projects/arvind-alcove.html">Arvind Alcove</a><a href="projects/arvind-smartpark.html">Arvind SmartPark</a>
+        </div>
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <a href="index.html">Home</a><a href="projects.html">All Projects</a><a href="awards.html">Awards</a><a href="index.html#about">About Us</a><a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h5>Get in touch</h5>
-          <a href="tel:+917971367022">+91 7971 367 022</a>
-          <a href="mailto:sales@arvindsmartspaces.com">sales@arvindsmartspaces.com</a>
-          <a href="contact.html">Head Office, C.G. Road, Ahmedabad</a>
+          <a href="tel:+919712131519">+91 97121 31519</a>
+          <a href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20SmartSpaces%20projects." target="_blank" rel="noopener">WhatsApp us</a>
+          <a href="contact.html#enquire">Book a free site visit</a>
+          <a href="#" data-brochure>Download a brochure</a>
         </div>
       </div>
+      <p class="footer-disclaimer">Disclaimer: This website is maintained by Daksh Realtors, an authorised channel partner of Arvind SmartSpaces Ltd., for information purposes only. It is not an offer, invitation or contract. All images are artist's impressions or representative images; layouts, areas, amenities, specifications and connectivity details are indicative and subject to change, approvals and the terms of the agreement for sale. Travel times are approximate. Please refer to the official project documents and RERA registrations before making any decision.</p>
       <div class="footer-bottom">
-        <span>© <span data-year>2026</span> Arvind SmartSpaces. All rights reserved.</span>
-        <span>Designed with <span aria-label="love" style="color:#e0556a">♥</span> by <a href="https://ampli5.digital/" target="_blank" rel="noopener" style="color:var(--accent)">Ampli5 Digital</a></span>
+        <span>© <span data-year>2026</span> Arvind SmartSpaces Ltd. All rights reserved.</span>
+        <span>Designed with <span aria-label="love" style="color:#e0556a">♥</span> by <a href="https://ampli5.digital/" target="_blank" rel="noopener">Ampli5 Digital</a></span>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Floating actions -->
+  <a class="wa-float" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20SmartSpaces%20projects.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <button type="button" class="brochure-float" data-brochure><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+  <nav class="sticky-bar" aria-label="Quick actions">
+    <a href="tel:+919712131519"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg> Call</a>
+    <a class="sb-wa" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20SmartSpaces%20projects.%20Please%20share%20details." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+    <button type="button" data-brochure><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+    <a class="sb-visit" href="contact.html#enquire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M11 15h1"/><path d="M12 15v3"/></svg> Site Visit</a>
+  </nav>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/main.js"></script>

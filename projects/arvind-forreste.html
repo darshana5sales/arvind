@@ -3,247 +3,553 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arvind Forreste — Arvind SmartSpaces</title>
-  <meta name="description" content="Arvind Forreste — a premium weekend villa scheme that endeavours to be a tropical forest, at Jethlaj, Rancharda–Khatraj Road, Ahmedabad. Close to Thol Bird Sanctuary." />
+  <title>Arvind Forreste, Jethlaj (Rancharda–Khatraj Road) — Premium Weekend Villas</title>
+  <meta name="description" content="Arvind Forreste — an exclusive premium villa scheme that endeavours to be a tropical forest, at Jethlaj on the Rancharda–Khatraj Road, close to Thol Bird Sanctuary. Club Forreste, forest trails, tree houses and more." />
+  <meta property="og:title" content="Arvind Forreste, Jethlaj (Rancharda–Khatraj Road) — Premium Weekend Villas" />
+  <meta property="og:description" content="Arvind Forreste — an exclusive premium villa scheme that endeavours to be a tropical forest, at Jethlaj on the Rancharda–Khatraj Road, close to Thol Bird Sanctuary. Club Forreste, forest trails, tree houses and more." />
+  <meta name="theme-color" content="#0B3D6B" />
+  <link rel="icon" href="../assets/favicon.png" />
+
+  <!-- Add .js early so animated elements start hidden (prevents flash). -->
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lato:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css" />
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
+  <!-- ============================ HEADER ============================ -->
   <header class="site-header">
-    <div class="container nav">
-      <a href="../index.html" class="brand"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="../projects.html" class="active">Projects</a>
-        <a href="../awards.html">Awards</a>
-        <a href="../contact.html">Contact</a>
+    <div class="container header-inner">
+      <a href="../index.html" class="logo" aria-label="Arvind SmartSpaces — home"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="logo-img" /></a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="../index.html" class="nav-link">Home</a>
+        <div class="nav-dd">
+          <a href="../projects.html" class="nav-link active">Projects <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></a>
+          <div class="nav-dd-menu">
+              <a href="../projects/arvind-aqua-city.html"><strong>Arvind Aqua City</strong><span>Lakeside villas &amp; plots · Kalyangadh</span></a>
+              <a href="../projects/arvind-everland.html"><strong>Arvind Everland</strong><span>Premium plots · Mankol, Sanand</span></a>
+              <a href="../projects/arvind-forreste.html" class="active"><strong>Arvind Forreste</strong><span>Premium weekend villas · Jethlaj, Rancharda</span></a>
+              <a href="../projects/arvind-uplands.html"><strong>Arvind Uplands</strong><span>Ultra-luxury golf villas · Nasmed, Rancharda</span></a>
+              <a href="../projects/arvind-highgrove.html"><strong>Arvind Highgrove</strong><span>Premium golf villas &amp; plots · Moti Devti</span></a>
+              <a href="../projects/arvind-alcove.html"><strong>Arvind Alcove</strong><span>Premium weekend villas · Shanawad</span></a>
+              <a href="../projects/arvind-smartpark.html"><strong>Arvind SmartPark</strong><span>Grade-A industrial park · Kalyangadh</span></a>
+              <a href="../projects.html" class="dd-all">View all projects &amp; compare →</a>
+          </div>
+        </div>
+        <a href="../awards.html" class="nav-link">Awards</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
+        <button type="button" class="btn btn-ghost nav-mobile-only" data-brochure><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Download Brochure</button>
+        <a href="../contact.html#enquire" class="btn btn-primary nav-mobile-only">Book Free Site Visit</a>
       </nav>
       <div class="nav-actions">
-        <a href="../contact.html" class="btn btn-primary">Enquire Now</a>
-        <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+        <button type="button" class="nav-brochure" data-brochure><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+        <a href="../contact.html#enquire" class="nav-cta">Book Free Site Visit</a>
+        <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="detail-hero">
-      <div class="hero-media"><img src="../assets/images/projects/forreste/banner.jpg" alt="Arvind Forreste" data-fallback /></div>
-      <div class="container hero-content">
-        <span class="eyebrow" data-hero-load data-order="1">Jethlaj, Ahmedabad</span>
-        <h1 class="detail-title" data-hero-load data-order="2">Arvind Forreste</h1>
-        <div class="hero-meta" data-hero-load data-order="3"><span>◆ Rancharda–Khatraj Road, Ahmedabad</span><span>The Forest Living</span></div>
-      </div>
-    </section>
-
-    <!-- KEY SPECS -->
-    <section class="specs">
-      <div class="container">
-        <div class="specs-grid" data-animate="stagger" data-stagger="0.07">
-          <div class="spec"><div class="val">Premium</div><div class="label">Weekend Villas</div></div>
-          <div class="spec"><div class="val">Forest</div><div class="label">Themed Living</div></div>
-          <div class="spec"><div class="val">Club Forreste</div><div class="label">Grand Clubhouse</div></div>
-          <div class="spec"><div class="val">Thol</div><div class="label">Bird Sanctuary Nearby</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OVERVIEW -->
-    <section class="section">
-      <div class="container">
-        <div class="overview-grid">
-          <h2 class="ov-label" data-animate="fade-up">The forest living</h2>
-          <div class="ov-copy" data-animate="fade-up" data-delay="0.05">
-            <p>In nature, forests are an ecosystem designed to nourish every life form — fertile, fecund places abuzz with activity, where life thrives in all its glory.</p>
-            <p>Forreste by Arvind, in its true spirit, is a lush green living space that not only fosters coexistence with nature, but an adventure one embarks upon — a life different from the mundane. An exclusive premium villa scheme that actually endeavours to be a tropical forest.</p>
+    <!-- ============================ HERO ============================ -->
+    <section class="hero hero--static" id="top">
+      <div class="hero-media"><img src="../assets/images/projects/forreste/gallery-2.jpg" alt="Arvind Forreste" data-fallback /></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <span class="hero-badge" data-hero-load data-order="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Jethlaj · Rancharda–Khatraj Road</span>
+            <h1 class="hero-headline" data-hero-load data-order="2">The forest living, <em>by Arvind</em></h1>
+            <p class="hero-sub" data-hero-load data-order="3">An exclusive premium villa scheme that endeavours to be a tropical forest — the perfect weekend nature retreat, close to the Thol Bird Sanctuary.</p>
+            <div class="hero-actions" data-hero-load data-order="4">
+              <a href="#enquire" class="btn btn-primary">Book Free Site Visit</a>
+              <button type="button" class="btn btn-ghost" data-brochure data-project="forreste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Download Brochure</button>
+            </div>
+          </div>
+          <div class="hero-stats-card" data-hero-load data-order="5">
+            <div class="stat"><span class="stat-num">Forest</span><span class="stat-label">Themed premium villa scheme</span></div>
+            <div class="stat"><span class="stat-num">25+</span><span class="stat-label">Indoor &amp; outdoor club amenities</span></div>
+            <div class="stat"><span class="stat-num">11 min</span><span class="stat-label">to Thol Lake (5.5 km)</span></div>
+            <div class="stat"><span class="stat-num">20 min</span><span class="stat-label">to SP Ring Road (14 km)</span></div>
           </div>
         </div>
       </div>
+      <div class="hero-scroll"><span>Scroll to explore</span><i></i></div>
     </section>
 
-    <!-- FEATURES: text aligned to images -->
-    <section class="section" style="padding-top:0">
+    <!-- sticky section navigation -->
+    <nav class="subnav" aria-label="Arvind Forreste sections">
       <div class="container">
-        <div class="feature-rows">
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/forreste/gallery-6.jpg" alt="Arvind Forreste — Tree Hut in the forest with a campfire point" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">01</span>
-              <h3>A worthwhile adventure</h3>
-              <p>What city life takes away, Forreste restores. Set foot here and disconnect from the noise — your children chase butterflies and hide in tree houses while you watch life go by from benches under the thicket, or dip tired feet in lily ponds.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/forreste/gallery-2.jpg" alt="Arvind Forreste — Club Forreste clubhouse with sports courts" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">02</span>
-              <h3>Club Forreste, the heart of it all</h3>
-              <p>The clubhouse at Forreste is a complete experience in itself. Family activities or solo relaxation, this centrepiece of life at Forreste has been designed to suit your every need — uninterrupted entertainment, the lifestyle of course.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/forreste/gallery-5.jpg" alt="Arvind Forreste — resort-style swimming pool and sun-deck" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">03</span>
-              <h3>Leisure, redefined</h3>
-              <p>Laze around the pool and let your worries slip away, or walk the trail as the sights and sounds of nature calm you. Indoors, fill the need for something active with Table Tennis, Badminton and Billiards — or indulge in the Spa cum Salon.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/forreste/gallery-3.jpg" alt="Arvind Forreste — The Perch outdoor café and restaurant seating" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">04</span>
-              <h3>The Perch — dine with the birds</h3>
-              <p>The Forreste club boasts a one-of-a-kind outdoor café &amp; restaurant — The Perch. With the birds to keep you company, soak in the flavours of the outdoor while you indulge the gourmet in you. A living space for every mood and every family member.</p>
-            </div>
-          </article>
-          <article class="feature">
-            <div class="feature-media" data-animate="clip-reveal"><img src="../assets/images/projects/forreste/gallery-4.jpg" alt="Arvind Forreste — central greens, fountain plaza and villas" data-fallback /></div>
-            <div class="feature-body" data-animate="stagger" data-stagger="0.08">
-              <span class="f-index">05</span>
-              <h3>A perfect retreat</h3>
-              <p>The villas at Forreste are built to suit your modern lifestyle and secure your green spot. Airy and well lit on the inside, surrounded by vast forest-like tree-lined trails on the outside — the perfect weekend retreat for capital appreciation that takes care of you in the long run.</p>
-            </div>
-          </article>
-        </div>
+        <span class="subnav-name">Arvind Forreste</span>
+        <div class="subnav-links"><a href="#overview">Overview</a><a href="#highlights">Highlights</a><a href="#masterplan">Master Plan</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#location">Location</a><a href="#enquire">Enquire</a></div>
+        <a href="#enquire" class="btn btn-primary btn-sm">Enquire</a>
       </div>
-    </section>
+    </nav>
 
-    <!-- FOREST EXPERIENCES (text block) -->
-    <section class="section" style="padding-top:0">
+    <!-- ============================ OVERVIEW ============================ -->
+    <section class="section" id="overview">
       <div class="container">
-        <div class="overview-grid">
-          <h2 class="ov-label" data-animate="fade-up">A forest of experiences</h2>
-          <div class="ov-copy" data-animate="fade-up" data-delay="0.05">
-            <p>Beyond the villas lies a curated forest of moments — a Tree House to climb, Forest Trails to wander, hidden Forest Caves to discover, and a Campfire Point for evenings under the stars.</p>
-            <p>Wander into the Butterfly Park, gather at the Amphitheatre, rest at the Forreste Sit-outs, or set up at the Adventure Camp beside the Forreste Lake. Every corner is an invitation to slow down and reconnect.</p>
+        <div class="ov-grid">
+          <div>
+            <span class="section-label" data-animate="fade-up">The Forest Living</span>
+            <h2 class="section-title" data-animate="fade-up" data-delay="0.05">A life different <em>from the mundane</em></h2>
+            <div class="prose" data-animate="fade-up" data-delay="0.1">
+            <p>In nature, forests are an ecosystem designed to provide nourishment and sustenance to all life forms — fertile, fecund places where life thrives in all its glory. Forreste by Arvind, in its true spirit, is a lush green living space that not only fosters coexistence with nature but is also an adventure one embarks upon.</p>
+            <p>When your busy schedule makes you long for a pause, Forreste is your grand escape to a world long forgotten. Drawing inspiration from the world's greatest artist — Mother Nature — it creates sights and smells, sounds and experiences that draw you in and revitalise you. A weekend stolen away for a quick recharge of the right kind benefits you today, and leads to capital appreciation that takes care of you in the long run.</p>
+            </div>
           </div>
+          <aside class="facts-card" data-animate="fade-up" data-delay="0.15">
+            <h3>Key facts</h3>
+            <dl><dt>Project type</dt><dd>Premium weekend villas</dd><dt>Location</dt><dd>Jethlaj, Rancharda–Khatraj Road, Ahmedabad</dd><dt>Clubhouse</dt><dd>Club Forreste</dd><dt>Nearby</dt><dd>Thol Lake &amp; Bird Sanctuary</dd><dt>Promoter</dt><dd>Arvind Limited</dd><dt>Consultants</dt><dd>GOMA Engineering · Beyond Green</dd></dl>
+            <p class="rera">GujRERA: RAA06788 · RAA10718 (gujrera.gujarat.gov.in)</p>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- AMENITIES -->
-    <section class="section" style="padding-top:0">
+    <!-- ============================ HIGHLIGHTS (image / text rows) ============================ -->
+    <section id="highlights" aria-label="Highlights">
+      <div class="features">
+        <article class="feature" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">A Worthwhile Adventure</span>
+            <img class="fslide active" src="../assets/images/projects/forreste/gallery-6.jpg" alt="Arvind Forreste — A Worthwhile Adventure" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/forreste/forest-trail.jpg" alt="Arvind Forreste — A Worthwhile Adventure" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/forreste/forest-caves.jpg" alt="Arvind Forreste — A Worthwhile Adventure" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/forreste/campfire.jpg" alt="Arvind Forreste — A Worthwhile Adventure" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/forreste/forest-sitouts.jpg" alt="Arvind Forreste — A Worthwhile Adventure" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Forest Experiences*</span>
+            <h3 class="feature__title">Chase butterflies, <em>hide in tree houses</em></h3>
+            <p class="feature__desc">What city life takes away, Forreste intends to restore. The moment you set foot into these surroundings, you instantly disconnect from the noise and plug into the myriad sights and experiences developed for you. Your children interact with nature, chase butterflies or hide in tree houses, as you watch life go by from the benches under the thicket, or while dipping your tired feet in lily ponds.</p>
+            <ul class="feature__list">
+              <li>Forest tree house</li>
+              <li>Forest trail</li>
+              <li>Forest caves</li>
+              <li>Campfire point</li>
+              <li>Forest sit-outs</li>
+              <li>Butterfly park &amp; adventure camp</li>
+            </ul>
+            <p class="note">*Not part of the project but offered as an additional amenity for allottees to use and enjoy; to be maintained by the local jurisdictional authority at its sole discretion.</p>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature feature--reverse" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">Club Forreste</span>
+            <img class="fslide active" src="../assets/images/projects/forreste/gallery-1.jpg" alt="Arvind Forreste — Club Forreste" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/forreste/gallery-5.jpg" alt="Arvind Forreste — Club Forreste" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Uninterrupted Entertainment</span>
+            <h3 class="feature__title">A clubhouse that is <em>an experience in itself</em></h3>
+            <p class="feature__desc">With your parched soul already satiated by nature, what more could add to the reason for owning this premium weekend villa? The lifestyle, of course. The clubhouse at Forreste is a complete experience in itself — family activities or solo relaxation, this centrepiece of life at Forreste has been designed to suit all your needs.</p>
+            <ul class="feature__list">
+              <li>Swimming pool &amp; deck</li>
+              <li>Banquet hall &amp; hotel rooms</li>
+              <li>Gym, spa &amp; salon</li>
+              <li>Multimedia theatre</li>
+              <li>Kids zone &amp; board games</li>
+              <li>Restaurant, café &amp; lounge</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">Leisure Redefined</span>
+            <img class="fslide active" src="../assets/images/projects/forreste/gallery-2.jpg" alt="Arvind Forreste — Leisure Redefined" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Sport &amp; Play</span>
+            <h3 class="feature__title">Laze by the pool <em>or play all day</em></h3>
+            <p class="feature__desc">Forreste redefines what you do for leisure. Laze around the pool and let your worries slip away, or walk down the trail and let the sights and sounds of nature calm you. For the active lifestyle seekers, Forreste offers a futsal court, rock climbing, archery and an outdoor skating rink — while those inclined to leisure can indulge in a spa cum salon.</p>
+            <ul class="feature__list">
+              <li>Futsal court</li>
+              <li>Rock climbing</li>
+              <li>Archery</li>
+              <li>Outdoor skating rink</li>
+              <li>Table tennis, badminton &amp; billiards</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature feature--reverse" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">The Perch</span>
+            <img class="fslide active" src="../assets/images/projects/forreste/gallery-3.jpg" alt="Arvind Forreste — The Perch" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Café &amp; Restaurant</span>
+            <h3 class="feature__title">Dine with <em>the birds for company</em></h3>
+            <p class="feature__desc">The Forreste club also boasts a one-of-its-kind outdoor café &amp; restaurant — The Perch. With the birds to keep you company, soak in the flavours of the outdoors while you indulge the gourmet in you. A living space that indulges every mood and every family member.</p>
+            <ul class="feature__list">
+              <li>Outdoor café &amp; restaurant</li>
+              <li>Gourmet dining amidst nature</li>
+              <li>A space for every family member</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag">Premium Lounge</span>
+            <img class="fslide active" src="../assets/images/projects/forreste/premium-lounge.jpg" alt="Arvind Forreste — Premium Lounge" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">Forreste Premium Lounge</span>
+            <h3 class="feature__title">Lean back. <em>Reawaken your spirit.</em></h3>
+            <p class="feature__desc">While you unwind in nature's lap, relish the offerings crafted exclusively for you at the Forreste Premium Lounge. Enveloped in luxury, leaf through the latest books and magazines and breeze through business deals. At your repose, enjoy unlimited connectivity with free Wi-Fi while savouring delectable meals.</p>
+            <ul class="feature__list">
+              <li>Books, magazines &amp; business corner</li>
+              <li>Free Wi-Fi connectivity</li>
+              <li>Delectable meals</li>
+              <li>A luxurious, relaxed setting</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+        <article class="feature feature--reverse" data-animate="fade">
+          <div class="feature__media">
+            <span class="feature__tag feature__tag--gold">The Villas</span>
+            <img class="fslide active" src="../assets/images/projects/forreste/gallery-4.jpg" alt="Arvind Forreste — The Villas" loading="lazy" data-fallback />
+            <img class="fslide" src="../assets/images/projects/forreste/banner.jpg" alt="Arvind Forreste — The Villas" loading="lazy" data-fallback />
+          </div>
+          <div class="feature__body">
+            <span class="section-label">A Perfect Retreat</span>
+            <h3 class="feature__title">Airy villas, <em>forest-lined trails</em></h3>
+            <p class="feature__desc">A home is the foundation of all your hopes and dreams. The villas at Forreste are built to suit your modern lifestyle as well as give ample provision to secure your green spot. Airy and well lit on the inside, and surrounded by vast forest-like, tree-lined trails on the outside — the villas are a perfect retreat.</p>
+            <ul class="feature__list">
+              <li>Built for a modern lifestyle</li>
+              <li>Airy &amp; well-lit interiors</li>
+              <li>Tree-lined trails all around</li>
+              <li>Ample provision for your green spot</li>
+            </ul>
+            <a href="#enquire" class="btn btn-outline feature__cta">Enquire Now</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="masterplan">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-animate="fade-up">Amenities</span>
-          <h2 class="h-lg" data-animate="clip-reveal" data-split>Everything within reach</h2>
+          <span class="section-label" data-animate="fade-up">Master Plan</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">The Forreste living — <em>bird's-eye view</em></h2>
         </div>
-        <ul class="amenities-grid" data-animate="stagger" data-stagger="0.04">
-          <li>Club Forreste</li>
-          <li>Swimming Pool</li>
-          <li>The Perch — Café &amp; Restaurant</li>
-          <li>Premium Lounge</li>
-          <li>Lounge with Library</li>
-          <li>Banquet Hall</li>
-          <li>Hotel Rooms</li>
-          <li>Spa &amp; Salon</li>
-          <li>Gym</li>
-          <li>Multimedia Theatre</li>
-          <li>Billiards &amp; Table Tennis</li>
-          <li>Badminton Court</li>
-          <li>Board Games</li>
-          <li>Kids Zone</li>
-          <li>Tennis Courts</li>
-          <li>Basketball Court</li>
-          <li>Futsal Court</li>
-          <li>Rock Climbing</li>
-          <li>Archery</li>
-          <li>Skating Rink</li>
-          <li>Party Lawns</li>
-          <li>Kids' Playground</li>
-          <li>Jogging &amp; Cycling Track</li>
-          <li>Tree House</li>
-          <li>Forest Trail</li>
-          <li>Forest Caves</li>
-          <li>Campfire Point</li>
-          <li>Butterfly Park</li>
-          <li>Amphitheatre</li>
-          <li>Forreste Lake</li>
+        <div class="ov-grid">
+          <div class="tp-media" style="aspect-ratio:auto" data-lightbox data-animate="fade-up"><img src="../assets/images/projects/forreste/birds-eye.jpg" alt="Arvind Forreste — bird’s-eye view master plan" loading="lazy" data-fallback /></div>
+          <div class="facts-card" data-animate="fade-up" data-delay="0.1">
+            <h3>Site legend</h3>
+            <ol style="list-style:none;display:grid;gap:8px;font-size:14px;color:var(--text-mid);padding-bottom:16px"><li>1. Forreste sit-outs*</li><li>2. Forreste tree house*</li><li>3. Forreste trail*</li><li>4. Sports amenity</li><li>5. Club house</li><li>6. Pool</li><li>7. Common plot</li><li>8. Amphitheatre</li><li>9. Forreste lake*</li><li>10. Entry avenue road</li><li>11. Public garden*</li><li>12. Butterfly park*</li><li>13. Forreste caves*</li><li>14. Adventure camp*</li><li>15. Campfire point*</li></ol>
+          </div>
+        </div>
+        <p class="note">*Not part of the project but offered as an additional amenity for allottees. Artist's impression.</p>
+      </div>
+    </section>
+    <!-- ============================ AMENITIES ============================ -->
+    <section class="section" id="amenities">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label" data-animate="fade-up">Amenities</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Club house <em>amenities</em></h2>
+          <p class="section-desc" data-animate="fade-up" data-delay="0.1">Indoors, outdoors and deep in the forest — something for every member of the family.</p>
+        </div>
+        <div class="am-filters" data-filter-group="#am-grid" data-animate="fade-up"><button type="button" class="filter-btn active" data-filter="all">All</button><button type="button" class="filter-btn" data-filter="indoor">Indoor</button><button type="button" class="filter-btn" data-filter="outdoor">Outdoor</button><button type="button" class="filter-btn" data-filter="forest">Forest*</button></div>
+        <ul class="amenity-grid" id="am-grid" data-animate="stagger" data-stagger="0.025">
+          <li data-cat="indoor">Reception</li>
+          <li data-cat="indoor">Café</li>
+          <li data-cat="indoor">Restaurant</li>
+          <li data-cat="indoor">Lounge with seating &amp; library</li>
+          <li data-cat="indoor">Kids zone</li>
+          <li data-cat="indoor">Banquet hall</li>
+          <li data-cat="indoor">Board games</li>
+          <li data-cat="indoor">Badminton court</li>
+          <li data-cat="indoor">Gym</li>
+          <li data-cat="indoor">Spa &amp; salon</li>
+          <li data-cat="indoor">Hotel rooms</li>
+          <li data-cat="indoor">Premium lounge</li>
+          <li data-cat="indoor">Billiards</li>
+          <li data-cat="indoor">Table tennis</li>
+          <li data-cat="indoor">Multimedia theatre</li>
+          <li data-cat="outdoor">Tennis courts</li>
+          <li data-cat="outdoor">Basketball court</li>
+          <li data-cat="outdoor">Kids' playground</li>
+          <li data-cat="outdoor">Swimming pool</li>
+          <li data-cat="outdoor">Party lawns</li>
+          <li data-cat="outdoor">Archery</li>
+          <li data-cat="outdoor">Futsal</li>
+          <li data-cat="outdoor">Rock climbing</li>
+          <li data-cat="outdoor">Skating rink</li>
+          <li data-cat="outdoor">Jogging &amp; cycling track</li>
+          <li data-cat="forest">Forest sit-outs</li>
+          <li data-cat="forest">Tree house</li>
+          <li data-cat="forest">Forest trail</li>
+          <li data-cat="forest">Forest caves</li>
+          <li data-cat="forest">Campfire point</li>
+          <li data-cat="forest">Butterfly park</li>
+          <li data-cat="forest">Adventure camp</li>
+          <li data-cat="forest">Forreste lake</li>
+          <li data-cat="forest">Amphitheatre</li>
         </ul>
       </div>
     </section>
 
-    <!-- LOCATION (text block) -->
-    <section class="section" style="padding-top:0">
+    <!-- ============================ GALLERY ============================ -->
+    <section class="section section--alt" id="gallery">
       <div class="container">
-        <div class="overview-grid">
-          <h2 class="ov-label" data-animate="fade-up">A weekend escape, minutes from the city</h2>
-          <div class="ov-copy" data-animate="fade-up" data-delay="0.05">
-            <p>What makes Forreste the perfect weekend home — and a sound investment — is its proximity to commercial and industrial hubs, schools, hospitals and city landmarks. That it sits close to Thol Bird Sanctuary is just the icing on the cake.</p>
-            <p>Alpha College of Engineering — 0.5 km · Arvind Ltd. Campus — 1 km · Mother Teresa World School — 4 km · Arvind Tata Township — 5 km · Thol Lake — 5.5 km · Arvind Uplands — 11 km · SP Ring Road — 14 km · Kalupur Railway Station — 23.8 km · Sardar Vallabhbhai Patel International Airport — 25 km.</p>
-            <p>A Lalbhai Group venture — a 128-year-old, USD 2 billion conglomerate behind iconic brands like Calvin Klein, Tommy Hilfiger and Arrow, now bringing its design sense to real estate.</p>
+        <div class="section-head">
+          <span class="section-label" data-animate="fade-up">Gallery</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">A closer <em>look</em></h2>
+          <div class="slider-nav" style="margin-top:18px"><button type="button" class="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6l6 6"/></svg></button><button type="button" class="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6l-6 6"/></svg></button></div>
+        </div>
+        <div class="swiper gallery-swiper" data-lightbox>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../assets/images/projects/forreste/gallery-1.jpg" alt="Arvind Forreste — gallery image 1" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/forreste/gallery-2.jpg" alt="Arvind Forreste — gallery image 2" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/forreste/gallery-3.jpg" alt="Arvind Forreste — gallery image 3" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/forreste/gallery-4.jpg" alt="Arvind Forreste — gallery image 4" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/forreste/gallery-5.jpg" alt="Arvind Forreste — gallery image 5" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/forreste/gallery-6.jpg" alt="Arvind Forreste — gallery image 6" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/forreste/premium-lounge.jpg" alt="Arvind Forreste — gallery image 7" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/forreste/forest-trail.jpg" alt="Arvind Forreste — gallery image 8" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/forreste/campfire.jpg" alt="Arvind Forreste — gallery image 9" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/forreste/forest-sitouts.jpg" alt="Arvind Forreste — gallery image 10" loading="lazy" data-fallback /></div>
+            <div class="swiper-slide"><img src="../assets/images/projects/forreste/birds-eye.jpg" alt="Arvind Forreste — gallery image 11" loading="lazy" data-fallback /></div>
+          </div>
+        </div>
+        <p class="note">Images are artist's impressions or representative images.</p>
+      </div>
+    </section>
+
+    <!-- ============================ LOCATION ============================ -->
+    <section class="section" id="location">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label" data-animate="fade-up">Location</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">A perfect weekend home, <em>a great investment</em></h2>
+          <p class="section-desc" data-animate="fade-up" data-delay="0.1">Forreste sits close to commercial and industrial hubs, schools, hospitals and important city landmarks — and just minutes from Thol Bird Sanctuary, which is the icing on the cake.</p>
+        </div>
+        <div class="loc-wrap">
+          <div>
+            <div class="dist-list" data-animate="stagger" data-stagger="0.05">
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/></svg></span><div><strong>2 min · 0.5 km</strong><span>Alpha College of Engineering &amp; Technology</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l18 0"/><path d="M9 8l1 0"/><path d="M9 12l1 0"/><path d="M9 16l1 0"/><path d="M14 8l1 0"/><path d="M14 12l1 0"/><path d="M14 16l1 0"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"/></svg></span><div><strong>2 min · 1 km</strong><span>Arvind Ltd. Campus</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/></svg></span><div><strong>10 min · 4 km</strong><span>Mother Teresa World School</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h.01"/><path d="M3.4 18h7.6a7 7 0 0 0 7 -7v-4a3 3 0 0 0 -5.8 -1.1l-7.8 12.1"/><path d="M18 7l3 .5l-3 .5"/><path d="M10 18v3"/><path d="M14 17.75v3.25"/><path d="M7 18a6 6 0 0 0 3.84 -10.61"/></svg></span><div><strong>11 min · 5.5 km</strong><span>Thol Lake</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 18v-15l7 4l-7 4"/><path d="M9 17.67c-.62 .36 -1 .82 -1 1.33c0 1.1 1.8 2 4 2s4 -.9 4 -2c0 -.5 -.38 -.97 -1 -1.33"/></svg></span><div><strong>15 min · 11 km</strong><span>Arvind Uplands</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19l4 -14"/><path d="M16 5l4 14"/><path d="M12 8v-2"/><path d="M12 13v-2"/><path d="M12 18v-2"/></svg></span><div><strong>20 min · 14 km</strong><span>SP Ring Road</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l18 0"/><path d="M9 8l1 0"/><path d="M9 12l1 0"/><path d="M9 16l1 0"/><path d="M14 8l1 0"/><path d="M14 12l1 0"/><path d="M14 16l1 0"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"/></svg></span><div><strong>32 min · 25 km</strong><span>Infocity Circle, Gandhinagar</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7h-3l2 -7h-4l-2 2h-3l2 -4l-2 -4h3l2 2h4l-2 -7h3z"/></svg></span><div><strong>35 min · 25 km</strong><span>Sardar Vallabhbhai Patel International Airport</span></div></div>
+            <div class="dist-item"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 13c0 -3.87 -3.37 -7 -10 -7h-8"/><path d="M3 15h16a2 2 0 0 0 2 -2"/><path d="M3 6v5h17.5"/><path d="M3 10l0 4"/><path d="M8 11l0 -5"/><path d="M13 11l0 -4.5"/><path d="M3 19l18 0"/></svg></span><div><strong>54 min · 23.8 km</strong><span>Kalupur Railway Station</span></div></div>
+            </div>
+            <div class="loc-address"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg><span>Arvind Forreste, Jethlaj, Rancharda–Khatraj Road, Ahmedabad<br /><a href="https://www.google.com/maps/dir/?api=1&destination=Arvind%20Forreste%2C%20Jethlaj%2C%20Ahmedabad" target="_blank" rel="noopener">Get directions →</a></span></div>
+          </div>
+          <div class="loc-map" data-animate="fade-up"><iframe src="https://www.google.com/maps?q=Arvind%20Forreste%2C%20Jethlaj%2C%20Ahmedabad&output=embed" title="Arvind Forreste location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+        </div>
+        <p class="note">Distances and travel times are approximate and indicative; map not to scale.</p>
+      </div>
+    </section>
+
+    <!-- ============================ BROCHURE CTA ============================ -->
+    <section class="section" style="padding-bottom:0">
+      <div class="container">
+        <div class="cta-band" data-animate="fade-up">
+          <div>
+            <h3>Get the complete <em>Arvind Forreste</em> brochure</h3>
+            <p>Master plan, specifications, amenities and more — download it instantly.</p>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn btn-primary" data-brochure data-project="forreste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Download Brochure</button>
+            <a href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20Forreste.%20Please%20share%20details." class="btn btn-ghost" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section class="section" style="padding-top:0">
+    <!-- ============================ ENQUIRE ============================ -->
+    <section class="section" id="enquire">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="contact-left" data-animate="fade-up">
+            <span class="section-label">Get in touch</span>
+            <h2 class="section-title">Visit <em>Arvind Forreste</em></h2>
+            <p class="lead">Book a free, no-obligation site visit. Our relationship team will call you back to fix a time, answer your questions and share the latest availability.</p>
+            <div class="contact-lines">
+            <a class="contact-line" href="tel:+919712131519"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg></span><span><small>Call us</small><b>+91 97121 31519</b></span></a>
+            <a class="contact-line" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20SmartSpaces%20projects." target="_blank" rel="noopener"><span class="dist-ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span><small>WhatsApp</small><b>Chat with our team</b></span></a>
+            <a class="contact-line" href="#" data-brochure><span class="dist-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg></span><span><small>Brochures</small><b>Download any project brochure</b></span></a>
+          </div>
+          </div>
+          <div data-animate="fade-up" data-delay="0.1">
+          <form class="form-card" data-enquiry data-project="forreste" novalidate>
+            <h3>Book a <em>free site visit</em></h3>
+            <p class="form-sub">Our team will call you back shortly. Free pick-up can be arranged from select Ahmedabad locations.</p>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-name">Full name *</label>
+                <input type="text" id="f-name" name="name" autocomplete="name" placeholder="Your name" required />
+                <span class="err">Please enter your name.</span>
+              </div>
+              <div class="field">
+                <label for="f-phone">Mobile number *</label>
+                <input type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="10-digit mobile" required />
+                <span class="err">Please enter a valid mobile number.</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@email.com" />
+                <span class="err">Please enter a valid email.</span>
+              </div>
+              <div class="field">
+                <label for="f-project">Interested in *</label>
+                <select id="f-project" name="project" required>
+                  <option value="">Select a project</option><option value="aqua-city">Arvind Aqua City</option><option value="everland">Arvind Everland</option><option value="forreste" selected>Arvind Forreste</option><option value="uplands">Arvind Uplands</option><option value="highgrove">Arvind Highgrove</option><option value="alcove">Arvind Alcove</option><option value="smartpark">Arvind SmartPark</option>
+                </select>
+                <span class="err">Please choose a project.</span>
+              </div>
+            </div>
+            <label class="toggle-row" for="f-schedule">Schedule a site visit
+              <span class="switch"><input type="checkbox" id="f-schedule" data-schedule-toggle /><i></i></span>
+            </label>
+            <div class="form-row schedule-fields">
+              <div class="field">
+                <label for="f-date">Preferred date</label>
+                <input type="date" id="f-date" name="visit_date" />
+              </div>
+              <div class="field">
+                <label for="f-time">Preferred time</label>
+                <input type="time" id="f-time" name="visit_time" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-message">Message (optional)</label>
+              <textarea id="f-message" name="message" rows="3" placeholder="Plot / villa size, budget or any questions…"></textarea>
+            </div>
+            <label class="consent">
+              <input type="checkbox" name="consent" required />
+              <span>I authorise Arvind SmartSpaces &amp; its authorised channel partner to contact me via call, SMS, email or WhatsApp.</span>
+              <span class="err">Please tick to continue.</span>
+            </label>
+            <button type="submit" class="btn btn-primary">Book Free Site Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"/><path d="M13 18l6 -6"/><path d="M13 6l6 6"/></svg></button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ MORE PROJECTS ============================ -->
+    <section class="section section--alt">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow" data-animate="fade-up">Gallery</span>
-          <h2 class="h-lg" data-animate="clip-reveal" data-split>A closer look</h2>
+          <span class="section-label" data-animate="fade-up">Explore more</span>
+          <h2 class="section-title" data-animate="fade-up" data-delay="0.05">Other Arvind <em>projects</em></h2>
         </div>
-        <div class="gallery-grid cols-3" data-lightbox data-animate="stagger" data-stagger="0.06">
-          <figure><img src="../assets/images/projects/forreste/gallery-1.jpg" alt="Arvind Forreste — clubhouse café walkway by the pool" data-fallback /></figure>
-          <figure><img src="../assets/images/projects/forreste/gallery-5.jpg" alt="Arvind Forreste — swimming pool and sun-deck" data-fallback /></figure>
-          <figure><img src="../assets/images/projects/forreste/gallery-6.jpg" alt="Arvind Forreste — Tree Hut in the forest" data-fallback /></figure>
+        <div class="projects-grid" data-animate="stagger" data-stagger="0.08">
+          <article class="project-card">
+            <a class="pc-media" href="../projects/arvind-uplands.html"><img src="../assets/images/projects/uplands/golf-fountain.jpg" alt="Arvind Uplands" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Nasmed, Rancharda, Ahmedabad</span>
+              <h3 class="pc-name"><a href="../projects/arvind-uplands.html">Arvind Uplands</a></h3>
+              <p class="pc-type">Woods Bagot-designed villas around a 9-hole executive golf course.</p>
+              <ul class="pc-facts"><li>9-hole golf</li><li>5 villa designs</li><li>Golf Square club</li></ul>
+              <div class="pc-actions">
+                <a href="../projects/arvind-uplands.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="uplands"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <a class="pc-media" href="../projects/arvind-highgrove.html"><img src="../assets/images/projects/highgrove/club-sunset.jpg" alt="Arvind Highgrove" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Moti Devti, Ahmedabad</span>
+              <h3 class="pc-name"><a href="../projects/arvind-highgrove.html">Arvind Highgrove</a></h3>
+              <p class="pc-type">Weekend golf villas and plots around Ahmedabad's largest shallow water-lily pond.</p>
+              <ul class="pc-facts"><li>Studio–4 BHK</li><li>3-acre lily pond</li><li>40,000+ sq ft club</li></ul>
+              <div class="pc-actions">
+                <a href="../projects/arvind-highgrove.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="highgrove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <a class="pc-media" href="../projects/arvind-alcove.html"><span class="pc-tag pc-tag--blue">Sold Out</span><img src="../assets/images/projects/alcove/gallery-4.jpg" alt="Arvind Alcove" loading="lazy" data-fallback /></a>
+            <div class="pc-body">
+              <span class="pc-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg> Shanawad, Ahmedabad</span>
+              <h3 class="pc-name"><a href="../projects/arvind-alcove.html">Arvind Alcove</a></h3>
+              <p class="pc-type">A completed, sold-out weekend villa community across 24 acres.</p>
+              <ul class="pc-facts"><li>24 acres</li><li>12,000 sq ft club</li><li>Completed</li></ul>
+              <div class="pc-actions">
+                <a href="../projects/arvind-alcove.html" class="btn btn-blue btn-sm">View Project</a>
+                <button type="button" class="btn btn-outline btn-sm" data-brochure data-project="alcove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+              </div>
+            </div>
+          </article>
         </div>
+        <nav class="pn-nav mt-l" aria-label="Previous and next project">
+          <a href="arvind-everland.html" class="prev"><small>← Previous project</small><b>Arvind Everland</b></a>
+          <a href="arvind-uplands.html" class="next"><small>Next project →</small><b>Arvind Uplands</b></a>
+        </nav>
       </div>
     </section>
-
-    <!-- ENQUIRE CTA -->
-    <section class="cta-band section">
-      <div class="container">
-        <span class="eyebrow" data-animate="fade-up">Register your interest</span>
-        <h2 class="h-xl" data-animate="fade-up" data-delay="0.05" style="margin-top:16px">Schedule a private visit to Arvind Forreste</h2>
-        <div style="margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap" data-animate="fade-up" data-delay="0.1">
-          <a href="../contact.html?project=forreste" class="btn btn-primary">Enquire Now <span class="arrow">→</span></a>
-          <a href="../assets/brochures/arvind-forreste.pdf" class="btn btn-ghost" download data-brochure>Download Brochure <span class="arrow">↓</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PREV / NEXT -->
-    <div class="container">
-      <nav class="pn-nav">
-        <a href="arvind-everland.html" class="prev"><span class="label">Previous</span><span class="name">← Arvind Everland</span></a>
-        <a href="arvind-uplands.html" class="next"><span class="label">Next</span><span class="name">Arvind Uplands →</span></a>
-      </nav>
-    </div>
   </main>
 
+  <!-- ============================ FOOTER ============================ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-col footer-brand">
-          <a href="../index.html" class="brand"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
-          <p>Crafting premium residential, plotted and industrial spaces across India.</p>
-          <div class="socials"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="LinkedIn">IN</a><a href="#" aria-label="Facebook">FB</a></div>
-        </div>
-        <div class="footer-col">
-          <h5>Explore</h5>
-          <a href="../index.html">Home</a><a href="../projects.html">Projects</a><a href="../awards.html">Awards</a><a href="../contact.html">Contact</a>
+        <div class="footer-brand">
+          <a href="../index.html" class="logo"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="logo-img" /></a>
+          <p>Every Arvind SmartSpaces address in Ahmedabad — lakeside, forest, golf and industrial — presented by an authorised channel partner, from first site visit to final registration.</p>
+          <a class="footer-cp" href="https://www.dakshrealtors.com/" target="_blank" rel="noopener">
+            <img src="../assets/channel-partner-logo.jpg" alt="Daksh Realtors" />
+            <span><small>Authorised Channel Partner</small><b>Daksh Realtors</b></span>
+          </a>
         </div>
         <div class="footer-col">
           <h5>Projects</h5>
-          <a href="arvind-aqua-city.html">Aqua City</a><a href="arvind-everland.html">Everland</a><a href="arvind-forreste.html">Forreste</a><a href="arvind-uplands.html">Uplands</a><a href="arvind-highgrove.html">Highgrove</a><a href="arvind-alcove.html">Alcove</a><a href="arvind-smartpark.html">SmartPark</a>
+          <a href="../projects/arvind-aqua-city.html">Arvind Aqua City</a><a href="../projects/arvind-everland.html">Arvind Everland</a><a href="../projects/arvind-forreste.html">Arvind Forreste</a><a href="../projects/arvind-uplands.html">Arvind Uplands</a><a href="../projects/arvind-highgrove.html">Arvind Highgrove</a><a href="../projects/arvind-alcove.html">Arvind Alcove</a><a href="../projects/arvind-smartpark.html">Arvind SmartPark</a>
+        </div>
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <a href="../index.html">Home</a><a href="../projects.html">All Projects</a><a href="../awards.html">Awards</a><a href="../index.html#about">About Us</a><a href="../contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h5>Get in touch</h5>
-          <a href="tel:+917968264020">+91 79 6826 4020</a><a href="mailto:sales@arvindsmartspaces.com">sales@arvindsmartspaces.com</a><a href="../contact.html">Head Office, C.G. Road, Ahmedabad</a>
+          <a href="tel:+919712131519">+91 97121 31519</a>
+          <a href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20SmartSpaces%20projects." target="_blank" rel="noopener">WhatsApp us</a>
+          <a href="../contact.html#enquire">Book a free site visit</a>
+          <a href="#" data-brochure>Download a brochure</a>
         </div>
       </div>
-      <div class="footer-bottom"><span>© <span data-year>2026</span> Arvind SmartSpaces. All rights reserved.</span><span>Designed with <span aria-label="love" style="color:#e0556a">♥</span> by <a href="https://ampli5.digital/" target="_blank" rel="noopener" style="color:var(--accent)">Ampli5 Digital</a></span></div>
+      <p class="footer-disclaimer">Disclaimer: This website is maintained by Daksh Realtors, an authorised channel partner of Arvind SmartSpaces Ltd., for information purposes only. It is not an offer, invitation or contract. All images are artist's impressions or representative images; layouts, areas, amenities, specifications and connectivity details are indicative and subject to change, approvals and the terms of the agreement for sale. Travel times are approximate. Please refer to the official project documents and RERA registrations before making any decision.</p>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Arvind SmartSpaces Ltd. All rights reserved.</span>
+        <span>Designed with <span aria-label="love" style="color:#e0556a">♥</span> by <a href="https://ampli5.digital/" target="_blank" rel="noopener">Ampli5 Digital</a></span>
+      </div>
     </div>
   </footer>
 
+  <!-- Floating actions -->
+  <a class="wa-float" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20Forreste.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <button type="button" class="brochure-float" data-brochure data-project="forreste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+  <nav class="sticky-bar" aria-label="Quick actions">
+    <a href="tel:+919712131519"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg> Call</a>
+    <a class="sb-wa" href="https://wa.me/919712131519?text=Hi%2C%20I%20am%20interested%20in%20Arvind%20Forreste.%20Please%20share%20details." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+    <button type="button" data-brochure data-project="forreste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"/><path d="M7 11l5 5l5 -5"/><path d="M12 4l0 12"/></svg> Brochure</button>
+    <a class="sb-visit" href="#enquire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M11 15h1"/><path d="M12 15v3"/></svg> Site Visit</a>
+  </nav>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script src="../js/animations.js"></script>
   <script src="../js/main.js"></script>
