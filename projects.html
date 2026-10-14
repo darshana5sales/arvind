@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Arvind SmartSpaces</title>
+  <meta name="description" content="Explore the Arvind SmartSpaces portfolio of premium developments across Ahmedabad." />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header scrolled">
+    <div class="container nav">
+      <a href="index.html" class="brand"><img src="assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="awards.html">Awards</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Enquire Now</a>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top:clamp(140px,18vh,220px)">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-hero-load data-order="1">Portfolio</span>
+          <h1 class="display" data-hero-load data-order="2">Our Projects</h1>
+          <p class="lead" data-hero-load data-order="3" style="margin-top:20px">A curated collection of premium residential, plotted and industrial developments across Ahmedabad.</p>
+        </div>
+
+        <!-- Visual filter by project type -->
+        <div class="filters" data-animate="fade-up">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="villas">Villas</button>
+          <button class="filter-chip" data-filter="plotted">Plotted</button>
+          <button class="filter-chip" data-filter="industrial">Industrial</button>
+        </div>
+
+        <!-- image + name + location + link only — no descriptions -->
+        <!-- is-uniform = equal-sized cards so the grid stays symmetrical when
+             filtering or when more projects are added later. -->
+        <div class="projects-grid is-uniform" data-animate="stagger" data-stagger="0.08">
+
+          <article class="project-card" data-category="villas">
+            <a href="projects/arvind-aqua-city.html">
+              <div class="project-media">
+                <span class="project-tag">New Launch</span>
+                <img src="assets/images/projects/aqua-city/banner.jpg" alt="Arvind Aqua City" data-fallback />
+                <div class="project-info"><div><div class="name">Arvind Aqua City</div><div class="loc">Ahmedabad</div></div><span class="project-arrow">→</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-category="plotted">
+            <a href="projects/arvind-everland.html">
+              <div class="project-media">
+                <img src="assets/images/projects/everland/banner.jpg" alt="Arvind Everland" data-fallback />
+                <div class="project-info"><div><div class="name">Arvind Everland</div><div class="loc">Ahmedabad</div></div><span class="project-arrow">→</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-category="villas">
+            <a href="projects/arvind-forreste.html">
+              <div class="project-media">
+                <img src="assets/images/projects/forreste/banner.jpg" alt="Arvind Forreste" data-fallback />
+                <div class="project-info"><div><div class="name">Arvind Forreste</div><div class="loc">Ahmedabad</div></div><span class="project-arrow">→</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-category="villas">
+            <a href="projects/arvind-uplands.html">
+              <div class="project-media">
+                <img src="assets/images/projects/uplands/banner.jpg" alt="Arvind Uplands" data-fallback />
+                <div class="project-info"><div><div class="name">Arvind Uplands</div><div class="loc">Ahmedabad</div></div><span class="project-arrow">→</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-category="plotted">
+            <a href="projects/arvind-highgrove.html">
+              <div class="project-media">
+                <img src="assets/images/projects/highgrove/banner.jpg" alt="Arvind Highgrove" data-fallback />
+                <div class="project-info"><div><div class="name">Arvind Highgrove</div><div class="loc">Ahmedabad</div></div><span class="project-arrow">→</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-category="villas">
+            <a href="projects/arvind-alcove.html">
+              <div class="project-media">
+                <span class="project-tag">Completed</span>
+                <img src="assets/images/projects/alcove/banner.jpg" alt="Arvind Alcove" data-fallback />
+                <div class="project-info"><div><div class="name">Arvind Alcove</div><div class="loc">Ahmedabad</div></div><span class="project-arrow">→</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-category="industrial">
+            <a href="projects/arvind-smartpark.html">
+              <div class="project-media">
+                <span class="project-tag">Industrial</span>
+                <img src="assets/images/projects/smartpark/banner.jpg" alt="Arvind SmartPark" data-fallback />
+                <div class="project-info"><div><div class="name">Arvind SmartPark</div><div class="loc">Ahmedabad</div></div><span class="project-arrow">→</span></div>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="brand"><img src="assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
+          <p>Crafting premium residential, plotted and industrial spaces across India.</p>
+          <div class="socials"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="LinkedIn">IN</a><a href="#" aria-label="Facebook">FB</a></div>
+        </div>
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <a href="index.html">Home</a><a href="projects.html">Projects</a><a href="awards.html">Awards</a><a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Projects</h5>
+          <a href="projects/arvind-aqua-city.html">Aqua City</a><a href="projects/arvind-everland.html">Everland</a><a href="projects/arvind-forreste.html">Forreste</a><a href="projects/arvind-uplands.html">Uplands</a><a href="projects/arvind-highgrove.html">Highgrove</a><a href="projects/arvind-alcove.html">Alcove</a><a href="projects/arvind-smartpark.html">SmartPark</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get in touch</h5>
+          <a href="tel:+917971367022">+91 7971 367 022</a><a href="mailto:sales@arvindsmartspaces.com">sales@arvindsmartspaces.com</a><a href="contact.html">Head Office, C.G. Road, Ahmedabad</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span data-year>2026</span> Arvind SmartSpaces. All rights reserved.</span><span>Designed with <span aria-label="love" style="color:#e0556a">♥</span> by <a href="https://ampli5.digital/" target="_blank" rel="noopener" style="color:var(--accent)">Ampli5 Digital</a></span></div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

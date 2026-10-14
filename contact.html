@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Arvind SmartSpaces</title>
+  <meta name="description" content="Get in touch with Arvind SmartSpaces. Enquire about our premium developments." />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header scrolled">
+    <div class="container nav">
+      <a href="index.html" class="brand"><img src="assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="awards.html">Awards</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Enquire Now</a>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top:clamp(140px,18vh,220px)">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-hero-load data-order="1">Get in touch</span>
+          <h1 class="display" data-hero-load data-order="2">Let's talk</h1>
+          <p class="lead" data-hero-load data-order="3" style="margin-top:20px">Tell us which residence interests you and our relationship team will reach out.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- ENQUIRY FORM -->
+          <div data-animate="fade-up">
+            <!--
+              FORM ENDPOINT:
+              By default this opens the visitor's email app (no backend needed).
+              To collect submissions, add  action="https://formspree.io/f/XXXX"  method="POST"
+              to the <form> tag below — main.js will then POST instead of using mailto.
+            -->
+            <form id="enquiry-form" novalidate>
+              <div class="form-success">Thank you — we’ll be in touch shortly.</div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" name="name" required placeholder="Your name" />
+                  <span class="err">Please enter your name.</span>
+                </div>
+                <div class="field">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" name="phone" required placeholder="+91" />
+                  <span class="err">Please enter your phone number.</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required placeholder="you@email.com" />
+                  <span class="err">Please enter a valid email.</span>
+                </div>
+                <div class="field">
+                  <label for="project">Project of Interest</label>
+                  <select id="project" name="project" required>
+                    <option value="">Select a project</option>
+                    <option value="aqua-city">Arvind Aqua City</option>
+                    <option value="everland">Arvind Everland</option>
+                    <option value="forreste">Arvind Forreste</option>
+                    <option value="uplands">Arvind Uplands</option>
+                    <option value="highgrove">Arvind Highgrove</option>
+                    <option value="alcove">Arvind Alcove</option>
+                    <option value="smartpark">Arvind SmartPark</option>
+                  </select>
+                  <span class="err">Please choose a project.</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us a little about what you’re looking for"></textarea>
+              </div>
+              <label class="consent">
+                <input type="checkbox" name="consent" required />
+                <span>I agree to be contacted by Arvind SmartSpaces regarding my enquiry, and accept the privacy policy.</span>
+              </label>
+              <button type="submit" class="btn btn-primary">Send Enquiry <span class="arrow">→</span></button>
+            </form>
+          </div>
+
+          <!-- CONTACT DETAILS + OFFICES -->
+          <div data-animate="fade-up" data-delay="0.1">
+            <div class="contact-detail" style="margin-bottom:34px">
+              <span class="eyebrow">Call / Write</span>
+              <a class="big" href="tel:+917971367022">+91 7971 367 022</a>
+              <a class="link-underline" href="mailto:sales@arvindsmartspaces.com">sales@arvindsmartspaces.com</a>
+            </div>
+
+            <div class="office">
+              <h4>Head Office — Ahmedabad</h4>
+              <p>24, Government Servant's Society, Behind Nike Showroom, C.G. Road, Ahmedabad – 380009</p>
+              <a class="link-underline" href="https://maps.google.com/?q=C.G.+Road+Ahmedabad" target="_blank" rel="noopener">Get Directions →</a>
+            </div>
+            <div class="office">
+              <h4>Regional Office — Mumbai</h4>
+              <p>INS Towers, A Wing, G Block, Bandra Kurla Complex, Mumbai</p>
+              <a class="link-underline" href="https://maps.google.com/?q=Bandra+Kurla+Complex+Mumbai" target="_blank" rel="noopener">Get Directions →</a>
+            </div>
+            <div class="office">
+              <h4>Regional Office — Bengaluru</h4>
+              <p>Infantry Road, opposite Prestige Saleh Ahmed Building, Bengaluru</p>
+              <a class="link-underline" href="https://maps.google.com/?q=Infantry+Road+Bengaluru" target="_blank" rel="noopener">Get Directions →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAP: replace the iframe src with your real Google Maps embed link -->
+        <div class="map-embed" data-animate="fade-up">
+          <iframe
+            src="https://www.google.com/maps?q=C.G.%20Road%20Ahmedabad&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Arvind SmartSpaces — Head Office"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="brand"><img src="assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
+          <p>Crafting premium residential, plotted and industrial spaces across India.</p>
+          <div class="socials"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="LinkedIn">IN</a><a href="#" aria-label="Facebook">FB</a></div>
+        </div>
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <a href="index.html">Home</a><a href="projects.html">Projects</a><a href="awards.html">Awards</a><a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Projects</h5>
+          <a href="projects/arvind-aqua-city.html">Aqua City</a><a href="projects/arvind-everland.html">Everland</a><a href="projects/arvind-forreste.html">Forreste</a><a href="projects/arvind-uplands.html">Uplands</a><a href="projects/arvind-highgrove.html">Highgrove</a><a href="projects/arvind-alcove.html">Alcove</a><a href="projects/arvind-smartpark.html">SmartPark</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get in touch</h5>
+          <a href="tel:+917971367022">+91 7971 367 022</a><a href="mailto:sales@arvindsmartspaces.com">sales@arvindsmartspaces.com</a><a href="contact.html">Head Office, C.G. Road, Ahmedabad</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span data-year>2026</span> Arvind SmartSpaces. All rights reserved.</span><span>Designed with <span aria-label="love" style="color:#e0556a">♥</span> by <a href="https://ampli5.digital/" target="_blank" rel="noopener" style="color:var(--accent)">Ampli5 Digital</a></span></div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

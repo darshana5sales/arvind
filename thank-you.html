@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — Arvind SmartSpaces</title>
+  <meta name="description" content="Thank you — your brochure is downloading. Our team will be in touch shortly." />
+  <meta name="robots" content="noindex" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header scrolled">
+    <div class="container nav">
+      <a href="index.html" class="brand"><img src="assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="awards.html">Awards</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Enquire Now</a>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top:clamp(150px,20vh,240px);text-align:center">
+      <div class="container" style="max-width:760px">
+        <span class="eyebrow" data-hero-load data-order="1">Thank you</span>
+        <h1 class="display" data-hero-load data-order="2" style="margin-top:14px">Your brochure is on its way</h1>
+        <p class="lead" data-hero-load data-order="3" style="margin-top:22px">
+          Thanks for your interest in <strong data-ty-project>Arvind SmartSpaces</strong>.
+          Your download should begin automatically — and one of our relationship executives
+          will reach out to you shortly.
+        </p>
+
+        <div data-hero-load data-order="4" style="margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+          <a href="projects.html" class="btn btn-primary">Explore more projects <span class="arrow">→</span></a>
+          <a href="contact.html" class="btn btn-ghost">Talk to our team</a>
+        </div>
+
+        <p data-hero-load data-order="5" style="margin-top:30px;color:var(--ink-faint);font-size:.9rem">
+          Download didn't start? <a data-ty-download href="#" style="color:var(--accent);text-decoration:underline">Click here to download the brochure</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="brand"><img src="assets/logo.png" alt="Arvind SmartSpaces" class="brand-logo" /></a>
+          <p>Crafting premium residential, plotted and industrial spaces across India.</p>
+          <div class="socials"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="LinkedIn">IN</a><a href="#" aria-label="Facebook">FB</a></div>
+        </div>
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <a href="index.html">Home</a><a href="projects.html">Projects</a><a href="awards.html">Awards</a><a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>Projects</h5>
+          <a href="projects/arvind-aqua-city.html">Aqua City</a><a href="projects/arvind-everland.html">Everland</a><a href="projects/arvind-forreste.html">Forreste</a><a href="projects/arvind-uplands.html">Uplands</a><a href="projects/arvind-highgrove.html">Highgrove</a><a href="projects/arvind-alcove.html">Alcove</a><a href="projects/arvind-smartpark.html">SmartPark</a>
+        </div>
+        <div class="footer-col">
+          <h5>Get in touch</h5>
+          <a href="tel:+917971367022">+91 7971 367 022</a><a href="mailto:sales@arvindsmartspaces.com">sales@arvindsmartspaces.com</a><a href="contact.html">Head Office, C.G. Road, Ahmedabad</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span data-year>2026</span> Arvind SmartSpaces. All rights reserved.</span><span>Designed with <span aria-label="love" style="color:#e0556a">♥</span> by <a href="https://ampli5.digital/" target="_blank" rel="noopener" style="color:var(--accent)">Ampli5 Digital</a></span></div>
+    </div>
+  </footer>
+
+  <!-- Personalise the page from ?project=<slug> -->
+  <script>
+    (function () {
+      var slug = new URLSearchParams(location.search).get("project") || "";
+      if (!slug) return;
+      var NAMES = {
+        "aqua-city": "Arvind Aqua City", "everland": "Arvind Everland",
+        "forreste": "Arvind Forreste", "uplands": "Arvind Uplands",
+        "highgrove": "Arvind Highgrove", "alcove": "Arvind Alcove",
+        "smartpark": "Arvind SmartPark"
+      };
+      var name = NAMES[slug] || ("Arvind " + slug.replace(/-/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); }));
+      document.querySelectorAll("[data-ty-project]").forEach(function (el) { el.textContent = name; });
+      var dl = document.querySelector("[data-ty-download]");
+      if (dl) { dl.setAttribute("href", "assets/brochures/arvind-" + slug + ".pdf"); dl.setAttribute("download", ""); }
+    })();
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
