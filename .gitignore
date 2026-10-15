@@ -1,0 +1,8 @@
+# Real SMTP credentials — NEVER commit (the GitHub repo is public).
+# Copy api/config.sample.php → api/config.php on the server and fill it in.
+api/config.php
+
+# Lead backups + rate-limit data written by the mailer on the server
+api/storage/*
+!api/storage/.htaccess
+!api/storage/index.html

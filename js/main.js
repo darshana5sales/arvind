@@ -13,12 +13,17 @@
     // plain links (search the HTML for "919712131519" to change them).
     whatsapp: "919712131519",
     // LEAD ENDPOINT -------------------------------------------------------------
-    // Leave "" and no lead is stored anywhere: the brochure still downloads,
-    // and site-visit forms open WhatsApp with the visitor's details pre-filled.
-    // To COLLECT every lead, paste a Formspree / Google Apps Script / CRM URL here.
-    // Both forms are POSTed there as JSON:
-    //   { form, name, email, phone, city, project, message, visit_date, visit_time, consent, page }
-    leadEndpoint: "",
+    // The PHP mailer in api/send-lead.php emails every lead (SMTP settings live in
+    // api/config.php on the server). Both forms POST JSON:
+    //   { form, name, email, phone, city, project, project_slug, message,
+    //     visit_date, visit_time, consent, page, referrer, utm, website }
+    //  • "api/send-lead.php"  (relative) → used when the site runs on a PHP host.
+    //    On GitHub Pages (no PHP) it is skipped and site-visit forms hand the
+    //    enquiry over on WhatsApp instead.
+    //  • "https://…/send-lead.php" (absolute) → always used, e.g. the api/ folder
+    //    uploaded to another domain (add this site to ALLOWED_ORIGINS there).
+    //  • "" → no lead is sent anywhere.
+    leadEndpoint: "api/send-lead.php",
   };
 
   // All projects (slug → name). Brochures live at assets/brochures/arvind-<slug>.pdf
@@ -41,14 +46,60 @@
     right: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6l-6 6"/></svg>',
   };
 
-  function sendLead(data) {
-    if (!SITE.leadEndpoint) return Promise.resolve(false);
-    return fetch(SITE.leadEndpoint, {
+  const ENDPOINT = !SITE.leadEndpoint ? ""
+    : /^https?:\/\//.test(SITE.leadEndpoint) ? SITE.leadEndpoint
+    : (isHttp && !/\.github\.io$/.test(location.hostname)) ? ROOT + SITE.leadEndpoint : "";
+
+  // Remember ad / campaign parameters from the landing URL for this visit.
+  const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid"];
+  (function captureUtm() {
+    try {
+      const q = new URLSearchParams(location.search), found = {};
+      UTM_KEYS.forEach((k) => { if (q.get(k)) found[k] = q.get(k).slice(0, 100); });
+      if (Object.keys(found).length) sessionStorage.setItem("lead_utm", JSON.stringify(found));
+      if (!sessionStorage.getItem("lead_ref") && document.referrer && !document.referrer.startsWith(location.origin)) {
+        sessionStorage.setItem("lead_ref", document.referrer.slice(0, 300));
+      }
+    } catch (_) { /* storage blocked — fine */ }
+  })();
+  function trackingFields() {
+    let utm = {}, referrer = "";
+    try { utm = JSON.parse(sessionStorage.getItem("lead_utm") || "{}"); referrer = sessionStorage.getItem("lead_ref") || ""; } catch (_) {}
+    return { utm, referrer, page: location.href };
+  }
+
+  // POSTs a lead. Resolves to { ok, status, message, errors } — never rejects.
+  // status 0 = not sent (no endpoint / network error / timeout).
+  function sendLead(data, timeoutMs = 12000) {
+    if (!ENDPOINT) return Promise.resolve({ ok: false, status: 0 });
+    const ctrl = "AbortController" in window ? new AbortController() : null;
+    const timer = ctrl ? setTimeout(() => ctrl.abort(), timeoutMs) : null;
+    return fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(data),
-      keepalive: true,
-    }).then(() => true).catch(() => false);
+      body: JSON.stringify(Object.assign({}, trackingFields(), data)),
+      signal: ctrl ? ctrl.signal : undefined,
+    })
+      .then((r) => r.json().catch(() => ({})).then((j) => ({ ok: r.ok && j.success === true, status: r.status, message: j.message || "", errors: j.errors || [] })))
+      .catch(() => ({ ok: false, status: 0 }))
+      .finally(() => timer && clearTimeout(timer));
+  }
+
+  function whatsappText(lead) {
+    return [
+      `Hi, I'm interested in ${lead.project}.`, `Name: ${lead.name}`, `Phone: ${lead.phone}`,
+      lead.email && `Email: ${lead.email}`, lead.city && `City: ${lead.city}`,
+      lead.visit_date && `Preferred site visit: ${lead.visit_date}${lead.visit_time ? " " + lead.visit_time : ""}`,
+      lead.message && `Message: ${lead.message}`,
+    ].filter(Boolean).join("\n");
+  }
+
+  // Shows the server's validation message at the end of a form.
+  function formNotice(form, text) {
+    let n = form.querySelector(".form-notice");
+    if (!n) { n = document.createElement("p"); n.className = "form-notice"; n.setAttribute("role", "alert"); form.appendChild(n); }
+    n.textContent = text;
+    n.hidden = !text;
   }
 
   function validate(form) {
@@ -552,6 +603,7 @@
             <span>I authorise Arvind SmartSpaces &amp; its authorised channel partner to contact me via call, SMS, email or WhatsApp.</span>
             <span class="err">Please tick to continue.</span>
           </label>
+          <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
           <button type="submit" class="btn btn-primary lead-submit">Download Brochure</button>
           <p class="lead-fineprint">Your details are used only to share this brochure and follow up on your enquiry.</p>
         </form>
@@ -618,14 +670,25 @@
       if (!validate(form)) return;
       const s = slug || select.value;
       if (!s) return;
+      formNotice(form, "");
+      submit.setAttribute("disabled", "");
+      submit.textContent = "Please wait…";
       sendLead({
         form: "brochure", name: form.name.value.trim(), email: form.email.value.trim(),
-        phone: form.phone.value.trim(), city: form.city.value.trim(), project: PROJECTS[s], consent: form.consent.checked, page: location.href,
+        phone: form.phone.value.trim(), city: form.city.value.trim(), project: PROJECTS[s], project_slug: s,
+        consent: form.consent.checked, website: form.website.value,
+      }, 6000).then((res) => {
+        if (res.status === 422 || res.status === 429) {      // fixable problem → let the visitor correct it
+          formNotice(form, res.message || "Please check your details and try again.");
+          submit.removeAttribute("disabled");
+          submit.textContent = "Download Brochure";
+          return;
+        }
+        // sent, or the mailer is unreachable — never block the brochure
+        submit.textContent = "Starting your download…";
+        startDownload(pdf(s), "arvind-" + s + ".pdf");
+        setTimeout(() => { window.location.href = ROOT + "thank-you/?project=" + encodeURIComponent(s); }, 1200);
       });
-      submit.setAttribute("disabled", "");
-      submit.textContent = "Starting your download…";
-      startDownload(pdf(s), "arvind-" + s + ".pdf");
-      setTimeout(() => { window.location.href = ROOT + "thank-you/?project=" + encodeURIComponent(s); }, 1200);
     });
   }
 
@@ -651,27 +714,33 @@
         const visit = toggle && toggle.checked;
         const lead = {
           form: "enquiry", name: v("name"), email: v("email"), phone: v("phone"), city: v("city"), project: projectName,
-          message: v("message"), visit_date: visit ? v("visit_date") : "", visit_time: visit ? v("visit_time") : "",
-          consent: true, page: location.href,
+          project_slug: PROJECTS[slug] ? slug : "", message: v("message"),
+          visit_date: visit ? v("visit_date") : "", visit_time: visit ? v("visit_time") : "",
+          consent: true, website: v("website"),
         };
         const thanks = ROOT + "thank-you/?type=visit" + (slug ? "&project=" + encodeURIComponent(slug) : "");
         const btn = form.querySelector('button[type="submit"]');
-        if (btn) { btn.setAttribute("disabled", ""); btn.textContent = "Sending…"; }
+        const btnHtml = btn ? btn.innerHTML : "";
+        formNotice(form, "");
 
-        if (SITE.leadEndpoint) {
-          sendLead(lead).finally(() => { window.location.href = thanks; });
-        } else {
-          // No endpoint yet → hand the enquiry over on WhatsApp, pre-filled.
-          const lines = [
-            `Hi, I'm interested in ${projectName}.`, `Name: ${lead.name}`, `Phone: ${lead.phone}`,
-            lead.email && `Email: ${lead.email}`,
-            lead.city && `City: ${lead.city}`,
-            visit && lead.visit_date && `Preferred site visit: ${lead.visit_date}${lead.visit_time ? " " + lead.visit_time : ""}`,
-            lead.message && `Message: ${lead.message}`,
-          ].filter(Boolean);
-          window.open(`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener");
+        if (!ENDPOINT) {
+          // No mailer here (e.g. GitHub Pages) → hand the enquiry over on WhatsApp, pre-filled.
+          window.open(`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(whatsappText(lead))}`, "_blank", "noopener");
           window.location.href = thanks;
+          return;
         }
+        if (btn) { btn.setAttribute("disabled", ""); btn.textContent = "Sending…"; }
+        sendLead(lead).then((res) => {
+          if (res.ok) { window.location.href = thanks; return; }
+          if (res.status === 422 || res.status === 429) {
+            formNotice(form, res.message || "Please check your details and try again.");
+            if (btn) { btn.removeAttribute("disabled"); btn.innerHTML = btnHtml; }
+            return;
+          }
+          // Mailer unreachable → keep the lead and offer WhatsApp on the thank-you page.
+          try { sessionStorage.setItem("lead_whatsapp", whatsappText(lead)); } catch (_) {}
+          window.location.href = thanks + "&wa=1";
+        });
       });
     });
   }

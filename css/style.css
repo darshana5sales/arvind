@@ -693,3 +693,7 @@ body.nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
 .faq-item summary::after { content: "+"; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; border-radius: 50%; background: var(--blue-light); color: var(--blue-deep); display: grid; place-items: center; font-family: var(--font-body); font-size: 18px; transition: transform var(--t), background var(--t); }
 .faq-item[open] summary::after { content: "−"; background: var(--gold); }
 .faq-item p { padding: 0 22px 20px; color: var(--text-mid); line-height: 1.75; font-size: 15.5px; }
+
+/* ---- 29. Lead forms: honeypot (hidden from people, visible to bots) + server message */
+.hp { position: absolute !important; left: -10000px !important; width: 1px; height: 1px; overflow: hidden; }
+.form-notice { margin-top: 14px; padding: 12px 14px; border-radius: var(--radius-sm); background: #fdecea; color: #a12b1d; font-size: 14px; font-weight: 600; line-height: 1.5; }

@@ -1,0 +1,13 @@
+# Only send-lead.php is reachable from the web; everything else in api/ is private.
+Options -Indexes
+<IfModule mod_authz_core.c>
+  <FilesMatch "^(config|config\.sample|bootstrap)\.php$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+  <FilesMatch "^(config|config\.sample|bootstrap)\.php$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>
