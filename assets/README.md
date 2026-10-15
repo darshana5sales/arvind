@@ -1,6 +1,13 @@
 # Site assets & settings guide
 
 Plain static HTML / CSS / JS — no build step. Edit the HTML files directly.
+
+**Clean URLs:** every page lives in its own folder as `index.html`, so addresses have no
+`.html` — e.g. `projects/arvind-aqua-city/index.html` is served as `/projects/arvind-aqua-city/`.
+Pages: `index.html` (home), `projects/`, `projects/arvind-<project>/`, `awards/`, `contact/`,
+`thank-you/`. The old `*.html` files at the top level and in `projects/` are tiny redirects that
+send old links to the new addresses — leave them in place. Inside a page, links to other
+pages are relative (`../`), so keep the folder structure as it is.
 Until an image exists, a branded placeholder is shown automatically.
 
 > Format: use `.jpg` for photos — lowercase names, no spaces.
@@ -18,7 +25,7 @@ name in its project page — overwrite a file with the same name to replace it.
 
 - **Hero (top) image** of each project page and the home slider use a large image
   per project (e.g. `aqua-city/lake.jpg`, `uplands/golf-aerial.jpg`) — see the
-  `hero-media` block at the top of each `projects/arvind-<project>.html`.
+  `hero-media` block at the top of each `projects/arvind-<project>/index.html`.
 - **Feature rows** (image + text blocks): a row with several `<img class="fslide">`
   becomes a small slider automatically. Add or remove `<img class="fslide">` tags freely.
 - **Gallery**: add a `<div class="swiper-slide"><img …></div>` inside `.gallery-swiper`.
@@ -31,13 +38,13 @@ Named `arvind-<project>.pdf` (see `assets/brochures/README.md`).
 
 **Lead-capture popup:** every *Brochure* button opens a popup asking for name, mobile,
 email and a consent tick. On submit it (1) sends the lead to the lead endpoint if one
-is set, (2) downloads that project's PDF, (3) opens `thank-you.html?project=<slug>`.
+is set, (2) downloads that project's PDF, (3) opens `thank-you/?project=<slug>`.
 Buttons in the header / floating tab / footer have no fixed project, so the popup
 shows a project picker. On a live (http/https) site, projects whose PDF is missing
 are hidden from buttons and the picker automatically.
 
 ## 3. Awards — `assets/images/awards/`
-Images `award-1.jpg`, `award-2.jpg`, … To add one, copy a `<figure>` block in `awards.html`.
+Images `award-1.jpg`, `award-2.jpg`, … To add one, copy a `<figure>` block in `awards/index.html`.
 
 ## 4. Logo, partner logo & favicon — `assets/`
 - `logo.png` — Arvind SmartSpaces logo, rendered **white** by a CSS filter

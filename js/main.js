@@ -496,7 +496,7 @@
   /* ---- 12. Brochure download — lead-capture popup ------------------------- */
   // Every [data-brochure] button opens a popup asking for name / phone / email
   // + consent. On submit: (1) the lead goes to SITE.leadEndpoint (if set),
-  // (2) THAT project's PDF downloads, (3) the visitor lands on thank-you.html.
+  // (2) THAT project's PDF downloads, (3) the visitor lands on thank-you/.
   // A button with data-project="<slug>" is tied to that project; one without
   // (header / floating button) lets the visitor pick the project in the popup.
   function initBrochures() {
@@ -625,7 +625,7 @@
       submit.setAttribute("disabled", "");
       submit.textContent = "Starting your download…";
       startDownload(pdf(s), "arvind-" + s + ".pdf");
-      setTimeout(() => { window.location.href = ROOT + "thank-you.html?project=" + encodeURIComponent(s); }, 1200);
+      setTimeout(() => { window.location.href = ROOT + "thank-you/?project=" + encodeURIComponent(s); }, 1200);
     });
   }
 
@@ -654,7 +654,7 @@
           message: v("message"), visit_date: visit ? v("visit_date") : "", visit_time: visit ? v("visit_time") : "",
           consent: true, page: location.href,
         };
-        const thanks = ROOT + "thank-you.html?type=visit" + (slug ? "&project=" + encodeURIComponent(slug) : "");
+        const thanks = ROOT + "thank-you/?type=visit" + (slug ? "&project=" + encodeURIComponent(slug) : "");
         const btn = form.querySelector('button[type="submit"]');
         if (btn) { btn.setAttribute("disabled", ""); btn.textContent = "Sending…"; }
 

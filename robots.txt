@@ -1,4 +1,4 @@
-# All pages may be crawled (thank-you.html carries its own noindex tag)
+# All pages may be crawled (thank-you/ carries its own noindex tag)
 User-agent: *
 Allow: /
 
