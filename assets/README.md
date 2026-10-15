@@ -52,7 +52,7 @@ All in `js/main.js`, section **0. SITE SETTINGS** at the top:
 
 - **`leadEndpoint`** — paste a Formspree / Google Apps Script / CRM URL to **collect
   every lead** (brochure popup + site-visit forms). Leads are POSTed as JSON:
-  `{ form, name, email, phone, project, message, visit_date, visit_time, consent, page }`.
+  `{ form, name, email, phone, city, project, message, visit_date, visit_time, consent, page }`.
   While it is blank, no lead is stored anywhere: brochures still download, and the
   site-visit form opens WhatsApp with the visitor's details pre-filled.
 - **`whatsapp`** — the WhatsApp number used for pre-filled enquiries.

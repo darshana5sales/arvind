@@ -17,7 +17,7 @@
     // and site-visit forms open WhatsApp with the visitor's details pre-filled.
     // To COLLECT every lead, paste a Formspree / Google Apps Script / CRM URL here.
     // Both forms are POSTed there as JSON:
-    //   { form, name, email, phone, project, message, visit_date, visit_time, consent, page }
+    //   { form, name, email, phone, city, project, message, visit_date, visit_time, consent, page }
     leadEndpoint: "",
   };
 
@@ -216,6 +216,7 @@
     if (!groups.length) return;
     const box = document.createElement("div");
     box.className = "lightbox";
+    box.setAttribute("data-lenis-prevent", "");
     box.setAttribute("role", "dialog");
     box.setAttribute("aria-modal", "true");
     box.innerHTML = `<button class="lb-close" aria-label="Close">&times;</button>
@@ -506,6 +507,7 @@
     const modal = document.createElement("div");
     modal.className = "lead-modal";
     modal.setAttribute("aria-hidden", "true");
+    modal.setAttribute("data-lenis-prevent", ""); // let the popup scroll natively
     const options = Object.entries(PROJECTS).map(([s, n]) => `<option value="${s}">${n}</option>`).join("");
     modal.innerHTML = `
       <div class="lead-backdrop" data-lead-close></div>
@@ -533,10 +535,17 @@
               <span class="err">Enter a valid mobile number.</span>
             </div>
           </div>
-          <div class="field">
-            <label for="lead-email">Email *</label>
-            <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
-            <span class="err">Enter a valid email.</span>
+          <div class="form-row">
+            <div class="field">
+              <label for="lead-email">Email *</label>
+              <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+              <span class="err">Enter a valid email.</span>
+            </div>
+            <div class="field">
+              <label for="lead-city">City *</label>
+              <input id="lead-city" name="city" type="text" autocomplete="address-level2" placeholder="e.g. Ahmedabad" required />
+              <span class="err">Please enter your city.</span>
+            </div>
           </div>
           <label class="consent">
             <input type="checkbox" name="consent" required />
@@ -611,7 +620,7 @@
       if (!s) return;
       sendLead({
         form: "brochure", name: form.name.value.trim(), email: form.email.value.trim(),
-        phone: form.phone.value.trim(), project: PROJECTS[s], consent: form.consent.checked, page: location.href,
+        phone: form.phone.value.trim(), city: form.city.value.trim(), project: PROJECTS[s], consent: form.consent.checked, page: location.href,
       });
       submit.setAttribute("disabled", "");
       submit.textContent = "Starting your download…";
@@ -641,7 +650,7 @@
         const projectName = PROJECTS[slug] || slug || "Arvind SmartSpaces projects";
         const visit = toggle && toggle.checked;
         const lead = {
-          form: "enquiry", name: v("name"), email: v("email"), phone: v("phone"), project: projectName,
+          form: "enquiry", name: v("name"), email: v("email"), phone: v("phone"), city: v("city"), project: projectName,
           message: v("message"), visit_date: visit ? v("visit_date") : "", visit_time: visit ? v("visit_time") : "",
           consent: true, page: location.href,
         };
@@ -656,6 +665,7 @@
           const lines = [
             `Hi, I'm interested in ${projectName}.`, `Name: ${lead.name}`, `Phone: ${lead.phone}`,
             lead.email && `Email: ${lead.email}`,
+            lead.city && `City: ${lead.city}`,
             visit && lead.visit_date && `Preferred site visit: ${lead.visit_date}${lead.visit_time ? " " + lead.visit_time : ""}`,
             lead.message && `Message: ${lead.message}`,
           ].filter(Boolean);

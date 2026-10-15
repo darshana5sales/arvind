@@ -25,7 +25,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="../index.html" class="logo" aria-label="Arvind SmartSpaces — home"><img src="../assets/logo.png" alt="Arvind SmartSpaces" class="logo-img" /></a>
-      <nav class="main-nav" aria-label="Primary">
+      <nav class="main-nav" aria-label="Primary" data-lenis-prevent>
         <a href="../index.html" class="nav-link">Home</a>
         <div class="nav-dd">
           <a href="../projects.html" class="nav-link active">Projects <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></a>
@@ -403,12 +403,17 @@
                 <span class="err">Please enter a valid email.</span>
               </div>
               <div class="field">
-                <label for="f-project">Interested in *</label>
-                <select id="f-project" name="project" required>
-                  <option value="">Select a project</option><option value="aqua-city">Arvind Aqua City</option><option value="everland">Arvind Everland</option><option value="forreste">Arvind Forreste</option><option value="uplands" selected>Arvind Uplands</option><option value="highgrove">Arvind Highgrove</option><option value="alcove">Arvind Alcove</option><option value="smartpark">Arvind SmartPark</option>
-                </select>
-                <span class="err">Please choose a project.</span>
+                <label for="f-city">City *</label>
+                <input type="text" id="f-city" name="city" autocomplete="address-level2" placeholder="e.g. Ahmedabad" required />
+                <span class="err">Please enter your city.</span>
               </div>
+            </div>
+            <div class="field">
+              <label for="f-project">Interested in *</label>
+              <select id="f-project" name="project" required>
+                <option value="">Select a project</option><option value="aqua-city">Arvind Aqua City</option><option value="everland">Arvind Everland</option><option value="forreste">Arvind Forreste</option><option value="uplands" selected>Arvind Uplands</option><option value="highgrove">Arvind Highgrove</option><option value="alcove">Arvind Alcove</option><option value="smartpark">Arvind SmartPark</option>
+              </select>
+              <span class="err">Please choose a project.</span>
             </div>
             <label class="toggle-row" for="f-schedule">Schedule a site visit
               <span class="switch"><input type="checkbox" id="f-schedule" data-schedule-toggle /><i></i></span>
