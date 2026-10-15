@@ -233,7 +233,7 @@ body.nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
   background: rgba(255,255,255,.1); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius-xl); padding: 26px 28px;
 }
-.hero-stats-card .stat { display: flex; align-items: center; gap: 14px; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+.hero-stats-card .stat { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
 .hero-stats-card .stat:last-child { border-bottom: 0; }
 .stat-num { font-family: var(--font-display); font-size: 34px; color: var(--gold); line-height: 1; min-width: 92px; white-space: nowrap; }
 .stat-label { font-family: var(--font-para); font-size: 13.5px; color: rgba(255,255,255,.8); line-height: 1.35; }
@@ -674,3 +674,15 @@ body.nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   [data-animate], [data-animate="stagger"] > * { opacity: 1 !important; transform: none !important; clip-path: none !important; }
 }
+
+/* ---- 28. SEO additions: hero kicker (project name in the H1) + FAQ ------- */
+.hero-kicker { display: block; font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 2.6px; text-transform: uppercase; color: var(--gold-light); line-height: 1.5; margin-bottom: 14px; }
+.hero .crumbs { margin-bottom: 14px; }
+.faq-list { display: grid; gap: 12px; max-width: 900px; }
+.faq-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-md); transition: border-color var(--t), box-shadow var(--t); }
+.faq-item[open] { border-color: var(--gold); box-shadow: var(--shadow-sm); }
+.faq-item summary { list-style: none; cursor: pointer; padding: 18px 56px 18px 22px; position: relative; font-family: var(--font-display); font-size: 18px; color: var(--blue-deep); line-height: 1.4; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; border-radius: 50%; background: var(--blue-light); color: var(--blue-deep); display: grid; place-items: center; font-family: var(--font-body); font-size: 18px; transition: transform var(--t), background var(--t); }
+.faq-item[open] summary::after { content: "−"; background: var(--gold); }
+.faq-item p { padding: 0 22px 20px; color: var(--text-mid); line-height: 1.75; font-size: 15.5px; }
