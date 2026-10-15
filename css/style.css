@@ -140,12 +140,18 @@ html.lenis { height: auto; }
 .nav-link:hover, .nav-link.active { color: var(--white); background: rgba(255,255,255,.12); }
 .nav-link .chev { width: 12px; height: 12px; transition: transform var(--t); }
 .nav-dd { position: relative; }
+/* Two columns keep the 7-project menu short enough for laptop screens; if the
+   window is still too short it scrolls inside instead of running off-screen. */
 .nav-dd-menu {
   position: absolute; top: calc(100% + 8px); left: 50%; transform: translate(-50%, 8px);
-  min-width: 280px; background: var(--white); border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg); padding: 8px; opacity: 0; visibility: hidden;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 4px;
+  width: min(600px, calc(100vw - 48px)); max-height: calc(100vh - 110px); max-height: calc(100dvh - 110px);
+  overflow-y: auto; overscroll-behavior: contain;
+  background: var(--white); border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg); padding: 10px; opacity: 0; visibility: hidden;
   transition: opacity var(--t), transform var(--t), visibility var(--t);
 }
+.nav-dd-menu .dd-all { grid-column: 1 / -1; }
 .nav-dd-menu::before { content: ""; position: absolute; inset: -10px 0 auto 0; height: 10px; }
 .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
 .nav-dd:hover .chev { transform: rotate(180deg); }
@@ -188,6 +194,7 @@ body.nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
   .nav-dd-menu {
     position: static; transform: none; opacity: 1; visibility: visible; box-shadow: none;
     background: rgba(255,255,255,.06); min-width: 0; padding: 6px; margin: 2px 0 8px;
+    grid-template-columns: 1fr; width: auto; max-height: none; overflow: visible;
   }
   .nav-dd-menu::before { display: none; }
   .nav-dd:hover .nav-dd-menu { transform: none; }
