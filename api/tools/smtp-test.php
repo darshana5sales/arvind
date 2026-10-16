@@ -42,7 +42,7 @@ try {
                'visit_date' => date('Y-m-d', strtotime('+3 days')), 'visit_time' => '11:00'];
         $lead = Lead::fromInput($sample + [
             'consent' => true,
-            'page' => 'https://darshana5sales.github.io/arvind/projects/arvind-' . $sample['project_slug'] . '/',
+            'page' => 'https://arvindsmartspace.com/projects/arvind-' . $sample['project_slug'] . '/',
             'referrer' => 'https://www.google.com/',
             'utm' => ['utm_source' => 'test', 'utm_campaign' => 'smtp-check'],
         ], '127.0.0.1', 'cli');

@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://darshana5sales.github.io/arvind/sitemap.xml
+Sitemap: https://arvindsmartspace.com/sitemap.xml
