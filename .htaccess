@@ -1,5 +1,5 @@
 # ============================================================================
-#  arvindsmartspace.com — server rules (Apache / SiteGround)
+#  www.arvindsmartspace.com — server rules (Apache / SiteGround)
 # ============================================================================
 Options -Indexes
 DirectoryIndex index.html
@@ -7,10 +7,10 @@ ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  # 1. Always HTTPS, and one canonical host (no "www.")
+  # 1. Always HTTPS, and one canonical host: www.arvindsmartspace.com
   RewriteCond %{HTTPS} !=on [OR]
-  RewriteCond %{HTTP_HOST} ^www\. [NC]
-  RewriteRule ^ https://arvindsmartspace.com%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTP_HOST} !^www\.arvindsmartspace\.com$ [NC]
+  RewriteRule ^ https://www.arvindsmartspace.com%{REQUEST_URI} [L,R=301]
 
   # 2. Never serve repository / tooling files
   RewriteRule (^|/)\.git(/|$) - [F,L]

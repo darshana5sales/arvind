@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ----------------------------------------------------------------------------
-#  Deploy the website to SiteGround → https://arvindsmartspace.com
+#  Deploy the website to SiteGround → https://www.arvindsmartspace.com
 #  Usage (Git Bash):   ./deploy.sh
 #  Needs: the "arvind-sg" host in ~/.ssh/config (SSH key: ~/.ssh/siteground_arvind)
 #         and the real api/config.php on this computer (it is git-ignored).
@@ -22,4 +22,4 @@ tar -czf - -T "$LIST" | ssh arvind-sg '
   chmod 600 api/config.php &&
   echo "Server now has $(find . -type f ! -path "./api/storage/*" | wc -l) site files."'
 rm -f "$LIST"
-echo "Done → https://arvindsmartspace.com/  (if a page looks old: SiteGround → Speed → Caching → Flush)"
+echo "Done → https://www.arvindsmartspace.com/  (if a page looks old: SiteGround → Speed → Caching → Flush)"
