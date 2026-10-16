@@ -235,6 +235,10 @@
     const label = soundBtn && soundBtn.querySelector("span");
     const saveData = navigator.connection && navigator.connection.saveData;
     let userPaused = prefersReduced || !!saveData, heard = false;
+    // skip the film's white logo intro: start (and loop back) at data-start; with sound it plays from 0:00
+    const start = parseFloat(video.dataset.start) || 0;
+    video.addEventListener("loadedmetadata", () => { if (!heard && video.currentTime < start - 0.5) video.currentTime = start; });
+    video.addEventListener("ended", () => { video.currentTime = start; play(); });
     const sync = () => {
       hero.classList.toggle("is-paused", video.paused);
       hero.classList.toggle("has-sound", !video.muted);
