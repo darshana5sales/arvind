@@ -36,6 +36,7 @@ final class Lead
 
     private const FORM_LABELS = [
         'enquiry' => 'Site Visit Request',
+        'visit' => 'Site Visit Booking',
         'brochure' => 'Brochure Download',
     ];
 
@@ -99,6 +100,21 @@ final class Lead
         if ($time !== '' && !preg_match('/^\d{2}:\d{2}$/', $time)) {
             $time = '';
         }
+        // "Book a site visit" popup: a date (today … 6 months ahead) and a time slot are required
+        if ($form === 'visit') {
+            $today = date('Y-m-d');
+            if ($date === '' || $date < $today) {
+                $errors[] = 'Please choose a visit date from today onwards.';
+            } elseif ($date > date('Y-m-d', strtotime('+6 months'))) {
+                $errors[] = 'Please choose a visit date within the next 6 months.';
+            }
+            if ($time === '') {
+                $errors[] = 'Please choose a time slot.';
+            }
+        }
+        $visitors = $s('visitors', 3);
+        $visitors = preg_match('/^\d{1,2}\+?$/', $visitors) ? $visitors : '';
+        $pickup = $form === 'visit' ? (!empty($in['pickup']) ? 'Yes' : 'No') : '';
 
         if ($errors) {
             throw new LeadValidationException($errors);
@@ -125,6 +141,8 @@ final class Lead
             'message' => $s('message', 1000),
             'visit_date' => $date,
             'visit_time' => $time,
+            'visitors' => $visitors,
+            'pickup' => $pickup,
             'page' => filter_var($s('page', 300), FILTER_VALIDATE_URL) ?: '',
             'referrer' => filter_var($s('referrer', 300), FILTER_VALIDATE_URL) ?: '',
             'utm' => implode(' & ', $utm),
@@ -161,7 +179,21 @@ final class Lead
     /** @param array<string,string> $lead */
     public static function subject(array $lead): string
     {
-        return sprintf('New %s — %s — %s (%s)', $lead['form_label'], $lead['project'], $lead['name'], $lead['city']);
+        $subject = sprintf('New %s — %s — %s (%s)', $lead['form_label'], $lead['project'], $lead['name'], $lead['city']);
+        if ($lead['form'] === 'visit' && $lead['visit_date'] !== '') {
+            $subject .= ' — ' . self::when($lead);
+        }
+        return $subject;
+    }
+
+    /** "Sat, 18 Oct 2026, 11:30 AM" from visit_date + visit_time. */
+    public static function when(array $lead): string
+    {
+        $when = date('D, d M Y', strtotime($lead['visit_date']) ?: time());
+        if ($lead['visit_time'] !== '') {
+            $when .= ', ' . date('h:i A', strtotime($lead['visit_time']) ?: time());
+        }
+        return $when;
     }
 
     /** @param array<string,string> $lead */
@@ -184,11 +216,13 @@ final class Lead
             ['Request', $e($lead['form_label'])],
         ];
         if ($lead['visit_date'] !== '') {
-            $when = date('D, d M Y', strtotime($lead['visit_date']) ?: time());
-            if ($lead['visit_time'] !== '') {
-                $when .= ', ' . date('h:i A', strtotime($lead['visit_time']) ?: time());
-            }
-            $rows[] = ['Preferred visit', '<strong>' . $e($when) . '</strong>'];
+            $rows[] = ['Preferred visit', '<strong>' . $e(self::when($lead)) . '</strong>'];
+        }
+        if ($lead['visitors'] !== '') {
+            $rows[] = ['Visitors', $e($lead['visitors'])];
+        }
+        if ($lead['pickup'] !== '') {
+            $rows[] = ['Free pick-up', $lead['pickup'] === 'Yes' ? '<strong>Yes — arrange pick-up</strong>' : 'No'];
         }
         if ($lead['message'] !== '') {
             $rows[] = ['Message', nl2br($e($lead['message']))];
@@ -239,7 +273,13 @@ final class Lead
             'Project:  ' . $lead['project'],
         ];
         if ($lead['visit_date'] !== '') {
-            $lines[] = 'Visit:    ' . $lead['visit_date'] . ($lead['visit_time'] ? ' ' . $lead['visit_time'] : '');
+            $lines[] = 'Visit:    ' . self::when($lead);
+        }
+        if ($lead['visitors'] !== '') {
+            $lines[] = 'Visitors: ' . $lead['visitors'];
+        }
+        if ($lead['pickup'] !== '') {
+            $lines[] = 'Pick-up:  ' . $lead['pickup'];
         }
         if ($lead['message'] !== '') {
             $lines[] = 'Message:  ' . $lead['message'];

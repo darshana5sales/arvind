@@ -884,3 +884,78 @@ body.nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
 .header-bar::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity var(--t);
   background: rgba(255,255,255,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 body:has(.subnav) .site-header.scrolled .header-bar::before { opacity: 1; }
+
+/* ---- 33. "Book Site Visit" popup (built by main.js → initVisitBooking) ------
+   Desktop: photo + perks on the left, scrolling form on the right.
+   ≤900px: form only. ≤600px: bottom sheet. */
+.visit-dialog { width: min(980px, 100%); height: min(92vh, 860px); padding: 0; display: grid; grid-template-columns: 340px minmax(0, 1fr); grid-template-rows: 100%; overflow: hidden; }
+.visit-dialog .lead-x { z-index: 3; background: var(--white); box-shadow: 0 4px 14px rgba(11,61,107,.14); }
+.visit-main { overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; padding: 34px 36px 26px; }
+.visit-main .lead-sub { margin-bottom: 18px; }
+.visit-aside { position: relative; overflow: hidden; color: var(--white); background: var(--blue-deep); }
+.visit-aside img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.visit-aside::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,20,40,.2) 0%, rgba(6,20,40,.62) 42%, rgba(6,20,40,.95) 100%); }
+.va-body { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px 28px; }
+.va-body .lead-eyebrow { color: var(--gold); }
+.va-body h4 { font-family: var(--font-display); font-weight: 400; font-size: 27px; line-height: 1.2; color: var(--white); margin: 8px 0 18px; }
+.va-body ul { display: grid; gap: 11px; margin-bottom: 24px; }
+.va-body li { display: flex; gap: 10px; font-size: 13.5px; line-height: 1.45; color: rgba(255,255,255,.88); }
+.va-body li svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+.va-call { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); color: var(--white); transition: var(--t); }
+.va-call:hover { background: rgba(255,255,255,.18); }
+.va-call svg { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; }
+.va-call span { display: flex; flex-direction: column; font-size: 12px; color: rgba(255,255,255,.75); }
+.va-call b { font-size: 15px; color: var(--white); }
+
+.vf-group { border: 0; padding: 0; margin: 0 0 16px; min-width: 0; }
+.vf-group legend { font-size: 12.5px; font-weight: 600; color: var(--blue-deep); letter-spacing: .3px; padding: 0; margin-bottom: 8px; }
+.vf-chips { display: grid; gap: 8px; }
+.vf-dates { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.vf-times { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.vf-chip { position: relative; cursor: pointer; min-width: 0; }
+.vf-chip input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.vf-chip span { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; height: 100%; padding: 8px 2px; text-align: center;
+  border: 1.5px solid var(--border); border-radius: 12px; background: var(--off-white); color: var(--text-dark); transition: var(--t); }
+.vf-day span { min-height: 66px; }
+.vf-day small { font-size: 9.5px; font-weight: 700; letter-spacing: .2px; text-transform: uppercase; color: var(--text-light); white-space: nowrap; }
+.vf-day b { font-family: var(--font-display); font-weight: 400; font-size: 22px; line-height: 1.1; color: var(--blue-deep); }
+.vf-day--other svg { width: 20px; height: 20px; color: var(--gold-dark); margin-bottom: 2px; }
+.vf-day--other small { white-space: normal; line-height: 1.2; }
+.vf-slot span { padding: 11px 2px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.vf-chip:hover span { border-color: var(--gold); }
+.vf-chip input:checked + span { background: var(--blue-deep); border-color: var(--blue-deep); color: var(--white); box-shadow: 0 8px 18px rgba(11,61,107,.22); }
+.vf-chip input:checked + span small { color: var(--gold-light); }
+.vf-chip input:checked + span b, .vf-chip input:checked + span svg { color: var(--white); }
+.vf-chip input:focus-visible + span { box-shadow: 0 0 0 3px rgba(201,168,76,.4); }
+.vf-chip.is-off { cursor: not-allowed; }
+.vf-chip.is-off input { cursor: not-allowed; }
+.vf-chip.is-off span { opacity: .4; text-decoration: line-through; border-style: dashed; }
+.vf-chip.is-off:hover span { border-color: var(--border); }
+.vf-other { display: none; margin: 10px 0 0; }
+.visit-modal.other-date .vf-other { display: flex; }
+.vf-group .err { display: none; font-size: 12px; color: #c0392b; margin-top: 6px; }
+.vf-group.invalid .err { display: block; }
+.vf-group.invalid .vf-chip span { border-color: rgba(192,57,43,.55); }
+.vf-extras { align-items: end; }
+.vf-pickup { min-height: 50px; padding: 8px 14px; }
+.vf-pickup small { display: block; font-size: 11.5px; font-weight: 500; color: var(--text-light); }
+.visit-form textarea { min-height: 64px; }
+.visit-submit { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; }
+.visit-submit svg { width: 18px; height: 18px; }
+.visit-form .form-notice { margin-top: 12px; }
+
+@media (max-width: 900px) {
+  .visit-dialog { width: min(640px, 100%); height: auto; max-height: 92vh; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; overflow-y: auto; }
+  .visit-aside { display: none; }
+  .visit-main { overflow: visible; padding: 30px 28px 24px; }
+}
+@media (max-width: 600px) {
+  .visit-modal { padding: 0; align-items: flex-end; }
+  .visit-dialog { width: 100%; max-height: 94vh; max-height: 94dvh; border-radius: 22px 22px 0 0; }
+  .visit-main { padding: 24px 18px 22px; }
+  .visit-main .lead-title { font-size: 25px; padding-right: 36px; }
+  .vf-dates { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .vf-times { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .vf-extras { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .vf-pickup { margin-bottom: 16px; }
+}

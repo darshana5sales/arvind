@@ -36,7 +36,7 @@ final class Storage
         $cols = ['submitted_at', 'form_label', 'project', 'name', 'phone', 'email', 'city', 'visit_date', 'visit_time', 'message', 'utm', 'page', 'referrer', 'ip'];
         if ($isNew) {
             fwrite($fh, "\xEF\xBB\xBF");
-            fputcsv($fh, array_merge($cols, ['mail_status']));
+            fputcsv($fh, array_merge($cols, ['mail_status', 'visitors', 'pickup']));
         }
         $row = [];
         foreach ($cols as $c) {
@@ -45,6 +45,8 @@ final class Storage
             $row[] = preg_match('/^[=+\-@]/', $v) && $c !== 'phone' ? "'" . $v : $v;
         }
         $row[] = $mailStatus;
+        $row[] = $lead['visitors'] ?? '';   // added later: kept after mail_status so older rows still line up
+        $row[] = $lead['pickup'] ?? '';
         $ok = fputcsv($fh, $row) !== false;
         flock($fh, LOCK_UN);
         fclose($fh);

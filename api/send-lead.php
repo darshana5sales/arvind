@@ -2,8 +2,8 @@
 /**
  * POST /api/send-lead.php — receives a lead from the website forms and emails it.
  *
- * Request  (JSON or form-encoded): form, name, phone, email, city, project, project_slug,
- *          message, visit_date, visit_time, consent, page, referrer, utm{…}, website (honeypot)
+ * Request  (JSON or form-encoded): form (enquiry | visit | brochure), name, phone, email, city, project, project_slug,
+ *          message, visit_date, visit_time, visitors, pickup, consent, page, referrer, utm{…}, website (honeypot)
  * Response (JSON): { "success": true|false, "message": "…" }
  *   200 sent · 422 validation error · 429 too many requests · 405 wrong method · 500 server error
  */
