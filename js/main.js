@@ -86,6 +86,24 @@
       .finally(() => timer && clearTimeout(timer));
   }
 
+  // ---- Analytics: named events for Google Tag Manager (GTM-MKMV6TXB) ------
+  // Pushes { event, ...params } to the dataLayer. With `then`, waits for GTM to
+  // fire its tags (or 1.5 s if GTM is blocked / not loaded) before continuing —
+  // used before redirects so the event isn't lost. No personal data is pushed.
+  window.dataLayer = window.dataLayer || [];
+  function track(event, params, then) {
+    let done = false;
+    const go = () => { if (!done) { done = true; if (then) then(); } };
+    window.dataLayer.push(Object.assign({ event }, params || {}, then ? { eventCallback: go, eventTimeout: 1500 } : {}));
+    if (then) setTimeout(go, 1600);
+  }
+  // Where on the page a click happened (for call / WhatsApp / popup events).
+  function placeOf(el) {
+    return el.closest(".topbar") ? "top_strip" : el.closest(".nav-mobile-ctas") ? "mobile_menu" : el.closest(".site-header") ? "header"
+      : el.closest(".sticky-bar") ? "bottom_bar" : el.closest(".wa-float, .brochure-float") ? "floating_button" : el.closest(".lead-modal") ? "popup"
+      : el.closest("footer") ? "footer" : el.closest(".vhero, .hero") ? "hero" : "page";
+  }
+
   function whatsappText(lead) {
     return [
       `Hi, I'm interested in ${lead.project}.`, `Name: ${lead.name}`, `Phone: ${lead.phone}`,
@@ -257,6 +275,7 @@
       if (!video.muted) { video.muted = true; return; }
       video.muted = false;
       if (!heard) { heard = true; video.currentTime = 0; }  // first time with sound: start the film from the top
+      track("hero_video_sound_on", { first_time: video.currentTime < 1 });
       userPaused = false; play();
     });
     if ("IntersectionObserver" in window) {
@@ -711,7 +730,11 @@
       if (lenis) lenis.start();
       setTimeout(() => modal.classList.remove("open"), 400);
     }
-    triggers.forEach((t) => t.addEventListener("click", (e) => { e.preventDefault(); open(t.dataset.project); }));
+    triggers.forEach((t) => t.addEventListener("click", (e) => {
+      e.preventDefault();
+      open(t.dataset.project);
+      track("brochure_popup_open", { project: t.dataset.project || "(choose)", click_location: placeOf(t) });
+    }));
     modal.querySelectorAll("[data-lead-close]").forEach((el) => el.addEventListener("click", close));
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("open")) close(); });
     clearErrorsOnInput(form);
@@ -746,6 +769,10 @@
           return;
         }
         // sent, or the mailer is unreachable — never block the brochure
+        if (!form.website.value) {   // skip bots / honeypot test submissions
+          track("generate_lead", { form_type: "brochure", project: s, project_name: PROJECTS[s], lead_delivery: res.ok ? "email" : "not_sent" });
+          track("brochure_download", { project: s, project_name: PROJECTS[s], file_name: "arvind-" + s + ".pdf" });
+        }
         submit.textContent = "Starting your download…";
         startDownload(pdf(s), "arvind-" + s + ".pdf");
         setTimeout(() => { window.location.href = ROOT + "thank-you/?project=" + encodeURIComponent(s); }, 1200);
@@ -783,16 +810,22 @@
         const btn = form.querySelector('button[type="submit"]');
         const btnHtml = btn ? btn.innerHTML : "";
         formNotice(form, "");
+        // GTM: one generate_lead per real submission (honeypot/test submissions skipped), then continue
+        const leadEvent = (delivery, then) => (lead.website ? then && then() : track("generate_lead", {
+          form_type: form.classList.contains("vh-form") ? "eoi_hero" : "site_visit_form", project: lead.project_slug || "(none)",
+          project_name: projectName, lead_delivery: delivery, visit_requested: !!visit,
+        }, then));
 
         if (!ENDPOINT) {
           // No mailer here (e.g. GitHub Pages) → hand the enquiry over on WhatsApp, pre-filled.
+          leadEvent("whatsapp");
           window.open(`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(whatsappText(lead))}`, "_blank", "noopener");
           window.location.href = thanks;
           return;
         }
         if (btn) { btn.setAttribute("disabled", ""); btn.textContent = "Sending…"; }
         sendLead(lead).then((res) => {
-          if (res.ok) { window.location.href = thanks; return; }
+          if (res.ok) { leadEvent("email", () => (window.location.href = thanks)); return; }
           if (res.status === 422 || res.status === 429) {
             formNotice(form, res.message || "Please check your details and try again.");
             if (btn) { btn.removeAttribute("disabled"); btn.innerHTML = btnHtml; }
@@ -800,7 +833,7 @@
           }
           // Mailer unreachable → keep the lead and offer WhatsApp on the thank-you page.
           try { sessionStorage.setItem("lead_whatsapp", whatsappText(lead)); } catch (_) {}
-          window.location.href = thanks + "&wa=1";
+          leadEvent("whatsapp_fallback", () => (window.location.href = thanks + "&wa=1"));
         });
       });
     });
@@ -972,6 +1005,7 @@
       document.body.classList.remove("nav-open");
       lastTrigger = t;
       open(t.dataset.project);
+      track("visit_popup_open", { project: t.dataset.project || "(choose)", click_location: placeOf(t) });
     }));
     modal.querySelectorAll("[data-visit-close]").forEach((el) => el.addEventListener("click", close));
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("open")) close(); });
@@ -986,6 +1020,7 @@
       group("date").classList.toggle("invalid", !dateOk);
       group("time").classList.toggle("invalid", !time);
       if (!ok || !dateOk || !time) {
+        track("visit_form_error", { missing: Array.from(form.querySelectorAll(".invalid"), (el) => el.dataset.group || (el.querySelector("[name]") || {}).name).join(",") });
         const bad = form.querySelector(".invalid");
         if (bad) bad.scrollIntoView({ block: "center", behavior: prefersReduced ? "auto" : "smooth" });
         return;
@@ -1003,7 +1038,13 @@
       const thanks = ROOT + "thank-you/?type=visit&project=" + encodeURIComponent(slug);
       try { sessionStorage.setItem("lead_visit_when", when); } catch (_) {}
       formNotice(form, "");
+      const daysAhead = Math.round((d - new Date(new Date().toDateString())) / 864e5);
+      const leadEvent = (delivery, then) => (lead.website ? then && then() : track("generate_lead", {
+        form_type: "site_visit_popup", project: slug, project_name: PROJECTS[slug], lead_delivery: delivery,
+        visit_requested: true, visit_date: date, visit_time: time, visit_days_ahead: daysAhead, visitors: lead.visitors, pickup: lead.pickup,
+      }, then));
       if (!ENDPOINT) {
+        leadEvent("whatsapp");
         window.open(`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(whatsappText(lead))}`, "_blank", "noopener");
         window.location.href = thanks;
         return;
@@ -1011,7 +1052,7 @@
       submit.setAttribute("disabled", "");
       submit.textContent = "Booking your visit…";
       sendLead(lead).then((res) => {
-        if (res.ok) { window.location.href = thanks; return; }
+        if (res.ok) { leadEvent("email", () => (window.location.href = thanks)); return; }
         if (res.status === 422 || res.status === 429) {
           formNotice(form, res.message || "Please check your details and try again.");
           submit.removeAttribute("disabled");
@@ -1019,9 +1060,26 @@
           return;
         }
         try { sessionStorage.setItem("lead_whatsapp", whatsappText(lead)); } catch (_) {}
-        window.location.href = thanks + "&wa=1";
+        leadEvent("whatsapp_fallback", () => (window.location.href = thanks + "&wa=1"));
       });
     });
+  }
+
+  /* ---- 13c. Click tracking for GTM (calls, WhatsApp, email, maps, filters) ---- */
+  function initTracking() {
+    const m = location.pathname.match(/\/projects\/arvind-([a-z-]+)/);
+    const pageProject = m && PROJECTS[m[1]] ? m[1] : "";
+    document.addEventListener("click", (e) => {
+      const el = e.target.closest("a, .filter-btn");
+      if (!el) return;
+      const href = el.getAttribute("href") || "";
+      const base = { click_location: placeOf(el), page_project: pageProject || "(none)" };
+      if (href.startsWith("tel:")) track("click_call", base);
+      else if (/wa\.me\/|api\.whatsapp\.com/.test(href)) track("click_whatsapp", base);
+      else if (href.startsWith("mailto:")) track("click_email", base);
+      else if (/google\.[a-z.]+\/maps|maps\.app\.goo\.gl|goo\.gl\/maps/.test(href)) track("click_directions", base);
+      else if (el.classList.contains("filter-btn")) track("project_filter", { filter: el.dataset.filter || "", ...base });
+    }, true);
   }
 
   /* ---- 14. Current year in footer ----------------------------------------- */
@@ -1047,6 +1105,7 @@
     initBrochures();
     initEnquiryForms();
     initVisitBooking();
+    initTracking();
     initYear();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
