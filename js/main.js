@@ -226,6 +226,42 @@
     swiper.emit("slideChange");
   }
 
+  /* ---- 4b. Home hero film: muted autoplay, pause + sound controls, pauses off-screen ---- */
+  function initHeroVideo() {
+    const hero = document.querySelector(".vhero");
+    const video = hero && hero.querySelector(".vh-video");
+    if (!video) return;
+    const playBtn = hero.querySelector(".vh-play"), soundBtn = hero.querySelector(".vh-sound");
+    const label = soundBtn && soundBtn.querySelector("span");
+    const saveData = navigator.connection && navigator.connection.saveData;
+    let userPaused = prefersReduced || !!saveData, heard = false;
+    const sync = () => {
+      hero.classList.toggle("is-paused", video.paused);
+      hero.classList.toggle("has-sound", !video.muted);
+      if (playBtn) playBtn.setAttribute("aria-label", video.paused ? "Play film" : "Pause film");
+      if (soundBtn) soundBtn.setAttribute("aria-label", video.muted ? "Turn sound on" : "Turn sound off");
+      if (label) label.textContent = video.muted ? "Watch with sound" : "Sound on";
+    };
+    const play = () => { const p = video.play(); if (p && p.catch) p.catch(sync); };
+    ["play", "pause", "volumechange"].forEach((ev) => video.addEventListener(ev, sync));
+    if (userPaused) { video.removeAttribute("autoplay"); video.pause(); } else if (video.paused) play();
+    if (playBtn) playBtn.addEventListener("click", () => {
+      if (video.paused) { userPaused = false; play(); } else { userPaused = true; video.pause(); }
+    });
+    if (soundBtn) soundBtn.addEventListener("click", () => {
+      if (!video.muted) { video.muted = true; return; }
+      video.muted = false;
+      if (!heard) { heard = true; video.currentTime = 0; }  // first time with sound: start the film from the top
+      userPaused = false; play();
+    });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([en]) => {
+        if (!en.isIntersecting) { if (!video.paused) video.pause(); } else if (!userPaused) play();
+      }, { threshold: 0.15 }).observe(video);
+    }
+    sync();
+  }
+
   /* ---- 5. Feature image sliders (any .feature__media with 2+ images) ------ */
   function initFeatureSliders() {
     document.querySelectorAll(".feature__media").forEach((media) => {
@@ -777,6 +813,7 @@
     initAnchors();
     initHeader();
     initHeroSlider();
+    initHeroVideo();
     initFeatureSliders();
     initGallerySliders();
     initLightbox();

@@ -9,3 +9,6 @@ api/storage/*
 
 # Ready-to-upload packages (contain the real config.php)
 deploy/
+
+# Raw source film (25 MB) — the site uses the web encodes in assets/video/
+assets/images/projects/sensora/sensora video.mp4
