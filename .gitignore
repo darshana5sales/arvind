@@ -6,3 +6,6 @@ api/config.php
 api/storage/*
 !api/storage/.htaccess
 !api/storage/index.html
+
+# Ready-to-upload packages (contain the real config.php)
+deploy/

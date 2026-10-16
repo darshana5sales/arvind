@@ -57,11 +57,12 @@ Images `award-1.jpg`, `award-2.jpg`, … To add one, copy a `<figure>` block in 
 ## Settings to wire up
 All in `js/main.js`, section **0. SITE SETTINGS** at the top:
 
-- **`leadEndpoint`** — paste a Formspree / Google Apps Script / CRM URL to **collect
-  every lead** (brochure popup + site-visit forms). Leads are POSTed as JSON:
-  `{ form, name, email, phone, city, project, message, visit_date, visit_time, consent, page }`.
-  While it is blank, no lead is stored anywhere: brochures still download, and the
-  site-visit form opens WhatsApp with the visitor's details pre-filled.
+- **`leadEndpoint`** — where every lead (brochure popup + site-visit forms) is sent.
+  It points at the PHP mailer in `api/send-lead.php`, which emails the lead over SMTP
+  (settings in `api/config.php` on the server — see `api/README.md`).
+  - `"api/send-lead.php"` (default) works when the whole site is on a PHP host.
+    On GitHub Pages (no PHP) it is skipped and site-visit forms open WhatsApp instead.
+  - `"https://…/send-lead.php"` when the `api/` folder lives on another domain.
 - **`whatsapp`** — the WhatsApp number used for pre-filled enquiries.
 
 The phone / WhatsApp number shown on the pages is a plain link in the HTML — search all
