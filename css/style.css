@@ -697,3 +697,23 @@ body.nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
 /* ---- 29. Lead forms: honeypot (hidden from people, visible to bots) + server message */
 .hp { position: absolute !important; left: -10000px !important; width: 1px; height: 1px; overflow: hidden; }
 .form-notice { margin-top: 14px; padding: 12px 14px; border-radius: var(--radius-sm); background: #fdecea; color: #a12b1d; font-size: 14px; font-weight: 600; line-height: 1.5; }
+
+/* ---- 30. Pricing cards (pre-launch price sheet) -------------------------- */
+.price-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.price-meta span { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 50px; background: rgba(201,168,76,.14); border: 1px solid rgba(201,168,76,.35); color: var(--gold-light); font-size: 13.5px; font-weight: 600; }
+.price-meta svg { width: 16px; height: 16px; color: var(--gold); }
+.price-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
+.price-card { background: var(--white); color: var(--text-dark); border-radius: var(--radius-lg); padding: 24px 22px; display: flex; flex-direction: column; gap: 16px; box-shadow: var(--shadow-lg); border: 2px solid transparent; }
+.price-card--pop { border-color: var(--gold); }
+.pc-size b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 40px; color: var(--blue-deep); line-height: 1; }
+.pc-size span { font-size: 12px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold-dark); }
+.pc-rows { display: grid; gap: 0; margin: 0; }
+.pc-rows div { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 10px 0; border-top: 1px solid var(--border); }
+.pc-rows dt { font-size: 13px; color: var(--text-mid); }
+.pc-rows dd { font-size: 16px; font-weight: 700; color: var(--blue-deep); white-space: nowrap; }
+.pc-rows dd.was { text-decoration: line-through; color: var(--text-light); font-weight: 500; }
+.pc-rows .best { background: rgba(201,168,76,.12); margin: 4px -10px 0; padding: 12px 10px; border-radius: 10px; border-top: 0; }
+.pc-rows .best dt { color: var(--gold-dark); font-weight: 700; }
+.pc-rows .best dd { font-size: 19px; color: var(--gold-dark); }
+.price-card .btn { margin-top: auto; }
+.price-notes { margin-top: 26px; display: grid; gap: 6px; padding-left: 18px; list-style: disc; color: rgba(255,255,255,.7); font-size: 13px; line-height: 1.6; }
