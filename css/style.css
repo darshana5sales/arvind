@@ -734,3 +734,6 @@ body.nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
 /* scrolling inside overlays never "leaks" to the page behind (mobile) */
 .main-nav, .lead-modal, .lead-dialog, .lightbox, .nav-dd-menu { overscroll-behavior: contain; }
 .lead-dialog, .main-nav { -webkit-overflow-scrolling: touch; }
+
+/* filtered card lists: never fall back to the "hidden until animated" state */
+.js:not(.reduced) .is-filtered[data-animate="stagger"] > *:not(.is-hidden) { visibility: visible; }

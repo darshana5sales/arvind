@@ -339,11 +339,21 @@
       btns.forEach((b) => b.addEventListener("click", () => {
         btns.forEach((x) => x.classList.toggle("active", x === b));
         const f = b.dataset.filter;
+        // Once someone filters, the list is "revealed": cards must stay visible even
+        // if their scroll-in animation hasn't run (or ran before they were hidden).
+        target.classList.add("is-filtered");
+        const shown = [];
         target.querySelectorAll("[data-cat]").forEach((item) => {
           const show = f === "all" || item.dataset.cat.split(" ").includes(f);
           item.classList.toggle("is-hidden", !show);
-          if (show) { item.style.opacity = ""; item.style.transform = ""; }
+          if (show) shown.push(item);
         });
+        if (window.gsap) {
+          window.gsap.killTweensOf(shown);
+          window.gsap.fromTo(shown, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, stagger: { amount: Math.min(0.3, shown.length * 0.05) }, ease: "power2.out", overwrite: true });
+        } else {
+          shown.forEach((item) => { item.style.opacity = "1"; item.style.transform = "none"; });
+        }
         if (window.__refreshScroll) window.__refreshScroll();
       }));
     });
