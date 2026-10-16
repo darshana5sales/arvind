@@ -885,7 +885,7 @@ body.nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
   background: rgba(255,255,255,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 body:has(.subnav) .site-header.scrolled .header-bar::before { opacity: 1; }
 
-/* ---- 33. "Book Site Visit" popup (built by main.js → initVisitBooking) ------
+/* ---- 33. Site-visit booking form: popup + contact cards (main.js → section 13b) ----
    Desktop: photo + perks on the left, scrolling form on the right.
    ≤900px: form only. ≤600px: bottom sheet. */
 .visit-dialog { width: min(980px, 100%); height: min(92vh, 860px); padding: 0; display: grid; grid-template-columns: 340px minmax(0, 1fr); grid-template-rows: 100%; overflow: hidden; }
@@ -932,17 +932,18 @@ body:has(.subnav) .site-header.scrolled .header-bar::before { opacity: 1; }
 .vf-chip.is-off span { opacity: .4; text-decoration: line-through; border-style: dashed; }
 .vf-chip.is-off:hover span { border-color: var(--border); }
 .vf-other { display: none; margin: 10px 0 0; }
-.visit-modal.other-date .vf-other { display: flex; }
+.visit-form.other-date .vf-other { display: flex; }
 .vf-group .err { display: none; font-size: 12px; color: #c0392b; margin-top: 6px; }
 .vf-group.invalid .err { display: block; }
 .vf-group.invalid .vf-chip span { border-color: rgba(192,57,43,.55); }
-.vf-extras { align-items: end; }
-.vf-pickup { min-height: 50px; padding: 8px 14px; }
-.vf-pickup small { display: block; font-size: 11.5px; font-weight: 500; color: var(--text-light); }
 .visit-form textarea { min-height: 64px; }
 .visit-submit { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; }
 .visit-submit svg { width: 18px; height: 18px; }
 .visit-form .form-notice { margin-top: 12px; }
+/* the same form inside the contact cards on the pages (narrower than the popup) */
+.visit-card .vf-dates { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.visit-card .vf-times { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.visit-card .visit-inline:empty { min-height: 760px; }   /* hold the space until main.js renders the form */
 
 @media (max-width: 900px) {
   .visit-dialog { width: min(640px, 100%); height: auto; max-height: 92vh; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; overflow-y: auto; }
@@ -956,6 +957,4 @@ body:has(.subnav) .site-header.scrolled .header-bar::before { opacity: 1; }
   .visit-main .lead-title { font-size: 25px; padding-right: 36px; }
   .vf-dates { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .vf-times { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .vf-extras { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .vf-pickup { margin-bottom: 16px; }
 }

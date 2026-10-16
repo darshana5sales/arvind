@@ -14,13 +14,13 @@ define('SMTP_PORT',      465);                          // 465 = SSL, 587 = STAR
 define('SMTP_USER',      'hello@example.com');
 define('SMTP_PASS',      'change-me');
 define('MAIL_FROM',      'hello@example.com');           // must be the SMTP account (or an alias of it)
-define('MAIL_FROM_NAME', 'Arvind SmartSpaces Projects');
+define('MAIL_FROM_NAME', 'Arvind SmartSpaces');
 
 // ---- Who receives the leads ----------------------------------------------------
 define('MAIL_TO',        'you@example.com');             // comma-separated list allowed
 define('MAIL_CC',        '');                            // optional, comma-separated
 define('MAIL_BCC',       '');                            // optional, comma-separated
-define('SITE_NAME',      'Arvind SmartSpaces Projects'); // shown in the email header / subject
+define('SITE_NAME',      'Arvind SmartSpaces'); // shown in the email header / subject
 
 // ---- Optional (defaults shown) --------------------------------------------------
 // define('SMTP_SECURE', 'ssl');          // 'ssl' for 465, 'tls' for 587

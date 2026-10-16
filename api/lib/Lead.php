@@ -114,7 +114,7 @@ final class Lead
         }
         $visitors = $s('visitors', 3);
         $visitors = preg_match('/^\d{1,2}\+?$/', $visitors) ? $visitors : '';
-        $pickup = $form === 'visit' ? (!empty($in['pickup']) ? 'Yes' : 'No') : '';
+        $pickup = isset($in['pickup']) && $in['pickup'] !== '' ? (!empty($in['pickup']) ? 'Yes' : 'No') : '';   // optional, only shown when sent
 
         if ($errors) {
             throw new LeadValidationException($errors);

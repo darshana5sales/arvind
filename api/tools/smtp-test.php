@@ -38,7 +38,7 @@ try {
         $sample = $form === 'visit'
             ? ['form' => 'visit', 'name' => 'Test Lead (Visit Booking)', 'phone' => '+91 98765 43210', 'email' => $sendTo,
                'city' => 'Ahmedabad', 'project_slug' => 'sensora', 'message' => 'This is a test of the Book Site Visit popup — please ignore.',
-               'visit_date' => date('Y-m-d', strtotime('+2 days')), 'visit_time' => '11:30', 'visitors' => '3', 'pickup' => true]
+               'visit_date' => date('Y-m-d', strtotime('+2 days')), 'visit_time' => '11:30']
             : ($form === 'brochure'
             ? ['form' => 'brochure', 'name' => 'Test Lead (Brochure)', 'phone' => '+91 98765 43210', 'email' => $sendTo,
                'city' => 'Ahmedabad', 'project_slug' => 'aqua-city']

@@ -109,7 +109,6 @@
       `Hi, I'm interested in ${lead.project}.`, `Name: ${lead.name}`, `Phone: ${lead.phone}`,
       lead.email && `Email: ${lead.email}`, lead.city && `City: ${lead.city}`,
       lead.visit_date && `Preferred site visit: ${lead.visit_date}${lead.visit_time ? " " + lead.visit_time : ""}`,
-      lead.visitors && `Visitors: ${lead.visitors}`, lead.pickup && "Free pick-up: Yes",
       lead.message && `Message: ${lead.message}`,
     ].filter(Boolean).join("\n");
   }
@@ -780,7 +779,7 @@
     });
   }
 
-  /* ---- 13. Enquiry / site-visit forms (form[data-enquiry]) ---------------- */
+  /* ---- 13. Quick enquiry forms (form[data-enquiry] — the home hero EOI bar) --- */
   function initEnquiryForms() {
     const param = new URLSearchParams(location.search).get("project");
     document.querySelectorAll("form[data-enquiry]").forEach((form) => {
@@ -839,25 +838,206 @@
     });
   }
 
-  /* ---- 13b. "Book Site Visit" popup ([data-visit]) ------------------------ */
-  // Header / mobile-menu / bottom-bar buttons open a full booking form: project,
-  // date (next 7 days or any other), time slot, contact details, visitors, pick-up.
-  // Sends form "visit" to the mailer, then lands on thank-you/ with the slot shown.
-  // The buttons are real links to contact/#enquire, so they still work without JS.
+  /* ---- 13b. Site-visit booking form — popup ([data-visit]) + page cards ([data-visit-inline]) ----
+     ONE form everywhere, so every lead arrives in the same format: project, date
+     (next 7 days or any other), time slot, name, mobile, email, city, message.
+     Sends form "visit" to the mailer, then lands on thank-you/ with the slot shown.
+     • Header / mobile-menu / bottom-bar buttons ([data-visit]) open it in a popup;
+       they are real links to contact/#enquire, so they still work without JS.
+     • Every "contact" section has a card with [data-visit-inline] that it renders into. */
+  const VB = (() => {
+    const pad = (n) => String(n).padStart(2, "0");
+    const ymd = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;   // local date, not UTC
+    const svgIcon = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+    return {
+      ymd,
+      svgIcon,
+      DAYS: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      MONTHS: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      SLOTS: [["10:00", "10:00 AM"], ["11:30", "11:30 AM"], ["13:00", "1:00 PM"], ["14:30", "2:30 PM"], ["16:00", "4:00 PM"], ["17:30", "5:30 PM"]],
+      LEAD_MIN: 90,   // a slot today must be at least this many minutes away
+      CAL: svgIcon('<path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/>'),
+    };
+  })();
+
+  // The form's markup. `id` prefixes every element id so several forms can share a page.
+  function visitFormHTML(id, submitLabel) {
+    const options = Object.entries(PROJECTS).map(([s, n]) => `<option value="${s}">${n}</option>`).join("");
+    return `
+          <form class="visit-form" novalidate>
+            <div class="field">
+              <label for="${id}-project">Project *</label>
+              <select id="${id}-project" name="project" required><option value="">Select a project</option>${options}</select>
+              <span class="err">Please choose a project.</span>
+            </div>
+            <fieldset class="vf-group" data-group="date">
+              <legend>Preferred date *</legend>
+              <div class="vf-chips vf-dates"></div>
+              <div class="field vf-other"><label class="sr-only" for="${id}-other">Other date</label><input id="${id}-other" type="date" name="other_date" /></div>
+              <span class="err">Please choose a visit date.</span>
+            </fieldset>
+            <fieldset class="vf-group" data-group="time">
+              <legend>Preferred time *</legend>
+              <div class="vf-chips vf-times">${VB.SLOTS.map(([v, l]) => `<label class="vf-chip vf-slot"><input type="radio" name="vtime" value="${v}" /><span>${l}</span></label>`).join("")}</div>
+              <span class="err">Please choose a time slot.</span>
+            </fieldset>
+            <div class="form-row">
+              <div class="field"><label for="${id}-name">Full name *</label><input id="${id}-name" name="name" type="text" autocomplete="name" placeholder="Your name" required /><span class="err">Please enter your name.</span></div>
+              <div class="field"><label for="${id}-phone">Mobile number *</label><input id="${id}-phone" name="phone" type="tel" autocomplete="tel" placeholder="10-digit mobile" required /><span class="err">Enter a valid mobile number.</span></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label for="${id}-email">Email</label><input id="${id}-email" name="email" type="email" autocomplete="email" placeholder="you@email.com (optional)" /><span class="err">Enter a valid email.</span></div>
+              <div class="field"><label for="${id}-city">City *</label><input id="${id}-city" name="city" type="text" autocomplete="address-level2" placeholder="e.g. Ahmedabad" required /><span class="err">Please enter your city.</span></div>
+            </div>
+            <div class="field"><label for="${id}-message">Message (optional)</label><textarea id="${id}-message" name="message" rows="2" placeholder="Plot / villa size, budget, questions…"></textarea></div>
+            <label class="consent"><input type="checkbox" name="consent" required /><span>I authorise Arvind SmartSpaces &amp; its authorised channel partner to contact me via call, SMS, email or WhatsApp.</span><span class="err">Please tick to continue.</span></label>
+            <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+            <button type="submit" class="btn btn-primary visit-submit">${VB.CAL} ${submitLabel || "Confirm Site Visit"}</button>
+            <p class="lead-fineprint">Free of cost · No obligation · Visits run daily, 10 AM – 6 PM</p>
+          </form>`;
+  }
+
+  // Wires up one rendered form. `formType` goes to GTM (site_visit_popup / site_visit_form).
+  // Returns reset(project) — rebuilds the dates (they depend on the time of day) and preselects a project.
+  function bindVisitForm(form, formType) {
+    const select = form.querySelector('select[name="project"]');
+    const dates = form.querySelector(".vf-dates");
+    const other = form.querySelector('input[name="other_date"]');
+    const submit = form.querySelector(".visit-submit");
+    const submitHtml = submit.innerHTML;
+    const group = (g) => form.querySelector(`[data-group="${g}"]`);
+    const { DAYS, MONTHS, SLOTS, LEAD_MIN, CAL, ymd } = VB;
+
+    // Next 7 bookable days (from tomorrow once today's last slot is too close) + "Other date".
+    function buildDates() {
+      const now = new Date();
+      const lastToday = new Date(now); lastToday.setHours(17, 30 - LEAD_MIN, 0, 0);
+      const start = new Date(now); start.setHours(0, 0, 0, 0);
+      if (now > lastToday) start.setDate(start.getDate() + 1);
+      const today = ymd(now), tomorrow = ymd(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1));
+      let html = "";
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(start); d.setDate(start.getDate() + i);
+        const v = ymd(d), top = v === today ? "Today" : v === tomorrow ? "Tomorrow" : DAYS[d.getDay()];
+        html += `<label class="vf-chip vf-day"><input type="radio" name="vdate" value="${v}" /><span><small>${top}</small><b>${d.getDate()}</b><small>${MONTHS[d.getMonth()]}</small></span></label>`;
+      }
+      html += `<label class="vf-chip vf-day vf-day--other"><input type="radio" name="vdate" value="other" /><span>${CAL}<small>Other date</small></span></label>`;
+      dates.innerHTML = html;
+      const max = new Date(now); max.setMonth(max.getMonth() + 6);
+      other.min = ymd(start); other.max = ymd(max);
+      form.classList.remove("other-date");
+    }
+    const chosenDate = () => {
+      const r = form.querySelector('input[name="vdate"]:checked');
+      return !r ? "" : r.value === "other" ? other.value : r.value;
+    };
+    // A slot today must still be LEAD_MIN minutes away.
+    function refreshSlots() {
+      const isToday = chosenDate() === ymd(new Date());
+      const cutoff = new Date(Date.now() + LEAD_MIN * 60000);
+      form.querySelectorAll('input[name="vtime"]').forEach((r) => {
+        const [h, m] = r.value.split(":").map(Number);
+        const t = new Date(); t.setHours(h, m, 0, 0);
+        const off = isToday && t < cutoff;
+        r.disabled = off;
+        if (off && r.checked) r.checked = false;
+        r.closest(".vf-chip").classList.toggle("is-off", off);
+      });
+    }
+    form.addEventListener("change", (e) => {
+      if (e.target.name === "vdate") {
+        const isOther = e.target.value === "other";
+        form.classList.toggle("other-date", isOther);
+        if (isOther) setTimeout(() => { other.focus(); try { other.showPicker(); } catch (_) {} }, 30);
+      }
+      if (e.target.name === "vdate" || e.target === other) { group("date").classList.remove("invalid"); refreshSlots(); }
+      if (e.target.name === "vtime") group("time").classList.remove("invalid");
+    });
+    clearErrorsOnInput(form);
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      refreshSlots();
+      let ok = validate(form);
+      const email = form.email.value.trim();
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { form.email.closest(".field").classList.add("invalid"); ok = false; }
+      const date = chosenDate(), time = (form.querySelector('input[name="vtime"]:checked') || {}).value || "";
+      const dateOk = !!date && date >= other.min && date <= other.max;
+      group("date").classList.toggle("invalid", !dateOk);
+      group("time").classList.toggle("invalid", !time);
+      if (!ok || !dateOk || !time) {
+        track("visit_form_error", { form_type: formType, missing: Array.from(form.querySelectorAll(".invalid"), (el) => el.dataset.group || (el.querySelector("[name]") || {}).name).join(",") });
+        const bad = form.querySelector(".invalid");
+        if (bad) bad.scrollIntoView({ block: "center", behavior: prefersReduced ? "auto" : "smooth" });
+        return;
+      }
+      const slug = select.value;
+      const d = new Date(date + "T00:00:00");
+      const slotLabel = (SLOTS.find(([v]) => v === time) || [time, time])[1];
+      const when = `${DAYS[d.getDay()]}, ${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()} · ${slotLabel}`;
+      const lead = {
+        form: "visit", name: form.name.value.trim(), email, phone: form.phone.value.trim(), city: form.city.value.trim(),
+        project: PROJECTS[slug], project_slug: slug, message: form.message.value.trim(),
+        visit_date: date, visit_time: time, consent: true, website: form.website.value,
+      };
+      const thanks = ROOT + "thank-you/?type=visit&project=" + encodeURIComponent(slug);
+      try { sessionStorage.setItem("lead_visit_when", when); } catch (_) {}
+      formNotice(form, "");
+      const daysAhead = Math.round((d - new Date(new Date().toDateString())) / 864e5);
+      // GTM: one generate_lead per real submission (honeypot/test submissions skipped), then continue
+      const leadEvent = (delivery, then) => (lead.website ? then && then() : track("generate_lead", {
+        form_type: formType, project: slug, project_name: PROJECTS[slug], lead_delivery: delivery,
+        visit_requested: true, visit_date: date, visit_time: time, visit_days_ahead: daysAhead,
+      }, then));
+      if (!ENDPOINT) {
+        // No mailer here (e.g. GitHub Pages) → hand the booking over on WhatsApp, pre-filled.
+        leadEvent("whatsapp");
+        window.open(`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(whatsappText(lead))}`, "_blank", "noopener");
+        window.location.href = thanks;
+        return;
+      }
+      submit.setAttribute("disabled", "");
+      submit.textContent = "Booking your visit…";
+      sendLead(lead).then((res) => {
+        if (res.ok) { leadEvent("email", () => (window.location.href = thanks)); return; }
+        if (res.status === 422 || res.status === 429) {
+          formNotice(form, res.message || "Please check your details and try again.");
+          submit.removeAttribute("disabled");
+          submit.innerHTML = submitHtml;
+          return;
+        }
+        // Mailer unreachable → keep the lead and offer WhatsApp on the thank-you page.
+        try { sessionStorage.setItem("lead_whatsapp", whatsappText(lead)); } catch (_) {}
+        leadEvent("whatsapp_fallback", () => (window.location.href = thanks + "&wa=1"));
+      });
+    });
+
+    return function reset(project) {
+      buildDates();
+      refreshSlots();
+      formNotice(form, "");
+      if (project !== undefined) select.value = PROJECTS[project] ? project : "";
+    };
+  }
+
+  // Contact cards on the pages: render + bind. Preselects data-project, or ?project= from the URL.
+  function initVisitForms() {
+    const param = new URLSearchParams(location.search).get("project");
+    document.querySelectorAll("[data-visit-inline]").forEach((box, i) => {
+      box.innerHTML = visitFormHTML("vi" + i, box.dataset.submit);
+      const reset = bindVisitForm(box.querySelector("form"), "site_visit_form");
+      reset(PROJECTS[param] ? param : box.dataset.project || "");
+      // dates depend on the time of day — refresh them if the tab stays open past midnight / the cut-off
+      document.addEventListener("visibilitychange", () => { if (!document.hidden && !box.querySelector('input[name="vdate"]:checked')) reset(); });
+    });
+  }
+
+  // The popup: photo + perks on the left, the same form on the right.
   function initVisitBooking() {
     const triggers = Array.from(document.querySelectorAll("[data-visit]"));
     if (!triggers.length) return;
-    const pad = (n) => String(n).padStart(2, "0");
-    const ymd = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;   // local date, not UTC
-    const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    const SLOTS = [["10:00", "10:00 AM"], ["11:30", "11:30 AM"], ["13:00", "1:00 PM"], ["14:30", "2:30 PM"], ["16:00", "4:00 PM"], ["17:30", "5:30 PM"]];
-    const LEAD_MIN = 90;   // a slot today must be at least this many minutes away
-    const svgIcon = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
-    const TICK = svgIcon('<path d="M5 12l5 5l10 -10"/>');
-    const CAL = svgIcon('<path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/>');
-    const PHONE = svgIcon('<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/>');
-    const options = Object.entries(PROJECTS).map(([s, n]) => `<option value="${s}">${n}</option>`).join("");
+    const TICK = VB.svgIcon('<path d="M5 12l5 5l10 -10"/>');
+    const PHONE = VB.svgIcon('<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/>');
     const perks = ["Guided tour with a relationship manager", "Free pick-up &amp; drop from select Ahmedabad locations",
       "Live pricing, availability &amp; current offers", "See one project or several in a single day"];
 
@@ -882,115 +1062,24 @@
           <span class="lead-eyebrow">Schedule a visit</span>
           <h3 class="lead-title" id="visit-title">Book your site visit</h3>
           <p class="lead-sub">Pick a day and time that suits you — we'll confirm it on a call or WhatsApp.</p>
-          <form class="visit-form" novalidate>
-            <div class="field">
-              <label for="v-project">Project *</label>
-              <select id="v-project" name="project" required><option value="">Select a project</option>${options}</select>
-              <span class="err">Please choose a project.</span>
-            </div>
-            <fieldset class="vf-group" data-group="date">
-              <legend>Preferred date *</legend>
-              <div class="vf-chips vf-dates"></div>
-              <div class="field vf-other"><label class="sr-only" for="v-other">Other date</label><input id="v-other" type="date" name="other_date" /></div>
-              <span class="err">Please choose a visit date.</span>
-            </fieldset>
-            <fieldset class="vf-group" data-group="time">
-              <legend>Preferred time *</legend>
-              <div class="vf-chips vf-times">${SLOTS.map(([v, l]) => `<label class="vf-chip vf-slot"><input type="radio" name="vtime" value="${v}" /><span>${l}</span></label>`).join("")}</div>
-              <span class="err">Please choose a time slot.</span>
-            </fieldset>
-            <div class="form-row">
-              <div class="field"><label for="v-name">Full name *</label><input id="v-name" name="name" type="text" autocomplete="name" placeholder="Your name" required /><span class="err">Please enter your name.</span></div>
-              <div class="field"><label for="v-phone">Mobile number *</label><input id="v-phone" name="phone" type="tel" autocomplete="tel" placeholder="10-digit mobile" required /><span class="err">Enter a valid mobile number.</span></div>
-            </div>
-            <div class="form-row">
-              <div class="field"><label for="v-email">Email</label><input id="v-email" name="email" type="email" autocomplete="email" placeholder="you@email.com (optional)" /><span class="err">Enter a valid email.</span></div>
-              <div class="field"><label for="v-city">City *</label><input id="v-city" name="city" type="text" autocomplete="address-level2" placeholder="e.g. Ahmedabad" required /><span class="err">Please enter your city.</span></div>
-            </div>
-            <div class="form-row vf-extras">
-              <div class="field"><label for="v-visitors">Visitors</label>
-                <select id="v-visitors" name="visitors">${["1", "2", "3", "4", "5", "6+"].map((n) => `<option value="${n}"${n === "2" ? " selected" : ""}>${n} ${n === "1" ? "person" : "people"}</option>`).join("")}</select></div>
-              <label class="toggle-row vf-pickup" for="v-pickup"><span>Free pick-up<small>from Ahmedabad</small></span>
-                <span class="switch"><input type="checkbox" id="v-pickup" name="pickup" /><i></i></span></label>
-            </div>
-            <div class="field"><label for="v-message">Message (optional)</label><textarea id="v-message" name="message" rows="2" placeholder="Plot size, budget, questions…"></textarea></div>
-            <label class="consent"><input type="checkbox" name="consent" required /><span>I authorise Arvind SmartSpaces &amp; its authorised channel partner to contact me via call, SMS, email or WhatsApp.</span><span class="err">Please tick to continue.</span></label>
-            <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
-            <button type="submit" class="btn btn-primary visit-submit">${CAL} Confirm Site Visit</button>
-            <p class="lead-fineprint">Free of cost · No obligation · Visits run daily, 10 AM – 6 PM</p>
-          </form>
+          ${visitFormHTML("v")}
         </div>
       </div>`;
     document.body.appendChild(modal);
-
     const form = modal.querySelector(".visit-form");
-    const select = form.querySelector("#v-project");
-    const dates = form.querySelector(".vf-dates");
-    const other = form.querySelector("#v-other");
-    const submit = form.querySelector(".visit-submit");
-    const submitHtml = submit.innerHTML;
-    const group = (g) => form.querySelector(`[data-group="${g}"]`);
+    const reset = bindVisitForm(form, "site_visit_popup");
     let lastTrigger = null;
 
-    // Next 7 bookable days (from tomorrow once today's last slot is too close) + "Other date".
-    function buildDates() {
-      const now = new Date();
-      const lastToday = new Date(now); lastToday.setHours(17, 30 - LEAD_MIN, 0, 0);
-      const start = new Date(now); start.setHours(0, 0, 0, 0);
-      if (now > lastToday) start.setDate(start.getDate() + 1);
-      const today = ymd(now), tomorrow = ymd(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1));
-      let html = "";
-      for (let i = 0; i < 7; i++) {
-        const d = new Date(start); d.setDate(start.getDate() + i);
-        const v = ymd(d), top = v === today ? "Today" : v === tomorrow ? "Tomorrow" : DAYS[d.getDay()];
-        html += `<label class="vf-chip vf-day"><input type="radio" name="vdate" value="${v}" /><span><small>${top}</small><b>${d.getDate()}</b><small>${MONTHS[d.getMonth()]}</small></span></label>`;
-      }
-      html += `<label class="vf-chip vf-day vf-day--other"><input type="radio" name="vdate" value="other" /><span>${CAL}<small>Other date</small></span></label>`;
-      dates.innerHTML = html;
-      const max = new Date(now); max.setMonth(max.getMonth() + 6);
-      other.min = ymd(start); other.max = ymd(max);
-    }
-    const chosenDate = () => {
-      const r = form.querySelector('input[name="vdate"]:checked');
-      return !r ? "" : r.value === "other" ? other.value : r.value;
-    };
-    // A slot today must still be LEAD_MIN minutes away.
-    function refreshSlots() {
-      const isToday = chosenDate() === ymd(new Date());
-      const cutoff = new Date(Date.now() + LEAD_MIN * 60000);
-      form.querySelectorAll('input[name="vtime"]').forEach((r) => {
-        const [h, m] = r.value.split(":").map(Number);
-        const t = new Date(); t.setHours(h, m, 0, 0);
-        const off = isToday && t < cutoff;
-        r.disabled = off;
-        if (off && r.checked) r.checked = false;
-        r.closest(".vf-chip").classList.toggle("is-off", off);
-      });
-    }
-    form.addEventListener("change", (e) => {
-      if (e.target.name === "vdate") {
-        const isOther = e.target.value === "other";
-        modal.classList.toggle("other-date", isOther);
-        if (isOther) setTimeout(() => { other.focus(); try { other.showPicker(); } catch (_) {} }, 30);
-      }
-      if (e.target.name === "vdate" || e.target === other) { group("date").classList.remove("invalid"); refreshSlots(); }
-      if (e.target.name === "vtime") group("time").classList.remove("invalid");
-    });
-    clearErrorsOnInput(form);
-
     function open(project) {
-      buildDates();
-      refreshSlots();
-      modal.classList.remove("other-date");
-      formNotice(form, "");
-      select.value = PROJECTS[project] ? project : "";
+      reset(project || "");
       modal.classList.add("open");
       requestAnimationFrame(() => modal.classList.add("visible"));
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
       if (lenis) lenis.stop();
+      modal.querySelector(".visit-main").scrollTop = 0;
       modal.querySelector(".lead-dialog").scrollTop = 0;
-      setTimeout(() => (select.value ? dates.querySelector("input") : select).focus({ preventScroll: true }), 80);
+      setTimeout(() => (form.project.value ? form.querySelector(".vf-dates input") : form.project).focus({ preventScroll: true }), 80);
     }
     function close() {
       modal.classList.remove("visible");
@@ -1009,60 +1098,6 @@
     }));
     modal.querySelectorAll("[data-visit-close]").forEach((el) => el.addEventListener("click", close));
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("open")) close(); });
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      let ok = validate(form);
-      const email = form.email.value.trim();
-      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { form.email.closest(".field").classList.add("invalid"); ok = false; }
-      const date = chosenDate(), time = (form.querySelector('input[name="vtime"]:checked') || {}).value || "";
-      const dateOk = !!date && date >= other.min && date <= other.max;
-      group("date").classList.toggle("invalid", !dateOk);
-      group("time").classList.toggle("invalid", !time);
-      if (!ok || !dateOk || !time) {
-        track("visit_form_error", { missing: Array.from(form.querySelectorAll(".invalid"), (el) => el.dataset.group || (el.querySelector("[name]") || {}).name).join(",") });
-        const bad = form.querySelector(".invalid");
-        if (bad) bad.scrollIntoView({ block: "center", behavior: prefersReduced ? "auto" : "smooth" });
-        return;
-      }
-      const slug = select.value;
-      const d = new Date(date + "T00:00:00");
-      const slotLabel = (SLOTS.find(([v]) => v === time) || [time, time])[1];
-      const when = `${DAYS[d.getDay()]}, ${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()} · ${slotLabel}`;
-      const lead = {
-        form: "visit", name: form.name.value.trim(), email, phone: form.phone.value.trim(), city: form.city.value.trim(),
-        project: PROJECTS[slug], project_slug: slug, message: form.message.value.trim(),
-        visit_date: date, visit_time: time, visitors: form.visitors.value, pickup: form.pickup.checked,
-        consent: true, website: form.website.value,
-      };
-      const thanks = ROOT + "thank-you/?type=visit&project=" + encodeURIComponent(slug);
-      try { sessionStorage.setItem("lead_visit_when", when); } catch (_) {}
-      formNotice(form, "");
-      const daysAhead = Math.round((d - new Date(new Date().toDateString())) / 864e5);
-      const leadEvent = (delivery, then) => (lead.website ? then && then() : track("generate_lead", {
-        form_type: "site_visit_popup", project: slug, project_name: PROJECTS[slug], lead_delivery: delivery,
-        visit_requested: true, visit_date: date, visit_time: time, visit_days_ahead: daysAhead, visitors: lead.visitors, pickup: lead.pickup,
-      }, then));
-      if (!ENDPOINT) {
-        leadEvent("whatsapp");
-        window.open(`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(whatsappText(lead))}`, "_blank", "noopener");
-        window.location.href = thanks;
-        return;
-      }
-      submit.setAttribute("disabled", "");
-      submit.textContent = "Booking your visit…";
-      sendLead(lead).then((res) => {
-        if (res.ok) { leadEvent("email", () => (window.location.href = thanks)); return; }
-        if (res.status === 422 || res.status === 429) {
-          formNotice(form, res.message || "Please check your details and try again.");
-          submit.removeAttribute("disabled");
-          submit.innerHTML = submitHtml;
-          return;
-        }
-        try { sessionStorage.setItem("lead_whatsapp", whatsappText(lead)); } catch (_) {}
-        leadEvent("whatsapp_fallback", () => (window.location.href = thanks + "&wa=1"));
-      });
-    });
   }
 
   /* ---- 13c. Click tracking for GTM (calls, WhatsApp, email, maps, filters) ---- */
@@ -1104,6 +1139,7 @@
     initIcons();
     initBrochures();
     initEnquiryForms();
+    initVisitForms();
     initVisitBooking();
     initTracking();
     initYear();
