@@ -28,6 +28,7 @@
 
   // All projects (slug → name). Brochures live at assets/brochures/arvind-<slug>.pdf
   const PROJECTS = {
+    "sensora": "Arvind Sensora",
     "aqua-city": "Arvind Aqua City",
     "everland": "Arvind Everland",
     "forreste": "Arvind Forreste",

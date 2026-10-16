@@ -57,6 +57,7 @@
         <div class="nav-dd">
           <a href="../projects/" class="nav-link">Projects <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg></a>
           <div class="nav-dd-menu">
+              <a href="../projects/arvind-sensora/"><strong>Arvind Sensora</strong><span>Premium residences · New Launch</span></a>
               <a href="../projects/arvind-aqua-city/"><strong>Arvind Aqua City</strong><span>Lakeside villas &amp; plots · Kalyangadh</span></a>
               <a href="../projects/arvind-everland/"><strong>Arvind Everland</strong><span>Premium plots · Mankol, Sanand</span></a>
               <a href="../projects/arvind-forreste/"><strong>Arvind Forreste</strong><span>Premium weekend villas · Jethlaj, Rancharda</span></a>
@@ -120,7 +121,7 @@
     (function () {
       var q = new URLSearchParams(location.search);
       var slug = q.get("project") || "", type = q.get("type") || "";
-      var NAMES = {"aqua-city": "Arvind Aqua City", "everland": "Arvind Everland", "forreste": "Arvind Forreste", "uplands": "Arvind Uplands", "highgrove": "Arvind Highgrove", "alcove": "Arvind Alcove", "smartpark": "Arvind SmartPark"};
+      var NAMES = {"sensora": "Arvind Sensora", "aqua-city": "Arvind Aqua City", "everland": "Arvind Everland", "forreste": "Arvind Forreste", "uplands": "Arvind Uplands", "highgrove": "Arvind Highgrove", "alcove": "Arvind Alcove", "smartpark": "Arvind SmartPark"};
       var name = NAMES[slug] || "";
       var t = document.querySelector("[data-ty-title]"), p = document.querySelector("[data-ty-text]");
       if (type === "visit") {
@@ -156,7 +157,7 @@
         </div>
         <div class="footer-col">
           <h5>Projects</h5>
-          <a href="../projects/arvind-aqua-city/">Arvind Aqua City</a><a href="../projects/arvind-everland/">Arvind Everland</a><a href="../projects/arvind-forreste/">Arvind Forreste</a><a href="../projects/arvind-uplands/">Arvind Uplands</a><a href="../projects/arvind-highgrove/">Arvind Highgrove</a><a href="../projects/arvind-alcove/">Arvind Alcove</a><a href="../projects/arvind-smartpark/">Arvind SmartPark</a>
+          <a href="../projects/arvind-sensora/">Arvind Sensora</a><a href="../projects/arvind-aqua-city/">Arvind Aqua City</a><a href="../projects/arvind-everland/">Arvind Everland</a><a href="../projects/arvind-forreste/">Arvind Forreste</a><a href="../projects/arvind-uplands/">Arvind Uplands</a><a href="../projects/arvind-highgrove/">Arvind Highgrove</a><a href="../projects/arvind-alcove/">Arvind Alcove</a><a href="../projects/arvind-smartpark/">Arvind SmartPark</a>
         </div>
         <div class="footer-col">
           <h5>Explore</h5>

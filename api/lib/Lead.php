@@ -24,6 +24,7 @@ final class Lead
 {
     /** Projects the forms can submit (slug → display name). Keep in sync with js/main.js. */
     public const PROJECTS = [
+        'sensora' => 'Arvind Sensora',
         'aqua-city' => 'Arvind Aqua City',
         'everland' => 'Arvind Everland',
         'forreste' => 'Arvind Forreste',
