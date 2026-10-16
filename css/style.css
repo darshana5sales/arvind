@@ -717,3 +717,20 @@ body.nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(
 .pc-rows .best dd { font-size: 19px; color: var(--gold-dark); }
 .price-card .btn { margin-top: auto; }
 .price-notes { margin-top: 26px; display: grid; gap: 6px; padding-left: 18px; list-style: disc; color: rgba(255,255,255,.7); font-size: 13px; line-height: 1.6; }
+
+/* ---- 31. Small-screen fixes ------------------------------------------------- */
+/* grid / flex children may shrink below their content width (long words, buttons) */
+.hero-inner > *, .ov-grid > *, .contact-wrap > *, .loc-wrap > *, .cta-band > *, .tab-panel > * { min-width: 0; }
+@media (max-width: 520px) {
+  .btn { white-space: normal; text-align: center; }           /* long labels wrap instead of overflowing */
+  .hero-pager { right: 16px; gap: 5px; }
+  .hero-pager button { width: 16px; }
+  .hero-pager button.active { width: 28px; }
+  .hero-arrows { left: 16px; }
+  .hero-arrows button { width: 38px; height: 38px; }
+  .cta-band .actions .btn { flex: 1 1 100%; }
+}
+
+/* scrolling inside overlays never "leaks" to the page behind (mobile) */
+.main-nav, .lead-modal, .lead-dialog, .lightbox, .nav-dd-menu { overscroll-behavior: contain; }
+.lead-dialog, .main-nav { -webkit-overflow-scrolling: touch; }

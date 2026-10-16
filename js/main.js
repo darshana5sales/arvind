@@ -147,7 +147,10 @@
   /* ---- 2. Lenis smooth scroll ------------------------------------------- */
   let lenis = null;
   function initSmoothScroll() {
-    if (prefersReduced || typeof window.Lenis === "undefined") return;
+    // Phones / tablets keep the device's own native scrolling (momentum, address bar,
+    // pull-to-refresh) — smooth scrolling is only for mouse / trackpad.
+    const touchOnly = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    if (prefersReduced || touchOnly || typeof window.Lenis === "undefined") return;
     lenis = new window.Lenis({ duration: 1.1, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
     function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
@@ -357,7 +360,13 @@
         if (!en.isIntersecting) return;
         links.forEach((l) => l.classList.remove("active"));
         const a = map.get(en.target);
-        if (a) { a.classList.add("active"); a.scrollIntoView({ block: "nearest", inline: "center" }); }
+        if (a) {
+          a.classList.add("active");
+          // centre the active tab by scrolling ONLY the tab strip sideways — scrollIntoView
+          // would also touch the page and cancel an in-progress smooth scroll on phones
+          const strip = a.parentElement;
+          strip.scrollTo({ left: a.offsetLeft - (strip.clientWidth - a.offsetWidth) / 2, behavior: prefersReduced ? "auto" : "smooth" });
+        }
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
     map.forEach((_, s) => io.observe(s));
